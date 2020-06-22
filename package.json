@@ -18,5 +18,23 @@
   "bugs": {
     "url": "https://github.com/sachin10101998/fluidic-11ty/issues"
   },
-  "homepage": "https://github.com/sachin10101998/fluidic-11ty#readme"
+  "homepage": "https://github.com/sachin10101998/fluidic-11ty#readme",
+  "dependencies": {
+    "@11ty/eleventy": "0.11.0",
+    "@11ty/eleventy-plugin-rss": "1.0.7",
+    "@11ty/eleventy-plugin-syntaxhighlight": "3.0.1"
+},
+  "devDependencies": {
+    "@tbranyen/jsdom": "13.0.0",
+    "debug": "4.1.1",
+    "gpii-grunt-lint-all": "1.0.7",
+    "grunt": "1.1.0",
+    "grunt-contrib-clean": "2.0.0",
+    "grunt-contrib-copy": "1.0.0",
+    "html-minifier": "4.0.0",
+    "infusion": "3.0.0-dev.20200326T173810Z.24ddb2718",
+    "sanitize-html": "1.24.0",
+    "sanitize.css": "11.0.1",
+    "slugify": "1.4.0"
+  }
 }
