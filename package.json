@@ -1,0 +1,22 @@
+{
+  "name": "fluidic-11ty",
+  "version": "1.0.0",
+  "description": "Fluidic-11ty is a lightweight Eleventy starter kit to help you to create 11ty based static sites for Fluid Project.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sachin10101998/fluidic-11ty.git"
+  },
+  "keywords": [
+    "Fluidic-11ty",
+    "starter Kit for Fluid Sites"
+  ],
+  "author": "Sachin Chopra",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/sachin10101998/fluidic-11ty/issues"
+  },
+  "homepage": "https://github.com/sachin10101998/fluidic-11ty#readme"
+}
