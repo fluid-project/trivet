@@ -1,0 +1,94 @@
+---
+layout: layouts/default
+title: A simple starter kit for Eleventy based Fluid Project sites
+permalink: sampleHome.html
+---
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="icon" href="{{ '/' | url }}/images/favicon.png" type="image/png" />
+        <link href="{{ '/' | url }}assets/stylesheets/css/style.css" rel="stylesheet" type="text/css" />
+        <meta property="og:site_name" content="Fluidic 11ty starter Kit" />
+        <meta property="og:title" content="A simple starter kit for Eleventy based Fluid project Websites" />
+        <meta property="og:type" content="website" />
+        <meta name="description" content="Fluidic 11ty a lightweight Eleventy starter kit to help you to create your websites for Fluid Project." />
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+        <header role="banner" class="[ site-head ] [ pad-top-700 pad-bottom-700">
+            <div class="wrapper">
+                <div class="[ site-head__inner ] [ md:box-flex space-between align-center ]">
+                    <a href="/" class="[ site-head__site-name ] [ leading-tight ]">
+                        <span class="visually-hidden">Fluidic-11ty Starter Kit - Home</span> <span class="[ site-head__site-name ] [ text-600 ]" aria-hidden="true">Fluidic-11ty Starter Kit</span>
+                    </a>
+                    <nav class="nav" aria-label="navigation">
+                        <ul class="[ nav__list ] [ box-flex align-center md:space-before ]">
+                            <li class="nav__item"><a href="/" aria-current="page">Home</a></li>
+                            <li class="nav__item"><a href="https://github.com/sachin10101998/fluidic-11ty">GitHub</a></li>
+                            <li class="nav__item"><a href="https://wiki.fluidproject.org/">Wiki Page</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main id="main-content" tabindex="-1">
+            <header class="[ intro ] [ pad-top-900 pad-bottom-max ]">
+                <div class="[ inner-wrapper ] [ sf-flow ]">
+                    <h1 class="[ intro__heading intro__heading--compact ] [ text-800 md:text-900 leading-tight ] [ p-name ]">A Simple Starter Kit for building 11ty based Fluid Project Websites</h1>
+                    <div class="[ intro__summary ] [ sf-flow ] [ leading-mid measure-short ]">
+                        <p>
+                            Fluidic-11ty is a lightweight <a href="https://11ty.io">Eleventy</a> starter kit, pre-configured, so that you can one-click install a progressive, accessible
+                            Fluid Project websites. It also gives you a well organised starting point to extend yourself. It’s by <a href="https://twitter.com/hankchizljaw">Sachin Chopra</a> as a part
+                            of GSoC 2020 Project with Inclusive Design Institute.
+                        </p>
+                    </div>
+                </div>
+            </header>
+            <section class="[ post-list ] [ pad-top-700 gap-bottom-900 ]">
+                <div class="[ inner-wrapper ] [ sf-flow ]">
+                    <h2 class="[ post-list__heading ] [ text-700 md:text-800 ]">What would you like to build?</h2>
+                    <ol class="[ post-list__items ] [ sf-flow ] [ pad-top-300 ]" reversed="">
+                        <li class="post-list__item">
+                            <h3 class="font-base leading-tight text-600 weight-mid"><a href="/posts/a-simple-post/" class="post-list__link" rel="bookmark">1) A simple site with blog posts or news articles</a></h3>
+                            <p class="text-500 gap-top-300 weight-mid"><a href="wiki.fluidproject.org">Click here to read on Fluid Wiki</a></p>
+                        </li>
+                        <li class="post-list__item">
+                            <h3 class="font-base leading-tight text-600 weight-mid"><a href="/posts/a-post-with-figures-and-video/" class="post-list__link" rel="bookmark">2) A standalone site for demonstrating a project</a></h3>
+                            <p class="text-500 gap-top-300 weight-mid"><a href="wiki.fluidproject.org">Click here to read on Fluid Wiki</a></p>
+                        </li>
+                        <li class="post-list__item">
+                            <h3 class="font-base leading-tight text-600 weight-mid"><a href="/posts/a-post-with-code-samples/" class="post-list__link" rel="bookmark">3) A multi directory site with several pages.</a></h3>
+                            <p class="text-500 gap-top-300 weight-mid"><a href="wiki.fluidproject.org">Click here to read on Fluid Wiki</a></p>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+        <footer role="contentinfo" class="[ site-foot ] [ pad-top-700 pad-bottom-900 ]">
+            <div class="wrapper">
+                <div class="[ site-foot__inner ] [ md:box-flex space-between align-start ]">
+                    <div>
+                        <article class="[ site-foot__details ] [ sf-flow measure-compact ]">
+                            <h2 class="font-base text-600">Fluidic-11ty Starter Kit</h2>
+                            <p>Fluidic-11ty is a lightweight Eleventy starter kit to help you to create your own websites for fluid project.</p>
+                        </article>
+                    </div>
+                    <div>
+                        <nav class="nav" aria-label="footer navigation">
+                            <ul class="[ nav__list ] [ box-flex align-center md:space-before ]">
+                                <li class="nav__item"><a href="/" aria-current="page">Home</a></li>
+                                <li class="nav__item"><a href="https://github.com/sachin10101998/fluidic-11ty">GitHub</a></li>
+                                <li class="nav__item"><a href="https://wiki.fluidproject.org/">Wiki Page</a></li>
+                            </ul>
+                        </nav>
+                        <theme-toggle></theme-toggle>
+                    </div>
+                </div>
+                <p class="[ site-foot__credit ] [ pad-top-900 ]">Powered by the <a href="https://github.com/sachin10101998/fluidic-11ty" rel="external">Fluidic-11ty Eleventy Starter Kit v1.0</a>.</p>
+            </div>
+        </footer>
+        <script type="module" src="/js/components/theme-toggle.js" async="" defer="defer"></script>
+    </body>
+</html>
