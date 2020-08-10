@@ -44,30 +44,29 @@ permalink: samplePost2.html
                     </div>
                 </header>
                 <div class="[ post__body ] [ inner-wrapper ] [ leading-loose pad-top-900 pad-bottom-900 text-500 ] [ sf-flow ] [ e-content ]">
+                    
                     <p>
-                        A simple post to demonstrate how a normal blog post looks on Hylia. Content is all set in the “Body” field as markdown and Eleventy transforms it into a proper HTML post. You can also edit the markdown file directly
-                        if you prefer not to use the CMS.
+                        Follow the follwoing steps to create a blog based fluidic site based on 11ty.
                     </p>
-                    <p>How about a <code>&lt;blockquote&gt;</code>?</p>
-                    <blockquote>
-                        <p>
-                            Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.
-                        </p>
-                    </blockquote>
-                    <p>A list of stuff:</p>
-                    <ul>
-                        <li>Sed posuere consectetur est at lobortis</li>
-                        <li>Aenean lacinia bibendum nulla sed consectetur</li>
-                        <li>Sed posuere consectetur est at lobortis</li>
-                    </ul>
-                    <p>How about an ordered list of stuff:</p>
                     <ol>
-                        <li>Sed posuere consectetur est at lobortis</li>
-                        <li>Aenean lacinia bibendum nulla sed consectetur</li>
-                        <li>Sed posuere consectetur est at lobortis</li>
+                        <li>Go to the <a href="https://github.com/sachin10101998/fluidic-11ty">fluidic-11ty repository.</a> Fork it and clone the fork to your local.</li>
+                        <br><img src="{{ '/' | url }}assets/images/image1.png" alt="fluidic 11ty Repository"><br>
+                        <li>Remove the <code>src/sample/</code> directory.</li>
+                        <br><img src="{{ '/' | url }}assets/images/image2.png"><br>
+                        <li>Remove the contents of <code>src/assets/stylesheets/css/sample</code> folder</li>
+                        <br><img src="{{ '/' | url }}assets/images/image3.png"><br>
+                        <li>The templates for the site lie in the <code>src/_includes</code> folder</li>
+                        <br><img src="{{ '/' | url }}assets/images/image7.png"><br>
+                        <li>Copy the contents of the header HTML code to the <code>src/_includes/partials/header.html</code> file.</li>
+                        <br><img src="{{ '/' | url }}assets/images/image4.png"><br>
+                        <li>Copy the contents of footer file to the <code>src/_includes/partials/footer.html</code> file</li>
+                        <li>Copy the CSS files to <code>src/assets/stylesheets/css</code> folder</li>
+                        <li>Now, you can create the index page for your blog site by editing the <code>src/index.html</code> file</li>
+                        <br><img src="{{ '/' | url }}assets/images/image5.png"><br>
+                        <li>Next, you need to link the CSS files to Default and Post template. Go to <code>src/_includes/partials/foundationflexgrid.html</code> file and link them as per sample links given in the file</li>
+                        <br><img src="{{ '/' | url }}assets/images/image8.png"><br>
                     </ol>
-                    <p>Hopefully, this has demonstrated how simple it is to make a nice looking blog with Hylia.</p>
+                    <p>This will give you a basic site based on 11ty forstand alone projects.</p>
                 </div>
                 <footer class="[ post__footer ] [ pad-top-500 pad-bottom-500 ]">
                     <div class="inner-wrapper">
