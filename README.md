@@ -2,6 +2,13 @@
 
 This repository contains the files needed to build [11ty](http://11ty.dev/) based sites for Fluid-Project.
 
+## Tutorial
+
+1. Visit [Fluid Wiki starter kit for 11ty](https://wiki.fluidproject.org/pages/viewpage.action?pageId=202506598)
+2. Check [Starter kit](https://wiki.fluidproject.org/display/~schopra/Creating+blog+sites+using+Fluidic-11ty)
+   for building blog sites.
+3. You can also check `localhost:8080/sampleHome.html` for tutorial.
+
 ## To Build Locally
 
 1. Get the required node modules: `npm install`
