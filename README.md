@@ -5,8 +5,8 @@ This repository contains the files needed to build [11ty](http://11ty.dev/) base
 ## To Build Locally
 
 1. Get the required node modules: `npm install`
-2. Run [11ty](http://11ty.dev) from the fluid-website directory `npm run eleventyport`.
-3. Open `http://localhost:9778/` to see the website.
+2. Run [11ty](http://11ty.dev) from the fluid-website directory `npm run start`.
+3. Open `http://localhost:8080/` to see the website.
 
 ## To build locally using Docker
 
@@ -33,9 +33,9 @@ If you make changes to the website, repeat the steps to build the image and star
 
 ## Notes
 
--  Modifications can be done to any source file or directory except for the contents of the `dist` directory.
--  The `dist` directory is not versioned since it contains the generated output made by 11ty from the source files, and the files in `dist` are overwritten at build time
--  The changed source files in dist directory gets overwritten at build time.
+1. Modifications can be done to any source file or directory except for the contents of the `dist` directory.
+2. The `dist` directory is not versioned since it contains the generated output made by 11ty from the source files, and the files in `dist` are overwritten at build time
+3. The changed source files in dist directory gets overwritten at build time.
 
 ## License
 

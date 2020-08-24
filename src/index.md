@@ -1,0 +1,5 @@
+---
+layout: layouts/default
+title: A simple starter kit for Eleventy based Fluid Project sites
+---
+PUT YOUR CONTENT HERE
