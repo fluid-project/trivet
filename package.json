@@ -11,14 +11,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/sachin10101998/fluidic-11ty.git"
+        "url": "git+https://github.com/fluid-project/fluidic-11ty.git"
     },
     "author": "OCAD University",
-    "license": "CC-BY-4.0",
+    "license": "BSD-3-Clause",
     "bugs": {
-        "url": "https://github.com/sachin10101998/fluidic-11ty/issues"
+        "url": "https://github.com/fluid-project/fluidic-11ty/issues"
     },
-    "homepage": "https://github.com/sachin10101998/fluidic-11ty#readme",
+    "homepage": "https://github.com/fluid-project/fluidic-11ty#readme",
     "dependencies": {
         "@11ty/eleventy": "0.11.0",
         "@11ty/eleventy-plugin-rss": "1.0.7",
