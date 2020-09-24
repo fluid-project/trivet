@@ -49,7 +49,6 @@ module.exports = function(config) {
   config.addPassthroughCopy({"node_modules/infusion/src/lib/normalize/css/": "lib/infusion/src/lib/normalize/css/"});
   config.addPassthroughCopy({"node_modules/infusion/src/lib/open-dyslexic/fonts/": "lib/infusion/src/lib/open-dyslexic/fonts"});
   config.addPassthroughCopy({"node_modules/infusion/src/lib/opensans/fonts/": "lib/infusion/src/lib/opensans/fonts/"});
-  config.addPassthroughCopy({"node_modules/infusion/src/lib/roboto/fonts/": "lib/infusion/src/lib/roboto/fonts/"});
 
   const now = new Date();
 
