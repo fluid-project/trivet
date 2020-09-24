@@ -20,7 +20,7 @@ module.exports = function(config) {
   config.addFilter('dateFilter', dateFilter);
   config.addFilter('markdownFilter', markdownFilter);
   config.addFilter('w3DateFilter', w3DateFilter);
-  
+
 
   // Transforms
   config.addTransform('htmlmin', htmlMinTransform);
@@ -50,7 +50,7 @@ module.exports = function(config) {
   config.addPassthroughCopy({"node_modules/infusion/src/lib/open-dyslexic/fonts/": "lib/infusion/src/lib/open-dyslexic/fonts"});
   config.addPassthroughCopy({"node_modules/infusion/src/lib/opensans/fonts/": "lib/infusion/src/lib/opensans/fonts/"});
   config.addPassthroughCopy({"node_modules/infusion/src/lib/roboto/fonts/": "lib/infusion/src/lib/roboto/fonts/"});
- 
+
   const now = new Date();
 
   // Custom collections
