@@ -21,17 +21,9 @@
     "homepage": "https://github.com/sachin10101998/fluidic-11ty#readme",
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged",
+            "pre-commit": "npm run lint",
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
         }
-    },
-    "lint-staged": {
-        "*.js": [
-            "eslint"
-        ],
-        "*.md": [
-            "markdownlint"
-        ]
     },
     "dependencies": {
         "@11ty/eleventy": "0.11.0",
@@ -51,7 +43,6 @@
         "husky": "4.3.0",
         "image-size": "0.8.3",
         "infusion": "3.0.0-dev.20200326T173810Z.24ddb2718",
-        "lint-staged": "10.4.0",
         "sanitize-html": "1.24.0",
         "sanitize.css": "11.0.1",
         "slugify": "1.4.0"
