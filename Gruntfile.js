@@ -1,10 +1,13 @@
 /*
-Copyright OCAD University
-Licensed under the New BSD license. You may not use this file except in
-compliance with this License.
+Copyright the Infusion copyright holders.
 
 See the AUTHORS.md file at the top-level directory of this distribution and at
-https://github.com/fluid-project/fluidproject.org/master/AUTHORS.md.
+https://github.com/fluid-project/fluidic-11ty/raw/master/AUTHORS.md.
+
+Licensed under the New BSD license. You may not use this file except in compliance with this License.
+
+You may obtain a copy of the New BSD License at
+https://github.com/fluid-project/fluidic-11ty/raw/master/LICENSE.md.
 */
 
 /* eslint-env node */
@@ -27,6 +30,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("gpii-grunt-lint-all");
     grunt.loadNpmTasks("grunt-contrib-copy");
     // Custom tasks:
-    grunt.registerTask("default", []);
+    grunt.registerTask("default", ["lint"]);
     grunt.registerTask("lint", "Perform all standard lint checks.", ["lint-all"]);
 };
