@@ -44,6 +44,7 @@ module.exports = function(config) {
   config.addPassthroughCopy({"src/assets/stylesheets": "assets/stylesheets"});
   config.addPassthroughCopy({"src/posts/images": "posts/images"})
   config.addPassthroughCopy({"node_modules/infusion/dist/infusion-uio.min.js": "lib/infusion/infusion-uio.min.js"});
+  config.addPassthroughCopy({"node_modules/infusion/dist/infusion-uio.min.js.map": "lib/infusion/infusion-uio.min.js.map"});
   config.addPassthroughCopy({"node_modules/infusion/src/components/tableOfContents/css/": "lib/infusion/src/components/tableOfContents/css/"});
   config.addPassthroughCopy({"node_modules/infusion/src/components/tableOfContents/html/": "lib/infusion/src/components/tableOfContents/html/"});
   config.addPassthroughCopy({"node_modules/infusion/src/components/textfieldControl/css/": "lib/infusion/src/components/textfieldControl/css/"});
