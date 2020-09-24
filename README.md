@@ -21,8 +21,8 @@ You can serve the website from a [Docker](https://docs.docker.com/get-docker) co
 
 Once you have Docker installed, run the following commands to build a Docker image and start a container:
 
-* Build the image: `docker build -t fluidproject .`
-* Run the container: `docker run --name fluidproject -p 8000:80 fluidproject`
+* Build the image: `docker build -t fluidic-11ty .`
+* Run the container: `docker run --name fluidic-11ty -p 8000:80 fluidic-11ty`
 
 The website will be available at [http://localhost:8000](http://localhost:8000)
 

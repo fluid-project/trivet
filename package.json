@@ -27,7 +27,7 @@
     "devDependencies": {
         "@tbranyen/jsdom": "13.0.0",
         "debug": "4.1.1",
-        "gpii-grunt-lint-all": "1.0.7",
+        "fluid-grunt-lint-all": "1.0.8",
         "grunt": "1.1.0",
         "grunt-contrib-clean": "2.0.0",
         "grunt-contrib-copy": "1.0.0",
