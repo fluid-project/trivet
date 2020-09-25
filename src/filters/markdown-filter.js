@@ -11,10 +11,10 @@ https://github.com/fluid-project/fluidic-11ty/raw/master/LICENSE.md.
 */
 
 "use strict";
-const markdownIt = require("markdown-it");
+const MarkdownIt = require("markdown-it");
 
 module.exports = function markdown(value) {
-    const md = new markdownIt({
+    const md = new MarkdownIt({
         html: true,
         breaks: true,
         linkify: true
