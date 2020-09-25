@@ -6,4 +6,10 @@ updates:
     directory: "/"
     # Check for updates once a week
     schedule:
-      interval: "weekly"
+      interval: "monthly"
+    allow:
+      # Allow direct updates only (for packages named in package.json)
+      - dependency-type: "direct"
+    commit-message:
+      prefix: "chore(deps): "
+      prefix-development: "chore(deps-dev): "
