@@ -1,6 +1,6 @@
 {
     "name": "fluidic-11ty",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "description": "Fluid is an open, collaborative project to improve the user experience and inclusiveness of open source software.",
     "scripts": {
         "start": "npm run clean && npm run serve",
