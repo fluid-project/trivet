@@ -11,7 +11,6 @@ https://github.com/fluid-project/fluidic-11ty/raw/master/LICENSE.md.
 */
 
 "use strict";
-const format = require('date-fns/format');
-module.exports = function dateFilter(value) {
-    return format(new Date(value), 'PPP');
+module.exports = function isoDate(value) {
+    return new Date(value).toISOString();
 };

@@ -18,7 +18,7 @@ const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 // Import filters
 const dateFilter = require('./src/filters/date-filter.js');
 const markdownFilter = require('./src/filters/markdown-filter.js');
-const w3DateFilter = require('./src/filters/w3-date-filter.js');
+const isoDateFilter = require('./src/filters/iso-date-filter.js');
 
 // Import transforms
 const htmlMinTransform = require('./src/transforms/html-min-transform.js');
@@ -31,8 +31,7 @@ module.exports = function(config) {
   // Filters
   config.addFilter('dateFilter', dateFilter);
   config.addFilter('markdownFilter', markdownFilter);
-  config.addFilter('w3DateFilter', w3DateFilter);
-
+  config.addFilter('isoDateFilter', isoDateFilter);
 
   // Transforms
   config.addTransform('htmlmin', htmlMinTransform);
@@ -105,8 +104,13 @@ module.exports = function(config) {
       output: 'dist',
       includes: "_includes"
     },
-    templateFormats: ["html", "md"],
-    htmlTemplateEngine: "liquid",
+    // To use a template language, use a file with the appropriate file extension.
+    // See: https://www.11ty.dev/docs/languages/
+    // If you wish to use a template language within an HTML or Markdown file,
+    // you can configure this in the file's header.
+    // See: https://www.11ty.dev/docs/languages/#templateengineoverride-examples
+    htmlTemplateEngine: false,
+    markdownTemplateEngine: false,
     passthroughFileCopy: true
   };
 };
