@@ -1,5 +1,5 @@
 "use strict";
-const jsdom = require("@tbranyen/jsdom");
+const jsdom = require("jsdom");
 const {JSDOM} = jsdom;
 const minify = require("../utils/minify.js");
 const slugify = require("slugify");
