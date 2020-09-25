@@ -34,6 +34,6 @@
         "image-size": "0.9.1",
         "infusion": "3.0.0-dev.20200326T173810Z.24ddb2718",
         "jsdom": "16.4.0",
-        "slugify": "1.4.0"
+        "slugify": "1.4.5"
     }
 }
