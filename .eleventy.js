@@ -17,6 +17,7 @@ const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
 // Import filters
 const dateFilter = require('./src/filters/date-filter.js');
+const limitFilter = require('./src/filters/limit-filter.js');
 const markdownFilter = require('./src/filters/markdown-filter.js');
 const w3DateFilter = require('./src/filters/w3-date-filter.js');
 
@@ -30,6 +31,7 @@ const site = require('./src/_data/site.json');
 module.exports = function(config) {
   // Filters
   config.addFilter('dateFilter', dateFilter);
+  config.addFilter('limit', limitFilter);
   config.addFilter('markdownFilter', markdownFilter);
   config.addFilter('w3DateFilter', w3DateFilter);
 
