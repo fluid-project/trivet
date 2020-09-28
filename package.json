@@ -5,7 +5,7 @@
     "scripts": {
         "start": "npm run clean && npm run serve",
         "serve": "eleventy --serve",
-        "build": "rimraf dist && ELEVENTY_ENV=production eleventy",
+        "build": "npm run clean && ELEVENTY_ENV=production eleventy",
         "lint": "grunt lint",
         "clean": "rimraf dist"
     },
@@ -32,13 +32,12 @@
         "fast-glob": "3.2.4",
         "fluid-grunt-lint-all": "1.0.8",
         "grunt": "1.3.0",
-        "grunt-contrib-clean": "2.0.0",
-        "grunt-contrib-copy": "1.0.0",
         "html-minifier": "4.0.0",
         "image-size": "0.9.1",
         "infusion": "3.0.0-dev.20200326T173810Z.24ddb2718",
         "jsdom": "16.4.0",
         "postcss": "8.0.9",
+        "rimraf": "3.0.2",
         "sass": "1.26.11",
         "slugify": "1.4.5",
         "stylus": "0.54.8"

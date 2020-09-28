@@ -28,7 +28,6 @@ module.exports = function (grunt) {
     });
     // Load the plugin(s):
     grunt.loadNpmTasks("fluid-grunt-lint-all");
-    grunt.loadNpmTasks("grunt-contrib-copy");
     // Custom tasks:
     grunt.registerTask("default", ["lint"]);
     grunt.registerTask("lint", "Perform all standard lint checks.", ["lint-all"]);
