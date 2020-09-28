@@ -1,0 +1,9 @@
+/* CSS! */
+
+:root {
+	--base-font-family: system-ui;
+}
+
+body {
+	font-family: var(--base-font-family);
+}
