@@ -40,7 +40,6 @@ module.exports = function(config) {
 
   // Passthrough copy
   config.addPassthroughCopy({"src/assets/images": "assets/images"});
-  config.addPassthroughCopy({"src/assets/js": "assets/js"});
   config.addPassthroughCopy({"src/assets/stylesheets": "assets/stylesheets"});
   config.addPassthroughCopy({"src/posts/images": "posts/images"})
   config.addPassthroughCopy({"node_modules/infusion/dist/infusion-uio.min.js": "lib/infusion/infusion-uio.min.js"});
@@ -105,7 +104,6 @@ module.exports = function(config) {
       output: 'dist',
       includes: "_includes"
     },
-    templateFormats: ["html", "md"],
     htmlTemplateEngine: "liquid",
     passthroughFileCopy: true
   };
