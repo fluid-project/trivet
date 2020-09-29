@@ -11,13 +11,13 @@ module.exports = {
   // see https://github.com/webpack-contrib/mini-css-extract-plugin/issues/29
   devtool: 'source-map',
   entry: {
-	'analytics': path.resolve(__dirname, 'src/assets/js/analytics.js'),
-	'uio': path.resolve(__dirname, 'src/assets/js/uio.js'),
+	'analytics': path.resolve(__dirname, 'src/assets/scripts/analytics.js'),
+	'uio': path.resolve(__dirname, 'src/assets/scripts/uio.js'),
   },
   output: {
 	filename: '[name].js',
-	path: path.resolve(__dirname, 'dist/assets/js'),
-	publicPath: '/assets/js'
+	path: path.resolve(__dirname, 'dist/assets/scripts'),
+	publicPath: '/assets/scripts'
   },
   plugins: [
 	// Will create a `webpack.njk` with the css/jss files
