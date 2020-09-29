@@ -5,7 +5,7 @@
     "scripts": {
         "start": "npm run clean && npm run serve",
         "serve": "eleventy --serve",
-        "build": "npm run clean && ELEVENTY_ENV=production eleventy",
+        "build": "npm run clean && cross-env ELEVENTY_ENV=production eleventy",
         "lint": "grunt lint",
         "clean": "rimraf dist"
     },
@@ -27,6 +27,7 @@
     "devDependencies": {
         "autoprefixer": "10.0.0",
         "clean-css": "4.2.3",
+        "cross-env": "^7.0.2",
         "cssesc": "3.0.0",
         "debug": "4.2.0",
         "fast-glob": "3.2.4",
