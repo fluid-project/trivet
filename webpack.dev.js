@@ -7,8 +7,6 @@ module.exports = {
   mode: 'development',
   watch: true,
   stats: { colors: true },
-  // Can't use faster eval due to a bug with MiniCssExtractPlugin
-  // see https://github.com/webpack-contrib/mini-css-extract-plugin/issues/29
   devtool: 'source-map',
   entry: {
 	'analytics': path.resolve(__dirname, 'src/assets/scripts/analytics.js'),
@@ -20,12 +18,12 @@ module.exports = {
 	publicPath: '/assets/scripts'
   },
   plugins: [
-	// Will create a `webpack.njk` with the css/jss files
-	// that then gets picked up by eleventy
+	// Will create a `scripts.njk` with the JavaScript files
+	// that then gets picked up by Eleventy
 	new HtmlWebpackPlugin({
 	  template: path.resolve(__dirname, 'webpack.html'),
 	  filename: path.resolve(__dirname, 'src/_includes/partials/scripts.njk'),
-	  // Hash is used for cache busting the generated webpack.html
+	  // Hash is used for cache busting in the generated script.njk
 	  // while keeping the same file name in the output
 	  hash: true,
 	  inject: false
