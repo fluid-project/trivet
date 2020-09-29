@@ -22,7 +22,8 @@
     "dependencies": {
         "@11ty/eleventy": "0.11.0",
         "@11ty/eleventy-plugin-rss": "1.0.9",
-        "@11ty/eleventy-plugin-syntaxhighlight": "3.0.1"
+        "@11ty/eleventy-plugin-syntaxhighlight": "3.0.1",
+        "@fluid-project/eleventy-plugin-fluid": "github:greatislander/eleventy-plugin-fluid#main"
     },
     "devDependencies": {
         "debug": "4.2.0",
@@ -34,6 +35,7 @@
         "image-size": "0.9.1",
         "infusion": "3.0.0-dev.20200326T173810Z.24ddb2718",
         "jsdom": "16.4.0",
+        "rimraf": "^3.0.2",
         "slugify": "1.4.5"
     }
 }
