@@ -12,19 +12,13 @@ https://github.com/fluid-project/fluidic-11ty/raw/master/LICENSE.md.
 
 "use strict";
 
-var uio = uio || {};
 (function ($, fluid) {
-    uio.setupUIO = function (path) {
-        path = path || "/";
-        fluid.uiOptions.prefsEditor(".flc-prefsEditor-separatedPanel", {
-            terms: {
-                "templatePrefix": path + "lib/infusion/src/framework/preferences/html",
-                "messagePrefix": path + "lib/infusion/src/framework/preferences/messages"
-            },
-            "tocTemplate": path + "lib/infusion/src/components/tableOfContents/html/TableOfContents.html",
-            "tocMessage": path + "lib/infusion/src/framework/preferences/messages/tableOfContents-enactor.json"
-        });
-    };
+    fluid.uiOptions.prefsEditor(".flc-prefsEditor-separatedPanel", {
+        terms: {
+            "templatePrefix": "/lib/infusion/src/framework/preferences/html",
+            "messagePrefix": "/lib/infusion/src/framework/preferences/messages"
+        },
+        "tocTemplate": "/lib/infusion/src/components/tableOfContents/html/TableOfContents.html",
+        "tocMessage": "/lib/infusion/src/framework/preferences/messages/tableOfContents-enactor.json"
+    });
 })(jQuery, fluid);
-
-uio.setupUIO('/');
