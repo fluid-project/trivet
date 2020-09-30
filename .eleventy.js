@@ -12,6 +12,7 @@ https://github.com/fluid-project/fluidic-11ty/raw/master/LICENSE.md.
 
 const fs = require("fs");
 
+const fluidPlugin = require("@fluid-project/eleventy-plugin-fluid");
 const rssPlugin = require('@11ty/eleventy-plugin-rss');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
@@ -32,7 +33,6 @@ module.exports = function(config) {
   config.addFilter('dateFilter', dateFilter);
   config.addFilter('markdownFilter', markdownFilter);
   config.addFilter('w3DateFilter', w3DateFilter);
-
 
   // Transforms
   config.addTransform('htmlmin', htmlMinTransform);
@@ -79,6 +79,7 @@ module.exports = function(config) {
   });
 
   // Plugins
+  config.addPlugin(fluidPlugin);
   config.addPlugin(rssPlugin);
   config.addPlugin(syntaxHighlight);
 
