@@ -21,7 +21,7 @@ const postcss = require("postcss");
 const CleanCSS = require("clean-css");
 const cssesc = require("cssesc");
 
-const isProd = process.env.ELEVENTY_ENV === "production";
+const isProd = process.env.ELEVENTY_ENV.toLowerCase() === "production";
 
 /**
  * @see https://github.com/maxboeck/eleventastic/blob/master/src/assets/styles/styles.11ty.js
