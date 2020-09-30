@@ -34,7 +34,7 @@
         "@babel/preset-env": "7.9.6",
         "babel-loader": "8.1.0",
         "babel-plugin-transform-es2015-modules-commonjs-simple": "6.7.4",
-        "cross-env": "^7.0.2",
+        "cross-env": "7.0.2",
         "debug": "4.2.0",
         "file-loader": "6.0.0",
         "fluid-grunt-lint-all": "1.0.8",
