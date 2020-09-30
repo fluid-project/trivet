@@ -8,15 +8,9 @@
         <script type="text/javascript" src="{{ '/' | url }}lib/infusion/infusion-uio.min.js"></script>
         <script type="text/javascript" src="{{ '/' | url }}assets/js/uio.js"></script>
         <!--<script type="text/javascript" src="{{ '/' | url }}assets/js/analytics.js"></script> -->
-        <!-- Foundation flex grid -->
-        {% include partials/foundationflexgrid.html %}
+        {% include partials/stylesheets.html %}
     </head>
     <body>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                uio.setupUIO();
-            });
-        </script>
         {% include partials/uio.html %}
         <div class="fluid-web">
             <div class="row">
