@@ -1,6 +1,6 @@
 {
     "name": "fluidic-11ty",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "description": "Fluid is an open, collaborative project to improve the user experience and inclusiveness of open source software.",
     "scripts": {
         "start": "npm run clean && npm run serve",
@@ -22,7 +22,8 @@
     "dependencies": {
         "@11ty/eleventy": "0.11.0",
         "@11ty/eleventy-plugin-rss": "1.0.9",
-        "@11ty/eleventy-plugin-syntaxhighlight": "3.0.1"
+        "@11ty/eleventy-plugin-syntaxhighlight": "3.0.1",
+        "@fluid-project/eleventy-plugin-fluid": "github:fluid-project/eleventy-plugin-fluid#751e42299bde606b526ddc2183d18ad1557f6f58"
     },
     "devDependencies": {
         "debug": "4.2.0",
@@ -34,6 +35,7 @@
         "image-size": "0.9.1",
         "infusion": "3.0.0-dev.20200326T173810Z.24ddb2718",
         "jsdom": "16.4.0",
+        "rimraf": "3.0.2",
         "slugify": "1.4.5"
     }
 }
