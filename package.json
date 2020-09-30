@@ -28,7 +28,7 @@
     "devDependencies": {
         "autoprefixer": "10.0.0",
         "clean-css": "4.2.3",
-        "cross-env": "^7.0.2",
+        "cross-env": "7.0.2",
         "cssesc": "3.0.0",
         "debug": "4.2.0",
         "fast-glob": "3.2.4",
