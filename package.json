@@ -23,7 +23,7 @@
         "@11ty/eleventy": "0.11.0",
         "@11ty/eleventy-plugin-rss": "1.0.9",
         "@11ty/eleventy-plugin-syntaxhighlight": "3.0.1",
-        "@fluid-project/eleventy-plugin-fluid": "git://github.com/fluid-project/eleventy-plugin-fluid.git#751e42299bde606b526ddc2183d18ad1557f6f58"
+        "@fluid-project/eleventy-plugin-fluid": "github:fluid-project/eleventy-plugin-fluid#751e42299bde606b526ddc2183d18ad1557f6f58"
     },
     "devDependencies": {
         "debug": "4.2.0",
