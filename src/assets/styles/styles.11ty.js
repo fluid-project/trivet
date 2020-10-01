@@ -46,8 +46,8 @@ module.exports = class {
             const config = {
                 file: options.entryPath,
                 sourceMap: !isProd ? 'out.map' : false,
-                sourceMapEmbed: !isProd || false,
-                sourceMapContents: !isProd || false,
+                sourceMapEmbed: !isProd,
+                sourceMapContents: !isProd,
                 outputStyle: isProd ? 'compressed' : 'expanded'
             };
 
