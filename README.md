@@ -1,19 +1,20 @@
-# A simple starter kit for Eleventy based static sites for Fluid project
+# Fluidic Eleventy
 
-This repository contains the files needed to build [11ty](http://11ty.dev/) based sites for Fluid-Project.
+## A simple starter kit for Eleventy-based static sites for the Fluid Project
+
+This repository contains the files needed to build [Eleventy](http://11ty.dev/)-based static sites for the Fluid Project.
 
 ## Tutorial
 
-1. Visit [Fluid Wiki starter kit for 11ty](https://wiki.fluidproject.org/pages/viewpage.action?pageId=202506598)
+1. Visit [Fluid Wiki page for Fluidic Eleventy](https://wiki.fluidproject.org/pages/viewpage.action?pageId=202506598).
 2. Check [Starter kit](https://wiki.fluidproject.org/display/~schopra/Creating+blog+sites+using+Fluidic-11ty)
    for building blog sites.
-3. You can also check `localhost:8080/sampleHome.html` for tutorial.
 
-## To Build Locally
+## To build locally
 
 1. Get the required node modules: `npm install`
-2. Run [11ty](http://11ty.dev) from the fluid-website directory `npm run start`.
-3. Open `http://localhost:8080/` to see the website.
+2. Run [Eleventy](http://11ty.dev) from the fluid-website directory `npm run start`.
+3. Open http://localhost:8080/ to see the website.
 
 ## To build locally using Docker
 
@@ -35,15 +36,14 @@ If you make changes to the website, repeat the steps to build the image and star
 
 ## Features
 
-1. Integrated UIO Preference Editor
-2. Configured basic static site for making blog sites.
+1. Integrated [UI Options](https://docs.fluidproject.org/infusion/development/UserInterfaceOptionsAPI.html) Preference Editor.
+2. Basic static site configuration for developing project sites and blogs.
 
 ## Notes
 
-1. Modifications can be done to any source file or directory except for the contents of the `dist` directory.
-2. The `dist` directory is not versioned since it contains the generated output made by 11ty from the source files, and the files in `dist` are overwritten at build time
-3. The changed source files in dist directory gets overwritten at build time.
+1. Modifications can be made to any source file or directory except for the contents of the `dist` directory.
+2. The `dist` directory is not versioned since it contains the generated output made by Eleventy from the source files, and the files in `dist` are overwritten at build time.
 
 ## License
 
-The Fluid Project website is available under [Creative Commons Attribution License](http://creativecommons.org/licenses/by/4.0/).
+Fluidic Eleventy is available under the [New BSD License](https://raw.githubusercontent.com/fluid-project/fluidic-11ty/master/LICENSE.md).
