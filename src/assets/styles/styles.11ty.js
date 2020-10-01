@@ -84,8 +84,9 @@ module.exports = class {
 
     // Process CSS with PostCSS.
     async processCss(options) {
-      const from = options.entryPath || 'undefined';
-      const css = postcss([autoprefixer]).process(options.str, {from}).css;
+      const css = postcss([autoprefixer]).process(options.str, {
+        from: options.entryPath || false
+      }).css;
       return css;
     }
 
