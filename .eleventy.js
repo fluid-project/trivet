@@ -16,11 +16,6 @@ const fluidPlugin = require("@fluid-project/eleventy-plugin-fluid");
 const rssPlugin = require('@11ty/eleventy-plugin-rss');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
-// Import filters
-const dateFilter = require('./src/filters/date-filter.js');
-const markdownFilter = require('./src/filters/markdown-filter.js');
-const w3DateFilter = require('./src/filters/w3-date-filter.js');
-
 // Import transforms
 const htmlMinTransform = require('./src/transforms/html-min-transform.js');
 const parseTransform = require('./src/transforms/parse-transform.js');
@@ -29,10 +24,6 @@ const parseTransform = require('./src/transforms/parse-transform.js');
 const site = require('./src/_data/site.json');
 
 module.exports = function(config) {
-  // Filters
-  config.addFilter('dateFilter', dateFilter);
-  config.addFilter('markdownFilter', markdownFilter);
-  config.addFilter('w3DateFilter', w3DateFilter);
 
   // Transforms
   config.addTransform('htmlmin', htmlMinTransform);
@@ -105,7 +96,13 @@ module.exports = function(config) {
       output: 'dist',
       includes: "_includes"
     },
-    htmlTemplateEngine: "liquid",
+    // To use a template language, use a file with the appropriate file extension.
+    // See: https://www.11ty.dev/docs/languages/
+    // If you wish to use a template language within an HTML or Markdown file,
+    // you can configure this in the file's header.
+    // See: https://www.11ty.dev/docs/languages/#templateengineoverride-examples
+    htmlTemplateEngine: false,
+    markdownTemplateEngine: false,
     passthroughFileCopy: true
   };
 };

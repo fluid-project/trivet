@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en-ca" dir="ltr">
+    <head>
+        <title>{% if title %} {{ title }} {% else %} {{ site.title }} {% endif %}</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <link type="image/x-icon" href="{{ '/' | url }}assets/images/favicon.ico" rel="shortcut icon"/>
+        <script type="text/javascript" src="{{ '/' | url }}lib/infusion/infusion-uio.min.js"></script>
+        {% include "partials/scripts.njk" %}
+        {% include "partials/stylesheets.njk" %}
+    </head>
+    {% block content %}
+    <body class="page">
+        {% include "partials/uio.njk" %}
+        <main>
+            <nav class="flc-toc-tocContainer"></nav>
+            <article>
+                <header>
+                    <h1>{{ title }}</h1>
+                </header>
+                <div class="content">
+                {{ content | safe }}
+                </div>
+            </article>
+        </main>
+    </body>
+    {% endblock %}
+</html>
