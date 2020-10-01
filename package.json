@@ -40,7 +40,7 @@
         "cssesc": "3.0.0",
         "debug": "4.2.0",
         "fast-glob": "3.2.4",
-        "fluid-grunt-lint-all": "1.0.8",
+        "fluid-grunt-lint-all": "github:jobara/fluid-grunt-lint-all#issue-14",
         "grunt": "1.3.0",
         "html-minifier": "4.0.0",
         "husky": "4.3.0",

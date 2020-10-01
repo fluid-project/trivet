@@ -13,7 +13,6 @@ https://github.com/fluid-project/fluidic-11ty/raw/master/LICENSE.md.
 
 const fs = require("fs");
 const fg = require("fast-glob");
-const path = require("path");
 const sass = require("sass");
 const stylus = require("stylus");
 const autoprefixer = require("autoprefixer");
@@ -75,8 +74,8 @@ module.exports = class {
                     if (err) {
                         reject(err);
                     } else {
-                      const processedCss = this.processCss({str: css});
-                      resolve(processedCss);
+                        const processedCss = this.processCss({str: css});
+                        resolve(processedCss);
                     }
                 });
         });
@@ -84,30 +83,30 @@ module.exports = class {
 
     // Process CSS with PostCSS.
     async processCss(options) {
-      const css = postcss([autoprefixer]).process(options.str, {
-        from: options.entryPath || false,
-        map: {
-          inline: true
-        }
-      }).css;
-      return css;
+        const css = postcss([autoprefixer]).process(options.str, {
+            from: options.entryPath || false,
+            map: {
+                inline: true
+            }
+        }).css;
+        return css;
     }
 
     // Compile and process CSS (source-agnostic).
     async compile(options) {
-      let css;
-      switch (options.fileType) {
+        let css;
+        switch (options.fileType) {
         case "css":
-          css = await this.processCss(options);
-          break;
+            css = await this.processCss(options);
+            break;
         case "scss":
-          css = await this.compileScss(options);
-          break;
+            css = await this.compileScss(options);
+            break;
         case "styl":
-          css = await this.compileStylus(options);
-          break;
-      }
-      return css;
+            css = await this.compileStylus(options);
+            break;
+        }
+        return css;
     }
 
     // Minify & optimize with CleanCSS in production.
@@ -169,7 +168,7 @@ module.exports = class {
             border: solid 2px red;
             position: fixed;
         }`;
-  }
+    }
 
     // Render the CSS file.
     async render({entryPath}) {
@@ -184,7 +183,7 @@ module.exports = class {
                 throw new Error(error);
             } else {
                 // Log and display the error.
-                console.error(error);
+                console.error(error); // eslint-disable-line no-console
                 const message = error.formatted || error.message;
                 return this.renderError(message);
             }
