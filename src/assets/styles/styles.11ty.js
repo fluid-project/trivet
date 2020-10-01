@@ -55,7 +55,7 @@ module.exports = class {
                 if (err) {
                     reject(err);
                 } else {
-                    const processedCss = this.processCss({str: result.css, entryPath: options.entryPath});
+                    const processedCss = this.processCss({str: result.css});
                     resolve(processedCss);
                 }
             });
@@ -75,7 +75,7 @@ module.exports = class {
                     if (err) {
                         reject(err);
                     } else {
-                      const processedCss = this.processCss({str: css, entryPath: options.entryPath});
+                      const processedCss = this.processCss({str: css});
                       resolve(processedCss);
                     }
                 });
@@ -85,7 +85,10 @@ module.exports = class {
     // Process CSS with PostCSS.
     async processCss(options) {
       const css = postcss([autoprefixer]).process(options.str, {
-        from: options.entryPath || false
+        from: options.entryPath || false,
+        map: {
+          inline: true
+        }
       }).css;
       return css;
     }
@@ -95,7 +98,7 @@ module.exports = class {
       let css;
       switch (options.fileType) {
         case 'css':
-          css = await this.processCss({str: options.str});
+          css = await this.processCss(options);
           break;
         case 'scss':
           css = await this.compileScss(options);
