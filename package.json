@@ -19,6 +19,12 @@
         "url": "https://github.com/fluid-project/fluidic-11ty/issues"
     },
     "homepage": "https://github.com/fluid-project/fluidic-11ty#readme",
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
     "dependencies": {
         "@11ty/eleventy": "0.11.0",
         "@11ty/eleventy-plugin-rss": "1.0.9",
@@ -26,6 +32,8 @@
         "@fluid-project/eleventy-plugin-fluid": "github:fluid-project/eleventy-plugin-fluid#751e42299bde606b526ddc2183d18ad1557f6f58"
     },
     "devDependencies": {
+        "@commitlint/cli": "11.0.0",
+        "@commitlint/config-conventional": "11.0.0",
         "debug": "4.2.0",
         "fluid-grunt-lint-all": "1.0.8",
         "grunt": "1.3.0",
