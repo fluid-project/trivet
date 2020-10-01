@@ -1,5 +1,5 @@
 ---
 layout: layouts/default
-title: A simple starter kit for Eleventy based Fluid Project sites
+title: Fluidic Eleventy
 ---
-PUT YOUR CONTENT HERE
+You can write content for your page in [Markdown](https://www.11ty.dev/docs/languages/markdown/) format.

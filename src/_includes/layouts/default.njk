@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en-ca" dir="ltr">
     <head>
         <title>{% if title %} {{ title }} {% else %} {{ site.title }} {% endif %}</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -8,15 +8,22 @@
         <script type="text/javascript" src="{{ '/' | url }}lib/infusion/infusion-uio.min.js"></script>
         <script type="text/javascript" src="{{ '/' | url }}assets/js/uio.js"></script>
         <!--<script type="text/javascript" src="{{ '/' | url }}assets/js/analytics.js"></script> -->
-        {% include partials/stylesheets.html %}
+        {% include "partials/stylesheets.njk" %}
     </head>
-    <body>
-        {% include partials/uio.html %}
-        <div class="fluid-web">
-            <div class="row">
-                <div class="flc-toc-tocContainer toc small-12 columns"> </div>
-            </div>
-            {{ content }}
-        </div>
+    {% block content %}
+    <body class="page">
+        {% include "partials/uio.njk" %}
+        <main>
+            <nav class="flc-toc-tocContainer"></nav>
+            <article>
+                <header>
+                    <h1>{{ title }}</h1>
+                </header>
+                <div class="content">
+                {{ content | safe }}
+                </div>
+            </article>
+        </main>
     </body>
+    {% endblock %}
 </html>
