@@ -43,6 +43,7 @@
         "fluid-grunt-lint-all": "1.0.8",
         "grunt": "1.3.0",
         "html-minifier": "4.0.0",
+        "husky": "4.3.0",
         "image-size": "0.9.1",
         "infusion": "3.0.0-dev.20200326T173810Z.24ddb2718",
         "jsdom": "16.4.0",
