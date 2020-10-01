@@ -34,7 +34,7 @@ module.exports = class {
         const entryPaths = await fg("./src/assets/styles/style.{css,scss,styl}");
         const entryPath = entryPaths[0];
         return {
-            permalink: '/assets/styles/style.css',
+            permalink: "/assets/styles/style.css",
             eleventyExcludeFromCollections: true,
             entryPath
         };
@@ -45,10 +45,10 @@ module.exports = class {
         return new Promise((resolve, reject) => {
             const config = {
                 file: options.entryPath,
-                sourceMap: !isProd ? 'out.map' : false,
+                sourceMap: !isProd ? "out.map" : false,
                 sourceMapEmbed: !isProd,
                 sourceMapContents: !isProd,
-                outputStyle: isProd ? 'compressed' : 'expanded'
+                outputStyle: isProd ? "compressed" : "expanded"
             };
 
             sass.render(config, (err, result) => {
@@ -68,9 +68,9 @@ module.exports = class {
             const sourceMap = isProd ? false : { inline: true };
 
             stylus(options.str)
-                .set('filename', options.entryPath)
-                .set('sourcemap', sourceMap)
-                .set('compress', isProd)
+                .set("filename", options.entryPath)
+                .set("sourcemap", sourceMap)
+                .set("compress", isProd)
                 .render((err, css) => {
                     if (err) {
                         reject(err);
@@ -97,13 +97,13 @@ module.exports = class {
     async compile(options) {
       let css;
       switch (options.fileType) {
-        case 'css':
+        case "css":
           css = await this.processCss(options);
           break;
-        case 'scss':
+        case "scss":
           css = await this.compileScss(options);
           break;
-        case 'styl':
+        case "styl":
           css = await this.compileStylus(options);
           break;
       }
@@ -147,7 +147,7 @@ module.exports = class {
             line-height:1.5;
         }
         body::before {
-            content: '';
+            content: "";
             background: #000;
             top: 0;
             bottom: 0;
@@ -157,7 +157,7 @@ module.exports = class {
             position: fixed;
         }
         body::after {
-            content: '${cssesc(error)}';
+            content: "${cssesc(error)}";
             white-space: pre;
             display: block;
             top: 0;
@@ -174,8 +174,8 @@ module.exports = class {
     // Render the CSS file.
     async render({entryPath}) {
         try {
-            const fileType = entryPath.split('.').pop();
-            const str = fs.readFileSync(entryPath, 'utf8');
+            const fileType = entryPath.split(".").pop();
+            const str = fs.readFileSync(entryPath, "utf8");
             const css = await this.compile({fileType, entryPath, str});
             return await this.minify(css);
         } catch (error) {
