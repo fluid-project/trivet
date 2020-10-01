@@ -21,7 +21,8 @@ const postcss = require("postcss");
 const CleanCSS = require("clean-css");
 const cssesc = require("cssesc");
 
-const isProd = process.env.ELEVENTY_ENV.toLowerCase() === "production";
+const environment = process.eventNames.ELEVENTY_ENV || "development";
+const isProd = environment.toLowerCase() === "production";
 
 /**
  * @see https://github.com/maxboeck/eleventastic/blob/master/src/assets/styles/styles.11ty.js
@@ -46,6 +47,7 @@ module.exports = class {
                 file: options.entryPath,
                 sourceMap: !isProd ? 'out.map' : false,
                 sourceMapEmbed: !isProd || false,
+                sourceMapContents: !isProd || false,
                 outputStyle: isProd ? 'compressed' : 'expanded'
             };
 
