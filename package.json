@@ -40,6 +40,8 @@
         "grunt-contrib-clean": "2.0.0",
         "grunt-contrib-copy": "1.0.0",
         "html-minifier": "4.0.0",
+        "husky": "4.3.0",
+        "image-size": "0.9.1",
         "infusion": "3.0.0-dev.20200326T173810Z.24ddb2718",
         "jsdom": "16.4.0",
         "rimraf": "3.0.2"
