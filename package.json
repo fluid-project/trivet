@@ -3,11 +3,14 @@
     "version": "0.1.0",
     "description": "Fluid is an open, collaborative project to improve the user experience and inclusiveness of open source software.",
     "scripts": {
-        "start": "npm run clean && npm run serve",
-        "serve": "eleventy --serve",
-        "build": "rimraf dist && eleventy",
+        "build": "cross-env NODE_ENV=production npm-run-all -l clean build:*",
+        "build:webpack": "webpack --config webpack.prod.js",
+        "build:eleventy": "eleventy",
+        "clean": "rimraf dist",
         "lint": "grunt lint",
-        "clean": "rimraf dist"
+        "start": "cross-env NODE_ENV=development npm-run-all -l clean -p start:*",
+        "start:webpack": "webpack --config webpack.dev.js ",
+        "start:eleventy": "eleventy --serve"
     },
     "repository": {
         "type": "git",
@@ -32,18 +35,32 @@
         "@fluid-project/eleventy-plugin-fluid": "github:fluid-project/eleventy-plugin-fluid#ee75b78"
     },
     "devDependencies": {
+        "@babel/cli": "7.8.4",
+        "@babel/core": "7.9.6",
+        "@babel/preset-env": "7.9.6",
         "@commitlint/cli": "11.0.0",
         "@commitlint/config-conventional": "11.0.0",
+        "babel-loader": "8.1.0",
+        "babel-plugin-transform-es2015-modules-commonjs-simple": "6.7.4",
+        "cross-env": "7.0.2",
         "debug": "4.2.0",
+        "file-loader": "6.0.0",
         "fluid-grunt-lint-all": "1.0.8",
         "grunt": "1.3.0",
         "grunt-contrib-clean": "2.0.0",
         "grunt-contrib-copy": "1.0.0",
         "html-minifier": "4.0.0",
+        "html-webpack-plugin": "4.5.0",
         "husky": "4.3.0",
         "image-size": "0.9.1",
         "infusion": "3.0.0-dev.20200326T173810Z.24ddb2718",
         "jsdom": "16.4.0",
-        "rimraf": "3.0.2"
+        "npm-run-all": "4.1.5",
+        "rimraf": "3.0.2",
+        "slugify": "1.4.5",
+        "terser-webpack-plugin": "4.2.2",
+        "webpack": "4.44.2",
+        "webpack-cli": "3.3.11",
+        "webpack-merge": "4.2.2"
     }
 }
