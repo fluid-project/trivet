@@ -176,7 +176,7 @@ module.exports = class {
             const fileType = entryPath.split(".").pop();
             const str = fs.readFileSync(entryPath, "utf8");
             const css = await this.compile({fileType, entryPath, str});
-            return await this.minify(css);
+            return this.minify(css);
         } catch (error) {
             if (isProd) {
                 // Throw and bail if in a production environment.
