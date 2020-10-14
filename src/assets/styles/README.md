@@ -1,6 +1,6 @@
 # CSS Compilation and Processing
 
-The [Javascript template file](https://www.11ty.dev/docs/languages/javascript/) found at [`src/assets/styles/styles.11ty.js`](https://github.com/fluid-project/fluidic-11ty/blob/c6e82aa65ae828b01298f4c36e24b4de38f135c0/src/assets/styles/styles.11ty.js) handles compilation of [Sass (`.scss`)](http://sass-lang.com) or [Stylus (`.styl`)](https://stylus-lang.com) files and processes the resulting CSS using [PostCSS](https://postcss.org) and [Autoprefixer](https://github.com/postcss/autoprefixer). It will also process plain CSS using [PostCSS](https://postcss.org) and [Autoprefixer](https://github.com/postcss/autoprefixer) for projects where you don't want or need to use a CSS preprocessor.
+The [Javascript template file](https://www.11ty.dev/docs/languages/javascript/) found at [`src/assets/styles/styles.11ty.js`](styles.11ty.js) handles compilation of [Sass (`.scss`)](http://sass-lang.com) or [Stylus (`.styl`)](https://stylus-lang.com) files and processes the resulting CSS using [PostCSS](https://postcss.org) and [Autoprefixer](https://github.com/postcss/autoprefixer). It will also process plain CSS using [PostCSS](https://postcss.org) and [Autoprefixer](https://github.com/postcss/autoprefixer) for projects where you don't want or need to use a CSS preprocessor.
 
 The template file looks for a file in `src/assets/styles` that matches the following naming convention:
 
