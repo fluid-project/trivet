@@ -1,5 +1,6 @@
+{% set cssPattern = r/.*\.css$/g %}
 {% for key, value in assets %}
-{% if '.css' in key %}
+{% if cssPattern.test(key) %}
 	<link href="/assets{{ value }}" rel="stylesheet" />
 {% endif %}
 {% endfor %}

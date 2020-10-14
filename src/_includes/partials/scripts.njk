@@ -1,5 +1,6 @@
+{% set jsPattern = r/.*\.js$/g %}
 {% for key, value in assets %}
-{% if '.js' in key %}
+{% if jsPattern.test(key) %}
 	<script type="text/javascript" src="/assets{{ value }}" defer></script>
 {% endif %}
 {% endfor %}
