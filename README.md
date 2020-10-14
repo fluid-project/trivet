@@ -46,3 +46,14 @@ Modifications can be made to any source file or directory except for the content
 ## License
 
 Fluidic Eleventy is available under the [New BSD License](https://raw.githubusercontent.com/fluid-project/fluidic-11ty/master/LICENSE.md).
+
+## Third Party Software in Fluidic Eleventy
+
+Fluidic Eleventy is based on other publicly available software, categorized by license:
+
+### MIT License
+
+* [Eleventastic](https://github.com/maxboeck/eleventastic)
+* [eleventy-webpack](https://github.com/clenemt/eleventy-webpack)
+* [Hylia](https://github.com/hankchizljaw/hylia)
+* [Supermaya](https://github.com/MadeByMike/supermaya)
