@@ -24,6 +24,7 @@ const parseTransform = require('./src/transforms/parse-transform.js');
 const site = require('./src/_data/site.json');
 
 module.exports = function(config) {
+    config.setUseGitIgnore(false);
 
   // Transforms
   config.addTransform('htmlmin', htmlMinTransform);

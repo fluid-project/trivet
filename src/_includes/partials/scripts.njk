@@ -1,0 +1,5 @@
+{% for key, value in assets %}
+{% if '.js' in key %}
+	<script type="text/javascript" src="/assets{{ value }}" defer></script>
+{% endif %}
+{% endfor %}
