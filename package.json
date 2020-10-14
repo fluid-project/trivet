@@ -3,14 +3,14 @@
     "version": "0.1.0",
     "description": "Fluid is an open, collaborative project to improve the user experience and inclusiveness of open source software.",
     "scripts": {
-        "start": "cross-env NODE_ENV=development run-p -l start:*",
-        "start:webpack": "webpack --config webpack.dev.js ",
-        "start:eleventy": "eleventy --serve",
-        "build": "cross-env NODE_ENV=production run-s -l build:*",
-        "build:clean": "rimraf dist",
+        "build": "cross-env NODE_ENV=production npm-run-all -l clean build:*",
         "build:webpack": "webpack --config webpack.prod.js",
         "build:eleventy": "eleventy",
-        "lint": "grunt lint"
+        "clean": "rimraf dist",
+        "lint": "grunt lint",
+        "start": "cross-env NODE_ENV=development npm-run-all -l clean -p start:*",
+        "start:webpack": "webpack --config webpack.dev.js ",
+        "start:eleventy": "eleventy --serve"
     },
     "repository": {
         "type": "git",
