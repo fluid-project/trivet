@@ -6,8 +6,7 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link type="image/x-icon" href="{{ '/' | url }}assets/images/favicon.ico" rel="shortcut icon"/>
         <script type="text/javascript" src="{{ '/' | url }}lib/infusion/infusion-uio.min.js"></script>
-        <script type="text/javascript" src="{{ '/' | url }}assets/js/uio.js"></script>
-        <!--<script type="text/javascript" src="{{ '/' | url }}assets/js/analytics.js"></script> -->
+        {% include "partials/scripts.njk" %}
         {% include "partials/stylesheets.njk" %}
     </head>
     {% block content %}
