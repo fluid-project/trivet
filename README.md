@@ -11,7 +11,7 @@ This repository contains the files needed to build [Eleventy](http://11ty.dev/)-
 1. Install the required NPM packages: `npm install`
 2. Run [Eleventy](http://11ty.dev) in development mode: `npm start`.
 
-The website will be available at http://localhost:8080.
+The website will be available at [http://localhost:8080](http://localhost:8080).
 
 ### To build and serve using Docker
 
