@@ -36,8 +36,8 @@ If you make changes to the website, repeat step 2 to build the website and uploa
 
 ## Features
 
-- Integrated [UI Options](https://docs.fluidproject.org/infusion/development/UserInterfaceOptionsAPI.html) Preferences Editor.
-- Basic static site configuration for developing project websites and blogs.
+* Integrated [UI Options](https://docs.fluidproject.org/infusion/development/UserInterfaceOptionsAPI.html) Preferences Editor.
+* Basic static site configuration for developing project websites and blogs.
 
 ## Notes
 
