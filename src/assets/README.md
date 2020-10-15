@@ -4,11 +4,13 @@ Fluidic Eleventy uses [Laravel Mix](https://laravel-mix.com) as a wrapper for we
 
 ## Scripts
 
-By default, the Mix [configuration file](../../webpack.mix.js) will process every JavaScript file that found at the root level of the `/src/assets/scripts` directory. The resulting transpiled  JavaScript files will be written to `/dist/assets/scripts`.
+By default, the Mix [configuration file](../../webpack.mix.js) will process every JavaScript file that is found at the root level of the [`/src/assets/scripts`](scripts) directory. The resulting transpiled JavaScript files will be written to `/dist/assets/scripts`.
 
 ## Stylesheets
 
-The Mix configuration file includes configurations for [CSS](../../webpack.mix.js#L30), [Sass](../../webpack.mix.js#L33) or [Stylus](../../webpack.mix.js#L36). By default, CSS, Sass or Stylus will be run through [Autoprefixer](https://github.com/postcss/autoprefixer). See the Laravel Mix documentation on [PostCSS plugin configuration](https://laravel-mix.com/docs/5.0/css-preprocessors#postcss-plugins) for information on how to add and configure additional [PostCSS plugins](https://github.com/postcss/postcss/blob/master/docs/plugins.md).
+The Mix configuration file includes configurations for CSS, Sass and Stylus files. By default, the Mix [configuration file](../../webpack.mix.js) will process every CSS, Sass, and Stylus file that is found at the root level of the [`/src/assets/styles`](styles) directory. The resulting compiled CSS files will be written to `/dist/assets/styles`. This starter project only includes a CSS file; to use Sass or Stylus, add `.scss` or `.styl` files to [`/src/assets/styles`](styles).
+
+CSS, Sass and Stylus will be run through [Autoprefixer](https://github.com/postcss/autoprefixer). See the Laravel Mix documentation on [PostCSS plugin configuration](https://laravel-mix.com/docs/5.0/css-preprocessors#postcss-plugins) for information on how to add and configure additional [PostCSS plugins](https://github.com/postcss/postcss/blob/master/docs/plugins.md).
 
 ## Eleventy Integration
 

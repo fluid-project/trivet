@@ -27,13 +27,25 @@ scriptPaths.forEach(entryPath => {
 });
 
 // Process CSS with PostCSS.
-mix.postCss("src/assets/styles/app.css", "dist/assets/styles");
+const cssPaths = fg.sync("./src/assets/styles/*.css");
+
+cssPaths.forEach(entryPath => {
+    mix.postCss(entryPath, "dist/assets/styles");
+});
 
 // Compile Sass and process with PostCSS.
-// mix.sass("src/assets/styles/app.scss", "dist/assets/styles");
+const sassPaths = fg.sync("./src/assets/styles/*.scss");
+
+sassPaths.forEach(entryPath => {
+    mix.sass(entryPath, "dist/assets/styles");
+});
 
 // Compile Stylus and process with PostCSS.
-// mix.stylus("src/assets/styles/app.styl", "dist/assets/styles");
+const stylusPaths = fg.sync("./src/assets/styles/*.styl");
+
+stylusPaths.forEach(entryPath => {
+    mix.stylus(entryPath, "dist/assets/styles");
+});
 
 mix.options({
     // Don't modify stylesheet url() functions.
