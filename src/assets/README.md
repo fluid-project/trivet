@@ -8,8 +8,19 @@ By default, the Mix [configuration file](../../webpack.mix.js) will process ever
 
 ## Stylesheets
 
-The Mix configuration file includes configurations for [CSS](../../webpack.mix.js#L30), [Sass](../../webpack.mix.js#L33) or [Stylus](../../webpack.mix.js#L36). By default, CSS, Sass or Stylus will be run through [Autoprefixer](https://github.com/postcss/autoprefixer). Additional [PostCSS plugins](https://github.com/postcss/postcss/blob/master/docs/plugins.md) may be added ([configuration details can be found here](https://laravel-mix.com/docs/5.0/css-preprocessors#postcss-plugins)).
+The Mix configuration file includes configurations for [CSS](../../webpack.mix.js#L30), [Sass](../../webpack.mix.js#L33) or [Stylus](../../webpack.mix.js#L36). By default, CSS, Sass or Stylus will be run through [Autoprefixer](https://github.com/postcss/autoprefixer). See the Laravel Mix documentation on [PostCSS plugin configuration](https://laravel-mix.com/docs/5.0/css-preprocessors#postcss-plugins) for information on how to add and configure additional [PostCSS plugins](https://github.com/postcss/postcss/blob/master/docs/plugins.md).
 
 ## Eleventy Integration
 
-Laravel Mix generates an asset manifest in JSON format. The [`scripts.njk`](../_includes/partials/scripts.njk) and [`stylesheets.njk`](../_includes/partials/stylesheets.njk) template partials use this asset manifest to load scripts and stylesheets in the site header. Following a successful asset build, an update to the asset manifest will trigger an Eleventy build.
+Laravel Mix generates an asset manifest in JSON format (this example shows the assets with a [version string for cache busting](https://laravel-mix.com/docs/5.0/versioning)):
+
+```json
+{
+    "/scripts/app.js": "/scripts/app.js?id=f45bfe43b5e6cb80a6da",
+    "/styles/app.css": "/styles/app.css?id=bc8ec84445a00d932c8a",
+    "/scripts/matomo.js": "/scripts/matomo.js?id=3155c9bb3c237aa64c27",
+    "/scripts/uio.js": "/scripts/uio.js?id=41d589185ccf95cc14f9"
+}
+```
+
+The [`scripts.njk`](../_includes/partials/scripts.njk) and [`stylesheets.njk`](../_includes/partials/stylesheets.njk) template partials use this asset manifest to load scripts and stylesheets in the site header. Following a successful asset build, an update to the asset manifest will trigger an Eleventy build.
