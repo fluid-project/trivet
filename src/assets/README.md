@@ -25,4 +25,4 @@ Laravel Mix generates an asset manifest in JSON format (this example shows the a
 }
 ```
 
-The [`scripts.njk`](../_includes/partials/scripts.njk) and [`stylesheets.njk`](../_includes/partials/stylesheets.njk) template partials use this asset manifest to load scripts and stylesheets in the site header. Following a successful asset build, an update to the asset manifest will trigger an Eleventy build.
+The [`scripts.njk`](../_includes/partials/scripts.njk) and [`stylesheets.njk`](../_includes/partials/stylesheets.njk) template partials use this asset manifest to load scripts and stylesheets in the site header. (If you wish to load different scripts or stylesheets on different pages, you will need to modify these template partials to accomplish this.) Following a successful asset build, an update to the asset manifest will trigger an Eleventy build.
