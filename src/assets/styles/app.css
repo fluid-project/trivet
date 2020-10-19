@@ -1,5 +1,5 @@
 :root {
-	--base-font-family: system-ui;
+	--base-font-family: system-ui, sans-serif;
 }
 
 body {
