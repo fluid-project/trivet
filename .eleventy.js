@@ -98,13 +98,6 @@ module.exports = function (config) {
             output: "dist",
             includes: "_includes"
         },
-        // To use a template language, use a file with the appropriate file extension.
-        // See: https://www.11ty.dev/docs/languages/
-        // If you wish to use a template language within an HTML or Markdown file,
-        // you can configure this in the file's header.
-        // See: https://www.11ty.dev/docs/languages/#templateengineoverride-examples
-        htmlTemplateEngine: false,
-        markdownTemplateEngine: false,
         passthroughFileCopy: true
     };
 };
