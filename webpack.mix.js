@@ -14,41 +14,20 @@ https://github.com/fluid-project/fluidic-11ty/raw/master/LICENSE.md.
 
 const mix = require("laravel-mix");
 const moveFile = require("move-file");
-const fg = require("fast-glob");
 
 // Set public path.
 mix.setPublicPath("dist/assets");
 
-// Process JavaScript with Babel.
-const scriptPaths = fg.sync("./src/assets/scripts/*.js");
-
-scriptPaths.forEach(entryPath => {
-    mix.js(entryPath, "dist/assets/scripts");
-});
+// Process JavaScript files with Babel.
+mix.js("./src/assets/scripts/app.js", "dist/assets/scripts");
+mix.js("./src/assets/scripts/matomo.js", "dist/assets/scripts");
+mix.js("./src/assets/scripts/uio.js", "dist/assets/scripts");
 
 // Process CSS with PostCSS.
-const cssPaths = fg.sync("./src/assets/styles/*.css");
+mix.postCss("./src/assets/styles/app.css", "dist/assets/styles");
 
-cssPaths.forEach(entryPath => {
-    mix.postCss(entryPath, "dist/assets/styles");
-});
-
-// Compile Sass and process with PostCSS.
-const sassPaths = fg.sync("./src/assets/styles/*.scss");
-
-sassPaths.forEach(entryPath => {
-    mix.sass(entryPath, "dist/assets/styles");
-});
-
-// Compile Stylus and process with PostCSS.
-const stylusPaths = fg.sync("./src/assets/styles/*.styl");
-
-stylusPaths.forEach(entryPath => {
-    mix.stylus(entryPath, "dist/assets/styles");
-});
-
+// Don't modify stylesheet url() functions.
 mix.options({
-    // Don't modify stylesheet url() functions.
     processCssUrls: false
 });
 
