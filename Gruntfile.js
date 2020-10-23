@@ -21,7 +21,7 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON("package.json"),
         lintAll: {
             sources: {
-                json: ["./*.json", ".eslintrc.json", "./src/**/*.json"],
+                json: ["./*.json", ".eslintrc.json", ".stylelintrc.json", "./src/**/*.json"],
                 js: ["./*.js", ".eleventy.js", "src/**/*.js", "!src/lib/**/*.js"]
             }
         }
