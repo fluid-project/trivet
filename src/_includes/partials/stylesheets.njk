@@ -1,9 +1,4 @@
-{% for key, value in assets %}
-{% set cssPattern = r/.*\.css$/ %}
-{% if cssPattern.test(key) %}
-<link href="/assets{{ value }}" rel="stylesheet" />
-{% endif %}
-{% endfor %}
+<link href="/assets{{ assets['/styles/app.css'] }}" rel="stylesheet" />
 <link href="/lib/infusion/src/framework/preferences/css/Enactors.css" rel="stylesheet" />
 <link href="/lib/infusion/src/framework/preferences/css/PrefsEditor.css" rel="stylesheet" />
 <link href="/lib/infusion/src/framework/preferences/css/SeparatedPanelPrefsEditor.css" rel="stylesheet" />
