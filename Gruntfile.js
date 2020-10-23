@@ -22,13 +22,14 @@ module.exports = function (grunt) {
         lintAll: {
             sources: {
                 json: ["./*.json", ".eslintrc.json", ".stylelintrc.json", "./src/**/*.json"],
-                js: ["./*.js", ".eleventy.js", "src/**/*.js", "!src/lib/**/*.js"]
+                js: ["./*.js", ".eleventy.js", "src/**/*.js", "!src/lib/**/*.js"],
+                css: ["src/**/*.css"],
+                scss: ["src/**/*.scss"]
             }
         }
     });
     // Load the plugin(s):
     grunt.loadNpmTasks("fluid-grunt-lint-all");
-    grunt.loadNpmTasks("grunt-contrib-copy");
     // Custom tasks:
     grunt.registerTask("default", ["lint"]);
     grunt.registerTask("lint", "Perform all standard lint checks.", ["lint-all"]);
