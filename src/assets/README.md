@@ -146,4 +146,4 @@ If you need to selectively load some assets on some pages and not on others, thi
 
 ## Further Information
 
-For the complete Mix API, see the Laravel Mix [documentation site](https://laravel-mix.com/docs/5.0/installation).
+For the complete Mix API, visit the Laravel Mix [documentation site](https://laravel-mix.com/docs/5.0/installation).
