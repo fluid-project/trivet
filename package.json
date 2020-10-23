@@ -35,7 +35,7 @@
         "@fluid-project/eleventy-plugin-fluid": "github:fluid-project/eleventy-plugin-fluid#ee75b78"
     },
     "devDependencies": {
-        "@babel/cli": "7.8.4",
+        "@babel/cli": "7.12.1",
         "@babel/core": "7.9.6",
         "@babel/preset-env": "7.9.6",
         "@commitlint/cli": "11.0.0",
