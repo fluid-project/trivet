@@ -31,7 +31,7 @@
     "dependencies": {
         "@11ty/eleventy": "0.11.0",
         "@11ty/eleventy-plugin-rss": "1.0.9",
-        "@11ty/eleventy-plugin-syntaxhighlight": "3.0.1",
+        "@11ty/eleventy-plugin-syntaxhighlight": "3.0.4",
         "@fluid-project/eleventy-plugin-fluid": "github:fluid-project/eleventy-plugin-fluid#ee75b78"
     },
     "devDependencies": {
