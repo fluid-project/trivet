@@ -1,7 +1,7 @@
 {% extends "layouts/base.njk" %}
 {% block content %}
 <body class="post">
-    {% include "partials/uio.njk" %}
+    {% uioTemplate %}
     <main>
         <nav class="flc-toc-tocContainer"></nav>
         <article>
@@ -14,5 +14,6 @@
             </div>
         </article>
     </main>
+    {% uioInit %}
 </body>
 {% endblock %}
