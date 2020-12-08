@@ -11,7 +11,7 @@
     </head>
     {% block content %}
     <body class="page">
-        {% include "partials/uio.njk" %}
+        {% uioTemplate %}
         <main>
             <nav class="flc-toc-tocContainer"></nav>
             <article>
@@ -23,6 +23,7 @@
                 </div>
             </article>
         </main>
+        {% uioInit %}
     </body>
     {% endblock %}
 </html>
