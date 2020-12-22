@@ -4,13 +4,13 @@
     "description": "Fluid is an open, collaborative project to improve the user experience and inclusiveness of open source software.",
     "scripts": {
         "build": "npm-run-all -l clean build:*",
-        "build:webpack": "cross-env NODE_ENV=production webpack --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "build:webpack": "mix --production",
         "build:eleventy": "cross-env NODE_ENV=production eleventy",
         "clean": "rimraf dist",
         "lint": "grunt lint",
         "release": "standard-version -t ''",
         "start": "npm-run-all -l clean -p start:*",
-        "start:webpack": "cross-env NODE_ENV=development webpack --config=node_modules/laravel-mix/setup/webpack.config.js --watch",
+        "start:webpack": "mix watch",
         "start:eleventy": "cross-env NODE_ENV=development eleventy --serve"
     },
     "repository": {
@@ -46,9 +46,10 @@
         "husky": "4.3.0",
         "image-size": "0.9.3",
         "jsdom": "16.4.0",
-        "laravel-mix": "5.0.7",
+        "laravel-mix": "6.0.2",
         "move-file": "2.0.0",
         "npm-run-all": "4.1.5",
+        "postcss": "8.2.1",
         "resolve-url-loader": "^3.1.2",
         "rimraf": "3.0.2",
         "sass": "1.30.0",
@@ -56,7 +57,6 @@
         "slugify": "1.4.6",
         "standard-version": "9.0.0",
         "stylus": "0.54.8",
-        "stylus-loader": "4.3.1",
-        "vue-template-compiler": "2.6.12"
+        "stylus-loader": "4.3.1"
     }
 }
