@@ -33,6 +33,7 @@ module.exports = function (config) {
     config.addTransform("parse", parseTransform);
 
     // Passthrough copy
+    config.addPassthroughCopy({"src/assets/icons": "assets/icons"});
     config.addPassthroughCopy({"src/assets/images": "assets/images"});
     config.addPassthroughCopy({"src/posts/images": "posts/images"});
 

@@ -4,7 +4,8 @@
         <title>{% if title %} {{ title }} {% else %} {{ site.title }} {% endif %}</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <link type="image/x-icon" href="{{ '/' | url }}assets/images/favicon.ico" rel="shortcut icon"/>
+        <link rel="manifest" href="/manifest.webmanifest">
+        {% include "partials/global/icons.njk" %}
         <script type="text/javascript" src="{{ '/' | url }}lib/infusion/infusion-uio.min.js"></script>
         {% include "partials/scripts.njk" %}
         {% include "partials/stylesheets.njk" %}
