@@ -15,8 +15,9 @@ https://github.com/fluid-project/fluidic-11ty/raw/main/LICENSE.md.
 const fs = require("fs");
 
 const fluidPlugin = require("eleventy-plugin-fluid");
+const navigationPlugin = require("@11ty/eleventy-navigation");
 const rssPlugin = require("@11ty/eleventy-plugin-rss");
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const syntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 // Import transforms
 const htmlMinTransform = require("./src/transforms/html-min-transform.js");
@@ -54,8 +55,9 @@ module.exports = function (config) {
 
     // Plugins
     config.addPlugin(fluidPlugin);
+    config.addPlugin(navigationPlugin);
     config.addPlugin(rssPlugin);
-    config.addPlugin(syntaxHighlight);
+    config.addPlugin(syntaxHighlightPlugin);
 
     // 404
     config.setBrowserSyncConfig({

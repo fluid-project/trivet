@@ -6,24 +6,29 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link type="image/x-icon" href="{{ '/' | url }}assets/images/favicon.ico" rel="shortcut icon"/>
         <script type="text/javascript" src="{{ '/' | url }}lib/infusion/infusion-uio.min.js"></script>
-        {% include "partials/scripts.njk" %}
-        {% include "partials/stylesheets.njk" %}
+        {% include "partials/global/scripts.njk" %}
+        {% include "partials/global/stylesheets.njk" %}
     </head>
-    {% block content %}
-    <body class="page">
+    <body class="{{ bodyClass if bodyClass else "page" }}">
         {% uioTemplate %}
+        {% include "partials/global/header.njk" %}
         <main>
-            <nav class="flc-toc-tocContainer"></nav>
             <article>
+                {% block pageHeader %}
                 <header>
                     <h1>{{ title }}</h1>
                 </header>
+                {% endblock %}
+                <nav class="flc-toc-tocContainer"></nav>
+                {% block content %}
                 <div class="content">
                 {{ content | safe }}
                 </div>
+                {% endblock %}
+
             </article>
         </main>
+        {% include "partials/global/footer.njk" %}
         {% uioInit %}
     </body>
-    {% endblock %}
 </html>
