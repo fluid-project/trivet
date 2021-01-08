@@ -1,0 +1,15 @@
+{
+    "eslint": {
+        "includes": ["./.eleventy.js"]
+    },
+    "lintspaces": {
+        "newlines": {
+            "excludes": ["./src/assets/images/*.png", "./src/assets/images/*.ico"]
+        }
+    },
+    "stylelint": {
+        "options": {
+            "configFile": "./.stylelintrc.json"
+        }
+    }
+}

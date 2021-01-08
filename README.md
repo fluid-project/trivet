@@ -32,7 +32,8 @@ If you make changes to the website, repeat the steps to build the image and star
 2. Run the build script: `npm run build`
 3. Upload the contents of the `./dist/` directory to the web root of your server.
 
-If you make changes to the website, repeat step 2 to build the website and upload any changed files from the `./dist/` directory to the web root of your server.
+If you make changes to the website, repeat step 2 to build the website and upload any changed files from the `./dist/`
+directory to the web root of your server.
 
 ## Features
 
@@ -41,7 +42,9 @@ If you make changes to the website, repeat step 2 to build the website and uploa
 
 ## Notes
 
-Modifications can be made to any source file or directory except for the contents of the `./dist/` directory. The `./dist/` directory is not versioned since it contains the built website that Eleventy generates from the source files, and  files in `dist` are overwritten at build time.
+Modifications can be made to any source file or directory except for the contents of the `./dist/` directory. The
+`./dist/` directory is not versioned since it contains the built website that Eleventy generates from the source files,
+and  files in `dist` are overwritten at build time.
 
 ## License
 
