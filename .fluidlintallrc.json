@@ -4,7 +4,7 @@
     },
     "lintspaces": {
         "newlines": {
-            "excludes": ["./src/assets/images/*.png", "./src/assets/images/*.ico"]
+            "excludes": ["./src/assets/images/"]
         }
     }
 }
