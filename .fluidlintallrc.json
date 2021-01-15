@@ -1,6 +1,11 @@
 {
     "eslint": {
-        "includes": ["./.eleventy.js"]
+        "js": {
+            "includes": ["./.eleventy.js"]
+        },
+        "json": {
+            "excludes": ["./src/_data/assets.json"]
+        }
     },
     "lintspaces": {
         "newlines": {
