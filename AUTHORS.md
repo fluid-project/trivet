@@ -4,7 +4,7 @@
 
 Copyright 2020
 
-This is the list of Fluidic Eleventy copyright holders. It does not list all individual contributors because some have assigned
+This is the list of Trivet copyright holders. It does not list all individual contributors because some have assigned
 copyright to an institution, only made minor changes, or their contributions no longer appear in the codebase.
 Please see the version control system's revision history for details on contributions.
 
@@ -13,7 +13,7 @@ Please see the version control system's revision history for details on contribu
 ## Contributors
 
 Individual contributions can be viewed on the
-[Contributors](https://github.com/fluid-project/fluidic-11ty/graphs/contributors) page, or through the version control
+[Contributors](https://github.com/fluid-project/trivet/graphs/contributors) page, or through the version control
 system's revision history.
 
 **Note**: Individual authors may not hold copyright. See above "Copyright Holders" section for more information.
