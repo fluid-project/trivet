@@ -4,6 +4,5 @@
     "url": "https://www.fluidproject.org",
     "authorName": "OCAD University",
     "authorWebsite": "https://www.ocadu.ca/",
-    "faviconPath": "{{ '/' | url }}files/images/favicon.ico",
     "title": "Fluid Project - The Open Source Software community"
 }
