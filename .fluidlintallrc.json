@@ -6,5 +6,8 @@
         "newlines": {
             "excludes": ["./src/assets/images/"]
         }
+    },
+    "markdownlint": {
+        "excludes": ["./CHANGELOG.md"]
     }
 }
