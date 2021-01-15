@@ -1,7 +1,7 @@
 {
-    "name": "fluidic-11ty",
-    "version": "0.1.0",
-    "description": "Fluid is an open, collaborative project to improve the user experience and inclusiveness of open source software.",
+    "name": "trivet",
+    "version": "0.1.0-dev.0",
+    "description": "Trivet is a simple starter kit for Eleventy-based static sites for the Fluid Project.",
     "scripts": {
         "build": "npm-run-all -l clean build:*",
         "build:webpack": "mix --production",
@@ -15,14 +15,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fluid-project/fluidic-11ty.git"
+        "url": "git+https://github.com/fluid-project/trivet.git"
     },
     "author": "OCAD University",
     "license": "BSD-3-Clause",
     "bugs": {
-        "url": "https://github.com/fluid-project/fluidic-11ty/issues"
+        "url": "https://github.com/fluid-project/trivet/issues"
     },
-    "homepage": "https://github.com/fluid-project/fluidic-11ty#readme",
+    "homepage": "https://github.com/fluid-project/trivet#readme",
     "husky": {
         "hooks": {
             "pre-commit": "npm run lint",
@@ -43,16 +43,16 @@
         "fluid-grunt-lint-all": "2.0.0",
         "grunt": "1.3.0",
         "html-minifier": "4.0.0",
-        "husky": "4.3.0",
+        "husky": "4.3.7",
         "image-size": "0.9.3",
         "jsdom": "16.4.0",
-        "laravel-mix": "6.0.6",
+        "laravel-mix": "6.0.9",
         "move-file": "2.0.0",
         "npm-run-all": "4.1.5",
-        "postcss": "8.2.2",
+        "postcss": "8.2.3",
         "resolve-url-loader": "^3.1.2",
         "rimraf": "3.0.2",
-        "sass": "1.32.0",
+        "sass": "1.32.2",
         "sass-loader": "10.1.0",
         "slugify": "1.4.6",
         "standard-version": "9.1.0",
