@@ -1,6 +1,6 @@
 ---
 layout: layouts/base
-title: Fluidic Eleventy
+title: Trivet
 eleventyNavigation:
     key: Home
     order: 0

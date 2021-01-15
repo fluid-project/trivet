@@ -1,4 +1,4 @@
-# Fluidic Eleventy
+# Trivet
 
 ## A simple starter kit for Eleventy-based static sites for the Fluid Project
 
@@ -19,8 +19,8 @@ You can build and serve the website from a [Docker](https://docs.docker.com/get-
 
 Once you have Docker installed, run the following commands to build a Docker image and start a container:
 
-* Build the image: `docker build -t fluidic-11ty .`
-* Run the container: `docker run --name fluidic-11ty -p 8000:80 fluidic-11ty`
+* Build the image: `docker build -t trivet .`
+* Run the container: `docker run --name trivet -p 8000:80 trivet`
 
 The website will be available at [http://localhost:8000](http://localhost:8000)
 
@@ -32,7 +32,8 @@ If you make changes to the website, repeat the steps to build the image and star
 2. Run the build script: `npm run build`
 3. Upload the contents of the `./dist/` directory to the web root of your server.
 
-If you make changes to the website, repeat step 2 to build the website and upload any changed files from the `./dist/` directory to the web root of your server.
+If you make changes to the website, repeat step 2 to build the website and upload any changed files from the `./dist/`
+directory to the web root of your server.
 
 ## Features
 
@@ -41,15 +42,17 @@ If you make changes to the website, repeat step 2 to build the website and uploa
 
 ## Notes
 
-Modifications can be made to any source file or directory except for the contents of the `./dist/` directory. The `./dist/` directory is not versioned since it contains the built website that Eleventy generates from the source files, and  files in `dist` are overwritten at build time.
+Modifications can be made to any source file or directory except for the contents of the `./dist/` directory. The
+`./dist/` directory is not versioned since it contains the built website that Eleventy generates from the source files,
+and  files in `dist` are overwritten at build time.
 
 ## License
 
-Fluidic Eleventy is available under the [New BSD License](https://raw.githubusercontent.com/fluid-project/fluidic-11ty/master/LICENSE.md).
+Trivet is available under the [New BSD License](https://raw.githubusercontent.com/fluid-project/trivet/master/LICENSE.md).
 
-## Third Party Software in Fluidic Eleventy
+## Third Party Software in Trivet
 
-Fluidic Eleventy is based on other publicly available software, categorized by license:
+Trivet is based on other publicly available software, categorized by license:
 
 ### MIT License
 
