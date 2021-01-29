@@ -1,0 +1,16 @@
+{
+    "eslint": {
+        "js": {
+            "includes": ["./.eleventy.js"]
+        },
+        "json": {
+            "excludes": ["./src/_data/assets.json"]
+        }
+    },
+    "jsonlint": {
+        "excludes": ["./src/_data/assets.json"]
+    },
+    "markdownlint": {
+        "excludes": ["./CHANGELOG.md"]
+    }
+}
