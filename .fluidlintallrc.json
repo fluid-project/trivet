@@ -7,11 +7,6 @@
             "excludes": ["./src/_data/assets.json"]
         }
     },
-    "lintspaces": {
-        "newlines": {
-            "excludes": ["./src/assets/images/", "./src/assets/icons/"]
-        }
-    },
     "jsonlint": {
         "excludes": ["./src/_data/assets.json"]
     },
