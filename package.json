@@ -51,7 +51,7 @@
         "postcss": "8.2.3",
         "resolve-url-loader": "^3.1.2",
         "rimraf": "3.0.2",
-        "sass": "1.32.2",
+        "sass": "1.32.5",
         "sass-loader": "10.1.0",
         "slugify": "1.4.6",
         "standard-version": "9.1.0",
