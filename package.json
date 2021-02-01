@@ -42,7 +42,7 @@
         "debug": "4.3.1",
         "fluid-lint-all": "1.0.4-dev.20210129T151721Z.b9ddeaa.GH-12-1",
         "html-minifier": "4.0.0",
-        "husky": "4.3.7",
+        "husky": "4.3.8",
         "image-size": "0.9.3",
         "jsdom": "16.4.0",
         "laravel-mix": "6.0.9",
