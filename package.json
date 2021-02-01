@@ -48,7 +48,7 @@
         "laravel-mix": "6.0.11",
         "move-file": "2.0.0",
         "npm-run-all": "4.1.5",
-        "postcss": "8.2.3",
+        "postcss": "8.2.4",
         "resolve-url-loader": "^3.1.2",
         "rimraf": "3.0.2",
         "sass": "1.32.5",
