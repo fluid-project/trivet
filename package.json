@@ -52,7 +52,7 @@
         "resolve-url-loader": "^3.1.2",
         "rimraf": "3.0.2",
         "sass": "1.32.5",
-        "sass-loader": "10.1.0",
+        "sass-loader": "10.1.1",
         "slugify": "1.4.6",
         "standard-version": "9.1.0",
         "stylus": "0.54.8",
