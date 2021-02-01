@@ -45,7 +45,7 @@
         "husky": "4.3.8",
         "image-size": "0.9.3",
         "jsdom": "16.4.0",
-        "laravel-mix": "6.0.9",
+        "laravel-mix": "6.0.11",
         "move-file": "2.0.0",
         "npm-run-all": "4.1.5",
         "postcss": "8.2.3",
