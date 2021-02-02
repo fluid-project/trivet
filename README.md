@@ -2,6 +2,8 @@
 
 ## A simple starter kit for Eleventy-based static sites for the Fluid Project
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8286bcec-a92b-47ca-a4cf-128a276b57eb/deploy-status)](https://app.netlify.com/sites/trivet/deploys)
+
 This repository contains the files needed to build [Eleventy](http://11ty.dev/)-based static sites for the [Fluid Project](https://fluidproject.org).
 
 ## Usage
