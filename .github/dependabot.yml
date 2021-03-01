@@ -17,4 +17,4 @@ updates:
       - dependency-type: "direct"
     ignore:
       - dependency-name: "husky"
-        versions: ">=5"
+        versions: [">=5"]
