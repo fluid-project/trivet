@@ -15,6 +15,6 @@ updates:
     allow:
       # Allow direct updates only (for packages named in package.json)
       - dependency-type: "direct"
-    commit-message:
-      prefix: "chore(deps): "
-      prefix-development: "chore(deps): "
+    ignore:
+      - dependency-name: "husky"
+        versions: [">=5"]

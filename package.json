@@ -34,29 +34,29 @@
         "@11ty/eleventy-navigation": "0.1.6",
         "@11ty/eleventy-plugin-rss": "1.1.0",
         "@11ty/eleventy-plugin-syntaxhighlight": "3.0.6",
-        "eleventy-plugin-fluid": "0.1.0"
+        "eleventy-plugin-fluid": "0.2.0"
     },
     "devDependencies": {
-        "@commitlint/cli": "11.0.0",
-        "@commitlint/config-conventional": "11.0.0",
+        "@commitlint/cli": "12.0.1",
+        "@commitlint/config-conventional": "12.0.1",
         "cross-env": "7.0.3",
         "debug": "4.3.1",
         "fluid-lint-all": "1.0.5-dev.20210201T163615Z.cff0a11.GH-3",
         "html-minifier": "4.0.0",
         "husky": "4.3.8",
-        "image-size": "0.9.3",
+        "image-size": "0.9.4",
         "jsdom": "16.4.0",
-        "laravel-mix": "6.0.11",
+        "laravel-mix": "6.0.13",
         "move-file": "2.0.0",
         "npm-run-all": "4.1.5",
-        "postcss": "8.2.4",
+        "postcss": "8.2.6",
         "resolve-url-loader": "^3.1.2",
         "rimraf": "3.0.2",
-        "sass": "1.32.5",
-        "sass-loader": "10.1.1",
-        "slugify": "1.4.6",
-        "standard-version": "9.1.0",
+        "sass": "1.32.8",
+        "sass-loader": "11.0.1",
+        "slugify": "1.4.7",
+        "standard-version": "9.1.1",
         "stylus": "0.54.8",
-        "stylus-loader": "4.3.3"
+        "stylus-loader": "5.0.0"
     }
 }
