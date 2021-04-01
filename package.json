@@ -43,7 +43,7 @@
         "fluid-lint-all": "1.0.5-dev.20210201T163615Z.cff0a11.GH-3",
         "html-minifier": "4.0.0",
         "husky": "4.3.8",
-        "image-size": "0.9.4",
+        "image-size": "0.9.7",
         "jsdom": "16.4.0",
         "laravel-mix": "6.0.13",
         "move-file": "2.0.0",
