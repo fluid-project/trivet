@@ -56,6 +56,6 @@
         "slugify": "1.5.3",
         "standard-version": "9.3.0",
         "stylus": "0.54.8",
-        "stylus-loader": "5.0.0"
+        "stylus-loader": "6.0.0"
     }
 }
