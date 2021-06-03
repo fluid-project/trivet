@@ -37,7 +37,7 @@
     },
     "devDependencies": {
         "@commitlint/cli": "12.1.4",
-        "@commitlint/config-conventional": "12.0.1",
+        "@commitlint/config-conventional": "12.1.4",
         "cross-env": "7.0.3",
         "debug": "4.3.1",
         "fluid-lint-all": "1.1.1",
