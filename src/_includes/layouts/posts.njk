@@ -1,0 +1,23 @@
+{% extends "layouts/base.njk" %}
+
+{% set bodyClass = "posts" %}
+
+{% block pageHeader %}
+<header>
+    <h1>{{ title }}</h1>
+</header>
+{% endblock %}
+
+{% block content %}
+{% if posts.length %}
+    {% for item in posts %}
+        <article class="entry">
+            <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
+            <p class="metadata"><time datetime="{{ item.data.date | isoDate }}" class="dt-published">{{ item.data.date | formatDate }}</time></p>
+            {% if item.data.excerpt %}
+            <p>{{ item.data.excerpt | safe }}</p>
+            {% endif %}
+        </article>
+    {% endfor %}
+{% endif %}
+{% endblock %}
