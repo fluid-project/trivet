@@ -5,6 +5,6 @@
         }
     },
     "markdownlint": {
-        "excludes": ["./CHANGELOG.md"]
+        "excludes": ["./src/collections/**/*.md", "./CHANGELOG.md"]
     }
 }
