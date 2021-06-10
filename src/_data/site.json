@@ -5,6 +5,6 @@
     "authorName": "Fluid Project",
     "authorEmail": "idrc@ocadu.ca",
     "authorWebsite": "https://fluidproject.org/",
-    "maxPostsPerPage": 10,
+    "maxPostsInFeed": 10,
     "title": "Trivet"
 }
