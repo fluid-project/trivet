@@ -21,7 +21,7 @@
     {% endfor %}
 {% endif %}
 
-{% if pagination.items.length > 1 %}
+{% if pagination.href.previous or pagination.href.next %}
 {% include "partials/components/pagination.njk" %}
 {% endif %}
 {% endblock %}
