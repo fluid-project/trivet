@@ -47,11 +47,12 @@ module.exports = function (config) {
             ...collection.getFilteredByGlob("./src/posts/*.md").filter(livePosts)
         ];
     });
-    // The following collection is used to distribute posts into different pages. However, the default pagination has not been set in fluidproject.org and all posts are shown on single page
+
+    // The following collection is used to create a collection of posts for the RSS feed.
     config.addCollection("postFeed", collection => {
         return [...collection.getFilteredByGlob("./src/posts/*.md").filter(livePosts)]
             .reverse()
-            .slice(0, site.maxPostsPerPage);
+            .slice(0, site.maxPostsInFeed);
     });
 
     // Plugins
