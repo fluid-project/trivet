@@ -20,4 +20,8 @@
         </article>
     {% endfor %}
 {% endif %}
+
+{% if pagination.items.length > 1 %}
+{% include "partials/components/pagination.njk" %}
+{% endif %}
 {% endblock %}
