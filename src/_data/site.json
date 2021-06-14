@@ -5,8 +5,8 @@
     "authorName": "OCAD University",
     "authorWebsite": "https://www.ocadu.ca/",
     "title": "Fluid Project - The Open Source Software community",
-    "languages": [
-        "en",
-        "fr"
-    ]
+    "languages": {
+        "en": "English",
+        "fr": "Français"
+    }
 }

@@ -44,7 +44,7 @@ module.exports = function (config) {
     // Custom collections
     const livePosts = post => post.date <= now && !post.data.draft;
 
-    site.languages.forEach(lang => {
+    Object.keys(site.languages).forEach(lang => {
         config.addCollection(`posts_${lang}`, collection => {
             return [
                 ...collection.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`).filter(livePosts)

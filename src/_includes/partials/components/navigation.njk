@@ -6,5 +6,13 @@
                         <a href="{{ item.url | url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
                     </li>
                     {% endfor %}
+                    {% for item in collections.all %}
+                        {# Find an item with a fileSlug which matches the current page's translation key but is not the same language. #}
+                        {% if item.fileSlug == translationKey and item.data.lang !== lang %}
+                        <li>
+                            <a href="{{ item.url }}">{{ site.languages[item.data.lang] }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
                 </ul>
             </nav>

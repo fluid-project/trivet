@@ -3,6 +3,7 @@ title: Trivet
 layout: layouts/page
 permalink: /fr/
 lang: fr
+translationKey: index.en
 eleventyNavigation:
     parent: fr
     key: Accueil
