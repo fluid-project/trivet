@@ -1,8 +1,6 @@
 ---
 title: About
-eleventyNavigation:
-  key: About
-  order: 1
+order: 2
 excerpt: This is a short description of the page.
 ---
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore

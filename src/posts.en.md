@@ -1,12 +1,14 @@
 ---
 layout: layouts/posts.njk
 title: Posts
+lang: en
 eleventyNavigation:
+  parent: en
   key: Posts
-  order: 2
+  order: 3
 permalink: "/posts/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
 pagination:
-  data: collections.posts
+  data: collections.posts_en
   size: 10
   alias: posts
 ---

@@ -1,4 +1,0 @@
-{
-    "layout": "layouts/page.njk",
-    "permalink": "/fr/{{ title | slug }}/"
-}

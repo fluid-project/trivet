@@ -43,11 +43,15 @@ module.exports = function (config) {
 
     // Custom collections
     const livePosts = post => post.date <= now && !post.data.draft;
-    config.addCollection("posts", collection => {
-        return [
-            ...collection.getFilteredByGlob("./src/collections/posts/en/*.md").filter(livePosts)
-        ];
+
+    site.languages.forEach(lang => {
+        config.addCollection(`posts_${lang}`, collection => {
+            return [
+                ...collection.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`).filter(livePosts)
+            ];
+        });
     });
+
     // The following collection is used to distribute posts into different pages. However, the default pagination has not been set in fluidproject.org and all posts are shown on single page
     config.addCollection("postFeed", collection => {
         return [...collection.getFilteredByGlob("./src/collections/posts/en/*.md").filter(livePosts)]

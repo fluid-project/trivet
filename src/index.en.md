@@ -1,8 +1,11 @@
 ---
-layout: layouts/base
 title: Trivet
+layout: layouts/page
+permalink: /
+lang: en
 eleventyNavigation:
+    parent: en
     key: Home
-    order: 0
+    order: 1
 ---
 You can write content for your page in [Markdown](https://www.11ty.dev/docs/languages/markdown/) format.

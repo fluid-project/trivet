@@ -1,5 +1,6 @@
 ---
 title: À propos
+order: 2
 excerpt: "Ceci est une brève description de la page. "
 ---
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
