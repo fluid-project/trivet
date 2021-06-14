@@ -1,5 +1,5 @@
 ---
-title: Trivet
+title: Accueil
 layout: layouts/page
 permalink: /fr/
 lang: fr

@@ -1,14 +1,21 @@
 {
-    "name": "Trivet",
-    "shortDesc": "Trivet is a simple starter kit for Eleventy-based static sites for the Fluid Project.",
-    "url": "https://trivet.netlify.app",
-    "authorName": "Fluid Project",
-    "authorEmail": "idrc@ocadu.ca",
-    "authorWebsite": "https://fluidproject.org/",
-    "maxPostsInFeed": 10,
-    "title": "Trivet",
-    "languages": {
-        "en": "English",
-        "fr": "Français"
+  "name": "Trivet",
+  "shortDesc": "Trivet is a simple starter kit for Eleventy-based static sites for the Fluid Project.",
+  "url": "https://trivet.netlify.app",
+  "authorWebsite": "https://fluidproject.org/",
+  "authorEmail": "idrc@ocadu.ca",
+  "maxPostsInFeed": 10,
+  "authorName": "Fluid Project",
+  "languages": [
+    {
+      "code": "en",
+      "dir": "ltr",
+      "name": "English"
+    },
+    {
+      "code": "fr",
+      "dir": "ltr",
+      "name": "Français"
     }
+  ]
 }

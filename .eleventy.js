@@ -39,15 +39,25 @@ module.exports = function (config) {
     config.addPassthroughCopy({"src/assets/images": "assets/images"});
     config.addPassthroughCopy({"src/posts/images": "posts/images"});
 
+    config.addNunjucksFilter("getSiblingValue", function (value, inputKey, inputValue, siblingKey) {
+        let siblingValue = false;
+        value.forEach(item => {
+            if (item[inputKey] === inputValue) {
+                siblingValue = item[siblingKey];
+            };
+        });
+
+        return siblingValue;
+    });
+
     const now = new Date();
 
     // Custom collections
     const livePosts = post => post.date <= now && !post.data.draft;
-
-    Object.keys(site.languages).forEach(lang => {
-        config.addCollection(`posts_${lang}`, collection => {
+    site.languages.forEach(lang => {
+        config.addCollection(`posts_${lang.code}`, collection => {
             return [
-                ...collection.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`).filter(livePosts)
+                ...collection.getFilteredByGlob(`./src/collections/posts/${lang.code}/*.md`).filter(livePosts)
             ];
         });
     });
