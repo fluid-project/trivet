@@ -20,4 +20,8 @@
         </article>
     {% endfor %}
 {% endif %}
+
+{% if pagination.href.previous or pagination.href.next %}
+{% include "partials/components/pagination.njk" %}
+{% endif %}
 {% endblock %}

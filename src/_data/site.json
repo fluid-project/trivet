@@ -1,10 +1,12 @@
 {
-    "name": "Fluid Project",
-    "shortDesc": "Fluid is an open, collaborative project to improve the user experience and inclusiveness of open source software.",
-    "url": "https://www.fluidproject.org",
-    "authorName": "OCAD University",
-    "authorWebsite": "https://www.ocadu.ca/",
-    "title": "Fluid Project - The Open Source Software community",
+    "name": "Trivet",
+    "shortDesc": "Trivet is a simple starter kit for Eleventy-based static sites for the Fluid Project.",
+    "url": "https://trivet.netlify.app",
+    "authorName": "Fluid Project",
+    "authorEmail": "idrc@ocadu.ca",
+    "authorWebsite": "https://fluidproject.org/",
+    "maxPostsInFeed": 10,
+    "title": "Trivet",
     "languages": {
         "en": "English",
         "fr": "Français"
