@@ -39,24 +39,21 @@ collections:
       - { label: "Navigation Label", name: "key", widget: "string", required: false, i18n: true }
       - { label: "Excerpt", name: "excerpt", widget: "string", required: false, i18n: true }
       - { label: "Body", name: "body", widget: "markdown", i18n: true }
-  - label: "Data"
-    name: "data"
+  - label: "Site Configuration"
+    name: "config"
+    i18n: false
     files:
-      - label: "Site Data"
-        name: "site"
-        file: "src/_data/site.json"
+      - label: "Site Configuration"
+        name: "config"
+        file: "src/_data/config.json"
         fields:
-          - { label: Name, name: name, widget: string }
-          - { label: Description, name: shortDesc, widget: text }
           - { label: URL, name: url, widget: string }
-          - { label: "Author Name", name: authorName, widget: string }
-          - { label: "Author Email", name: authorEmail, widget: string }
-          - { label: "Author Website", name: authorWebsite, widget: string }
-          - { label: Title, name: title, widget: string }
+          - { label: "Maximum Posts in RSS Feed", name: maxPostsInFeed, widget: number, min: 1, i18n: false }
           - label: Languages
             label_singular: Language
             name: languages
             widget: list
+            i18n: false
             summary: "{{fields.name}}"
             fields:
               - { label: Code, name: code, widget: string }
@@ -68,3 +65,19 @@ collections:
                 - { label: "Left to right", value: "ltr" }
                 - { label: "Right to left", value: "rtl" }
               - { label: "Localized Name", name: name, widget: string }
+  - label: "Site Data"
+    name: "data"
+    i18n:
+      structure: single_file
+    files:
+      - label: "Site Data"
+        name: "site"
+        file: "src/_data/site.json"
+        i18n: true
+        fields:
+          - { label: Name, name: name, widget: string, i18n: true }
+          - { label: Description, name: shortDesc, widget: text, i18n: true }
+          - { label: "Author Name", name: authorName, widget: string, i18n: true }
+          - { label: "Author Email", name: authorEmail, widget: string, i18n: duplicate }
+          - { label: "Author Website", name: authorWebsite, widget: string, i18n: duplicate }
+          

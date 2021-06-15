@@ -10,7 +10,7 @@
                         {# Find an item with a fileSlug which matches the current page's translation key but is not the same language. #}
                         {% if item.fileSlug == translationKey and item.data.lang !== lang %}
                         <li lang="{{ item.data.lang }}">
-                            <a href="{{ item.url }}">{{ site.languages | getSiblingValue("code", item.data.lang, "name") }}</a>
+                            <a href="{{ item.url }}">{{ config.languages | getSiblingValue("code", item.data.lang, "name") }}</a>
                         </li>
                         {% endif %}
                     {% endfor %}

@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="{{ lang }}" dir="{{ site.languages | getSiblingValue("code", lang, "dir") }}">
+<html lang="{{ lang }}" dir="{{ config.languages | getSiblingValue("code", lang, "dir") }}">
     <head>
-        <title>{% if title %} {{ title }} &middot; {% endif %} {{ site.name }}</title>
+        <title>{% if title %} {{ title }} &middot; {% endif %} {{ site[lang].name }}</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link rel="manifest" href="/manifest.webmanifest">
-        <link rel="alternate" type="application/atom+xml" href="{{ site.url }}/feed.xml" title="{{ site.title }}">
+        <link rel="alternate" type="application/atom+xml" href="{{ config.url }}{% if lang !== 'en' %}/{{ lang }}{% endif %}/feed.xml" title="{% if lang === "en" %}{{ "%s RSS feed" | replace("%s", site[lang].name) }}{% else %}{{ translations[lang]["%s RSS feed"] | replace("%s", site[lang].name) }}{% endif %}">
         {% include "partials/global/icons.njk" %}
         <script type="text/javascript" src="{{ '/' | url }}lib/infusion/infusion-uio.min.js"></script>
         {% include "partials/global/scripts.njk" %}
