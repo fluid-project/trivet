@@ -76,7 +76,7 @@ collections:
         i18n: true
         fields:
           - { label: Name, name: name, widget: string, i18n: true }
-          - { label: Description, name: shortDesc, widget: text, i18n: true }
+          - { label: Description, name: description, widget: text, i18n: true }
           - { label: "Author Name", name: authorName, widget: string, i18n: true }
           - { label: "Author Email", name: authorEmail, widget: string, i18n: duplicate }
           - { label: "Author Website", name: authorWebsite, widget: string, i18n: duplicate }

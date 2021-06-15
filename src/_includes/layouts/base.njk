@@ -1,15 +1,21 @@
 <!doctype html>
 <html lang="{{ lang }}" dir="{{ config.languages | getSiblingValue("code", lang, "dir") }}">
     <head>
-        <title>{% if title %} {{ title }} &middot; {% endif %} {{ site[lang].name }}</title>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <link rel="manifest" href="/manifest.webmanifest">
-        <link rel="alternate" type="application/atom+xml" href="{{ config.url }}{% if lang !== 'en' %}/{{ lang }}{% endif %}/feed.xml" title="{% if lang === "en" %}{{ "%s RSS feed" | replace("%s", site[lang].name) }}{% else %}{{ translations[lang]["%s RSS feed"] | replace("%s", site[lang].name) }}{% endif %}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+
+        <title>{% if title %} {{ title }} | {% endif %} {{ site[lang].name }}</title>
+
+        {% include "partials/global/stylesheets.njk" %}
+
+        {% include "partials/global/meta.njk" %}
+        <link rel="alternate" type="application/atom+xml" href="{{ config.url }}{% if lang !== 'en-CA' %}/{{ lang }}{% endif %}/feed.xml" title="{% if lang === "en-CA" %}{{ "%s RSS feed" | replace("%s", site[lang].name) }}{% else %}{{ translations[lang]["%s RSS feed"] | replace("%s", site[lang].name) }}{% endif %}">
+        
         {% include "partials/global/icons.njk" %}
+        <link rel="manifest" href="/manifest.webmanifest">
+        
         <script type="text/javascript" src="{{ '/' | url }}lib/infusion/infusion-uio.min.js"></script>
         {% include "partials/global/scripts.njk" %}
-        {% include "partials/global/stylesheets.njk" %}
     </head>
     <body class="{{ bodyClass if bodyClass else "page" }}">
         {% uioTemplate %}

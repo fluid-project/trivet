@@ -4,16 +4,16 @@ pagination:
   data: config.languages
   size: 1
   alias: language
-permalink: "{% if language.code !== 'en' %}/{{ language.code }}{% endif %}/feed.xml"
+permalink: "{% if language.code !== 'en-CA' %}/{{ language.code }}{% endif %}/feed.xml"
 ---
 {% set lang = language.code %}
 {% set collection = "postFeed_" + lang %}
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ lang }}">
     <title>{{ site[lang].name }}</title>
-    <subtitle>{% if lang === "en" %}{{ summary | replace("%s", site[lang].name) }}{% else %}{{ translations[lang][summary] | replace("%s", site[lang].name) }}{% endif %}</subtitle>
-    <link href="{{ config.url }}{% if lang !== 'en' %}/{{ lang }}{% endif %}/feed.xml" rel="self"/>
-    <link href="{{ config.url }}{% if lang !== 'en' %}/{{ lang }}{% endif %}"/>
+    <subtitle>{% if lang === "en-CA" %}{{ summary | replace("%s", site[lang].name) }}{% else %}{{ translations[lang][summary] | replace("%s", site[lang].name) }}{% endif %}</subtitle>
+    <link href="{{ config.url }}{% if lang !== 'en-CA' %}/{{ lang }}{% endif %}/feed.xml" rel="self"/>
+    <link href="{{ config.url }}{% if lang !== 'en-CA' %}/{{ lang }}{% endif %}"/>
     <updated>{{ collections[collection] | rssLastUpdatedDate }}</updated>
     <id>{{ config.url }}</id>
     <author>

@@ -2,12 +2,12 @@
   "maxPostsInFeed": 10,
   "languages": [
     {
-      "code": "en",
+      "code": "en-CA",
       "dir": "ltr",
       "name": "English"
     },
     {
-      "code": "fr",
+      "code": "fr-CA",
       "dir": "ltr",
       "name": "Français"
     }

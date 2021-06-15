@@ -2,10 +2,10 @@
 title: Home
 layout: layouts/page
 permalink: /
-lang: en
-translationKey: index.fr
+lang: en-CA
+translationKey: index.fr-CA
 eleventyNavigation:
-    parent: en
+    parent: en-CA
     key: Home
     order: 1
 ---
