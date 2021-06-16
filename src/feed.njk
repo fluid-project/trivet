@@ -4,7 +4,7 @@ pagination:
   data: config.languages
   size: 1
   alias: language
-permalink: "{% if language.code !== 'en-CA' %}/{{ language.code }}{% endif %}/feed.xml"
+permalink: "{% if language.code !== 'en-CA' %}/{{ language.code.split('-')[0] }}{% endif %}/feed.xml"
 ---
 {% set lang = language.code %}
 {% set collection = "postFeed_" + lang %}

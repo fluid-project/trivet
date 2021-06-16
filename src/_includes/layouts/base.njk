@@ -36,6 +36,52 @@
             </article>
         </main>
         {% include "partials/global/footer.njk" %}
-        {% uioInit %}
+        {# {% uioInit %} #}
+        <script>
+        fluid.defaults("fluid.uiOptions.multilingual", {
+            gradeNames: ["fluid.uiOptions"],
+            distributeOptions: {
+                source: "{that}.options.locale",
+                target: "{that messageLoader}.options.resourceOptions.locale"
+            },
+            listeners: {
+                "onPrefsEditorReady.addLanguageAttributesToBody": {
+                    func: "fluid.uiOptions.multilingual.addLanguageAttributesToBody",
+                    args: ["{that}.prefsEditorLoader.prefsEditor.container", "{that}.options.locale", "{that}.options.direction"]
+                }
+            }
+        });
+        
+        /**
+        * Adds the locale and direction to the BODY in the IFRAME to enable CSS
+        * based on the locale and direction
+        *
+        * @param {jQuery} prefsEditorContainer - the DOM container for UIO
+        * @param {String} locale - the locale to apply
+        * @param {String} direction - the text orientation to apply
+        */
+        fluid.uiOptions.multilingual.addLanguageAttributesToBody = function (prefsEditorContainer, locale, direction) {
+            prefsEditorContainer.attr("lang", locale);
+            prefsEditorContainer.attr("dir", direction);
+        };
+
+        fluid.uiOptions.multilingual(".flc-prefsEditor-separatedPanel", {
+            auxiliarySchema: {
+                terms: {
+                    "templatePrefix": "/lib/infusion/src/framework/preferences/html",
+                    "messagePrefix": "/lib/infusion/src/framework/preferences/messages"
+                },
+                "fluid.prefs.tableOfContents": {
+                    enactor: {
+                        "tocTemplate": "/lib/infusion/src/components/tableOfContents/html/TableOfContents.html",
+                        "tocMessage": "/lib/infusion/src/framework/preferences/messages/tableOfContents-enactor.json",
+                        ignoreForToC: {}
+                    }
+                }
+            },
+            locale: "{{ lang | truncate(2, true, '') }}",
+            direction: "{{ config.languages | getSiblingValue("code", lang, "dir") }}"
+        });
+        </script>
     </body>
 </html>
