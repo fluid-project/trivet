@@ -74,7 +74,7 @@ following changes need to be made:
 
 2. Add sections for the new language to [`src/_data/site.json`](src/_data/site.json) and [`src/_data/translations.json`](src/_data/translations.json),
    translating the content from the English source. The key will always be the language code as used in `config.json`.
-3. Add the language to the [locales configuration](https://github.com/fluid-project/trivet/blob/e96fa4395e5ed10fff901dd8374571c952f9f204/src/admin/config.yml#L13)
+3. Add the language to the [locales configuration](https://github.com/fluid-project/trivet/blob/b899db1/src/admin/config.yml#L13)
    of Netlify CMS if your project is using Netlify CMS.
 4. Add folders in each collection for translated content. For example, you would add a folder called `fa-IR` to
    [`src/collections/pages`](src/collections/pages) and [`src/collections/posts`](src/collections/posts).
