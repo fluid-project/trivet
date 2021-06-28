@@ -78,8 +78,7 @@ following changes need to be made:
    of Netlify CMS if your project is using Netlify CMS.
 4. Add folders in each collection for translated content. For example, you would add a folder called `fa-IR` to
    [`src/collections/pages`](src/collections/pages) and [`src/collections/posts`](src/collections/posts).
-5. Create localized versions of the home page and posts archive pages, following the examples of [`src/index.fr-CA.md`](src/index.fr-CA.md)
-   and [`src/posts.fr-CA.md`](src/posts.fr-CA.md).
+5. Create a localized version of the posts archive page, following the example of [`src/posts.fr-CA.md`](src/posts.fr-CA.md).
 
 For more information about how Netlify CMS works with internationalized content, see the [internationalization support documentation](https://www.netlifycms.org/docs/beta-features/#i18n-support).
 

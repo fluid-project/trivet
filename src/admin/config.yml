@@ -10,8 +10,8 @@ editor:
   preview: false
 i18n:
   structure: multiple_folders
-  locales: [en, fr]
-  default_locale: en
+  locales: [en-CA, fr-CA]
+  default_locale: en-CA
 collections:
   - label: "Posts"
     label_singular: "Post"

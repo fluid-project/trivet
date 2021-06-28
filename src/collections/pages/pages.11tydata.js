@@ -8,7 +8,15 @@ module.exports = {
         /* Determine the language of this item based on the language code in the file path. */
         lang: data => data.page.filePathStem.replace(/\/collections\/pages\/([A-Za-z-]*)\/[a-z0-9-]*/g, "$1"),
         /* Set the translationKey, used for populating the language switcher, to the file slug. */
-        translationKey: data => data.page.fileSlug,
+        translationKey: data => {
+            const lang = data.page.filePathStem.replace(/\/collections\/pages\/([A-Za-z-]*)\/[a-z0-9-]*/g, "$1");
+
+            if (data.page.fileSlug === lang) {
+                return "index";
+            }
+
+            return data.page.fileSlug;
+        },
         eleventyNavigation: data => {
             /* If this page has an `order` attribute, create an Eleventy Navigation object for it. */
             if (data.order) {
@@ -24,6 +32,12 @@ module.exports = {
         /* Build a permalink using the post title and language key. */
         permalink: data => {
             const lang = data.page.filePathStem.replace(/\/collections\/pages\/([A-Za-z-]*)\/[a-z0-9-]*/g, "$1");
+
+            /* Handle permalink for home pages differently. */
+            if (data.page.fileSlug === lang) {
+                return (lang === "en-CA") ? "/" : `/${lang.split("-")[0]}/`;
+            }
+
             const slug = slugify(data.title, {
                 replacement: "-",
                 lower: true,
