@@ -8,6 +8,11 @@ This repository contains the files needed to build [Eleventy](http://11ty.dev/)-
 
 ## Usage
 
+You can use this repository as a template for a new site hosted on [Netlify](https://netlify.com) with [Netlify CMS](https://netlifycms.org)
+pre-configured:
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/fluid-project/trivet&stack=cms)
+
 ### To run locally in development mode
 
 1. Install the required NPM packages: `npm install`
@@ -42,7 +47,7 @@ directory to the web root of your server.
 * Integrated [UI Options](https://docs.fluidproject.org/infusion/development/UserInterfaceOptionsAPI.html) Preferences Editor.
 * Basic static site configuration for developing project websites and blogs.
 * Starter configuration for [Netlify CMS](https://netlifycms.org/).
-* Localization support.
+* Internationalization support.
 
 ## Notes
 
