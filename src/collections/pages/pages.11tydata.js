@@ -31,6 +31,11 @@ module.exports = {
         },
         /* Build a permalink using the post title and language key. */
         permalink: data => {
+            /* If this page is a "stub" with no localized title, we assume it does not exist and prevent it from building. */
+            if (!Object.hasOwnProperty(data, "title")) {
+                return false;
+            }
+
             const lang = data.page.filePathStem.replace(/\/collections\/pages\/([A-Za-z-]*)\/[a-z0-9-]*/g, "$1");
 
             /* Handle permalink for home pages differently. */
