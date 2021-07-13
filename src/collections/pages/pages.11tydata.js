@@ -32,7 +32,7 @@ module.exports = {
         /* Build a permalink using the post title and language key. */
         permalink: data => {
             /* If this page is a "stub" with no localized title, we assume it does not exist and prevent it from building. */
-            if (!Object.hasOwnProperty(data, "title")) {
+            if (!Object.prototype.hasOwnProperty.call(data, "title")) {
                 return false;
             }
 

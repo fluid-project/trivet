@@ -13,7 +13,7 @@ module.exports = {
         /* Build a permalink using the post title, language key, and translated collection type slug. */
         permalink: data => {
             /* If this post is a "stub" with no localized title, we assume it does not exist and prevent it from building. */
-            if (!Object.hasOwnProperty(data, "title")) {
+            if (!Object.prototype.hasOwnProperty.call(data, "title")) {
                 return false;
             }
             const lang = data.page.filePathStem.replace(/\/collections\/posts\/([A-Za-z-]*)\/[a-z0-9-]*/g, "$1");
