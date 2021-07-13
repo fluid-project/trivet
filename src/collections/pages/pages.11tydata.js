@@ -1,15 +1,16 @@
 "use strict";
 
+const getLang = require("../../utils/getLang.js");
 const slugify = require("slugify");
 
 module.exports = {
     layout: "layouts/page.njk",
     eleventyComputed: {
         /* Determine the language of this item based on the language code in the file path. */
-        lang: data => data.page.filePathStem.replace(/\/collections\/pages\/([A-Za-z-]*)\/[a-z0-9-]*/g, "$1"),
+        lang: data => getLang(data.page.filePathStem, "pages"),
         /* Set the translationKey, used for populating the language switcher, to the file slug. */
         translationKey: data => {
-            const lang = data.page.filePathStem.replace(/\/collections\/pages\/([A-Za-z-]*)\/[a-z0-9-]*/g, "$1");
+            const lang = getLang(data.page.filePathStem, "pages");
 
             if (data.page.fileSlug === lang) {
                 return "index";
@@ -36,7 +37,7 @@ module.exports = {
                 return false;
             }
 
-            const lang = data.page.filePathStem.replace(/\/collections\/pages\/([A-Za-z-]*)\/[a-z0-9-]*/g, "$1");
+            const lang = getLang(data.page.filePathStem, "pages");
 
             /* Handle permalink for home pages differently. */
             if (data.page.fileSlug === lang) {
