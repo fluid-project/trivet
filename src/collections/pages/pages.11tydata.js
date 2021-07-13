@@ -25,7 +25,7 @@ module.exports = {
                     parent: data.lang,
                     order: data.order,
                     /* If a key is set, use that for the navigation item label; otherwise use the page title. */
-                    key: data.hasOwnProperty("key") ? data.key : data.title
+                    key: Object.prototype.hasOwnProperty.call(data, "key") ? data.key : data.title
                 };
             }
             return false;
