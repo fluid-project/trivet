@@ -79,11 +79,9 @@ following changes need to be made:
 
 2. Add sections for the new language to [`src/_data/site.json`](src/_data/site.json) and [`src/_data/translations.json`](src/_data/translations.json),
    translating the content from the English source. The key will always be the language code as used in `config.json`.
-3. Add the language to the [locales configuration](https://github.com/fluid-project/trivet/blob/b899db1/src/admin/config.yml#L13)
-   of Netlify CMS if your project is using Netlify CMS.
-4. Add folders in each collection for translated content. For example, you would add a folder called `fa-IR` to
+3. Add folders in each collection for translated content. For example, you would add a folder called `fa-IR` to
    [`src/collections/pages`](src/collections/pages) and [`src/collections/posts`](src/collections/posts).
-5. Create a localized version of the posts archive page, following the example of [`src/posts.fr-CA.md`](src/posts.fr-CA.md).
+4. Create a localized version of the posts archive page, following the example of [`src/posts.fr-CA.md`](src/posts.fr-CA.md).
 
 For more information about how Netlify CMS works with internationalized content, see the [internationalization support documentation](https://www.netlifycms.org/docs/beta-features/#i18n-support).
 
