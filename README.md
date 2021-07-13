@@ -62,7 +62,7 @@ For full documentation, see the [Netlify CMS documentation](https://www.netlifyc
 
 ## Internationalization
 
-Trivet includes internationalization support for English (Canada) and French (Canada). To a language, the
+Trivet includes internationalization support for English (Canada) and French (Canada). To add a language, the
 following changes need to be made:
 
 1. Update the `languages` section of [`src/_data/config.json`](src/_data/config.json) to add the new language. For
