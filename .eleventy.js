@@ -56,14 +56,12 @@ module.exports = function (config) {
     const livePosts = post => post.date <= now && !post.data.draft;
     siteConfig.languages.forEach(lang => {
         config.addCollection(`posts_${lang.code}`, collection => {
-            return [
-                ...collection.getFilteredByGlob(`./src/collections/posts/${lang.code}/*.md`).filter(livePosts)
-            ];
+            return collection.getFilteredByGlob(`./src/collections/posts/${lang.code}/*.md`).filter(livePosts);
         });
 
         // The following collection is used to create a collection of posts for the RSS feed.
         config.addCollection(`postFeed_${lang.code}`, collection => {
-            return [...collection.getFilteredByGlob(`./src/collections/posts/${lang.code}/*.md`).filter(livePosts)]
+            return collection.getFilteredByGlob(`./src/collections/posts/${lang.code}/*.md`).filter(livePosts)
                 .reverse()
                 .slice(0, siteConfig.maxPostsInFeed);
         });
