@@ -1,7 +1,7 @@
 "use strict";
 
 const getLang = require("../../utils/getLang.js");
-const slugify = require("slugify");
+const generatePermalink = require("../../utils/generatePermalink.js");
 
 module.exports = {
     layout: "layouts/page.njk",
@@ -31,26 +31,6 @@ module.exports = {
             return false;
         },
         /* Build a permalink using the post title and language key. */
-        permalink: data => {
-            /* If this page is a "stub" with no localized title, we assume it does not exist and prevent it from building. */
-            if (!Object.prototype.hasOwnProperty.call(data, "title")) {
-                return false;
-            }
-
-            const lang = getLang(data.page.filePathStem, "pages");
-
-            /* Handle permalink for home pages differently. */
-            if (data.page.fileSlug === lang) {
-                return (lang === "en-CA") ? "/" : `/${lang.split("-")[0]}/`;
-            }
-
-            const slug = slugify(data.title, {
-                replacement: "-",
-                lower: true,
-                strict: true
-            });
-
-            return (lang === "en-CA") ? `/${slug}/` : `/${lang.split("-")[0]}/${slug}/`;
-        }
+        permalink: data => generatePermalink(data, "pages")
     }
 };

@@ -1,8 +1,7 @@
 "use strict";
 
 const getLang = require("../../utils/getLang.js");
-const slugify = require("slugify");
-const translations = require("../../_data/translations.json");
+const generatePermalink = require("../../utils/generatePermalink.js");
 
 module.exports = {
     layout: "layouts/post.njk",
@@ -12,19 +11,6 @@ module.exports = {
         /* Set the translationKey, used for populating the language switcher, to the file slug. */
         translationKey: data => data.page.fileSlug,
         /* Build a permalink using the post title, language key, and translated collection type slug. */
-        permalink: data => {
-            /* If this post is a "stub" with no localized title, we assume it does not exist and prevent it from building. */
-            if (!Object.prototype.hasOwnProperty.call(data, "title")) {
-                return false;
-            }
-            const lang = getLang(data.page.filePathStem, "posts");
-            const slug = slugify(data.title, {
-                replacement: "-",
-                lower: true,
-                strict: true
-            });
-
-            return (lang === "en-CA") ? `/post/${slug}/` : `/${lang.split("-")[0]}/${translations[lang].post}/${slug}/`;
-        }
+        permalink: data => generatePermalink(data, "posts")
     }
 };
