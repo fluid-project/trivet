@@ -1,19 +1,18 @@
 ---
-summary: "The most recent posts from %s"
 pagination:
   data: config.languages
   size: 1
   alias: language
-permalink: "{% if language.code !== 'en-CA' %}/{{ language.code.split('-')[0] }}{% endif %}/feed.xml"
+permalink: "{% if language.code !== config.languages[0].code %}/{{ language.code.split('-')[0] }}{% endif %}/feed.xml"
 ---
 {% set lang = language.code %}
 {% set collection = "postFeed_" + lang %}
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ lang }}">
     <title>{{ site[lang].name }}</title>
-    <subtitle>{% if lang === "en-CA" %}{{ summary | replace("%s", site[lang].name) }}{% else %}{{ translations[lang][summary] | replace("%s", site[lang].name) }}{% endif %}</subtitle>
-    <link href="{{ config.url }}{% if lang !== 'en-CA' %}/{{ lang }}{% endif %}/feed.xml" rel="self"/>
-    <link href="{{ config.url }}{% if lang !== 'en-CA' %}/{{ lang }}{% endif %}"/>
+    <subtitle>{{ translations[lang][summary] | replace("%s", site[lang].name) }}</subtitle>
+    <link href="{{ config.url }}{% if lang !== config.languages[0].code %}/{{ lang }}{% endif %}/feed.xml" rel="self"/>
+    <link href="{{ config.url }}{% if lang !== config.languages[0].code %}/{{ lang }}{% endif %}"/>
     <updated>{{ collections[collection] | rssLastUpdatedDate }}</updated>
     <id>{{ config.url }}</id>
     <author>
