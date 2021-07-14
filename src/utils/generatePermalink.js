@@ -1,7 +1,6 @@
 "use strict";
 
 const getLang = require("./getLang.js");
-const getShortLang = require("./getShortLang.js");
 const slugFilter = require("../../node_modules/eleventy-plugin-fluid/src/filters/slug-filter.js");
 const translations = require("../_data/translations.json");
 
@@ -12,7 +11,7 @@ module.exports = (data, collectionType) => {
     }
 
     const lang = getLang(data.page.filePathStem, collectionType);
-    const shortLang = getShortLang(lang);
+    const shortLang = lang.split("-")[0];
     const slug = slugFilter(data.title);
 
     if (collectionType === "pages") {
