@@ -19,6 +19,9 @@ const navigationPlugin = require("@11ty/eleventy-navigation");
 const rssPlugin = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight");
 
+// Import filters
+const getSiblingValue = require("./src/filters/getSiblingValue.js");
+
 // Import transforms
 const htmlMinTransform = require("./src/transforms/html-min-transform.js");
 const parseTransform = require("./src/transforms/parse-transform.js");
@@ -28,6 +31,9 @@ const siteConfig = require("./src/_data/config.json");
 
 module.exports = function (config) {
     config.setUseGitIgnore(false);
+
+    // Filters
+    config.addNunjucksFilter("getSiblingValue", getSiblingValue);
 
     // Transforms
     config.addTransform("htmlmin", htmlMinTransform);
@@ -39,16 +45,6 @@ module.exports = function (config) {
     config.addPassthroughCopy({"src/assets/images": "assets/images"});
     config.addPassthroughCopy({"src/posts/images": "posts/images"});
 
-    config.addNunjucksFilter("getSiblingValue", function (value, inputKey, inputValue, siblingKey) {
-        let siblingValue = false;
-        value.forEach(item => {
-            if (item[inputKey] === inputValue) {
-                siblingValue = item[siblingKey];
-            };
-        });
-
-        return siblingValue;
-    });
 
     const now = new Date();
 
