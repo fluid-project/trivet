@@ -2,7 +2,7 @@
 layout: layouts/posts.njk
 title: Articles
 lang: fr-CA
-translationKey: posts.en-CA
+translationKey: posts
 eleventyNavigation:
   parent: fr-CA
   key: Articles
