@@ -2,6 +2,7 @@
 
 const config = require("../_data/config.json");
 const getLang = require("./getLang.js");
+const getLanguageSlug = require("./getLanguageSlug.js");
 const slugFilter = require("../../node_modules/eleventy-plugin-fluid/src/filters/slug-filter.js");
 const translations = require("../_data/translations.json");
 
@@ -12,16 +13,16 @@ module.exports = (data, collectionType) => {
     }
 
     const lang = getLang(data.page.filePathStem, collectionType);
-    const shortLang = lang.split("-")[0];
+    const langSlug = getLanguageSlug(lang);
     const slug = slugFilter(data.title);
 
     if (collectionType === "pages") {
         if (data.page.fileSlug === lang) {
-            return (lang === config.languages[0].code) ? "/" : `/${shortLang}/`;
+            return (lang === config.languages[0].code) ? "/" : `/${langSlug}/`;
         }
 
-        return (lang === config.languages[0].code) ? `/${slug}/` : `/${shortLang}/${slug}/`;
+        return (lang === config.languages[0].code) ? `/${slug}/` : `/${langSlug}/${slug}/`;
     } else {
-        return (lang === config.languages[0].code) ? `/${translations[lang][collectionType]}/${slug}/` : `/${shortLang}/${translations[lang][collectionType]}/${slug}/`;
+        return (lang === config.languages[0].code) ? `/${translations[lang][collectionType]}/${slug}/` : `/${langSlug}/${translations[lang][collectionType]}/${slug}/`;
     }
 };

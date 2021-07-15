@@ -20,6 +20,7 @@ const rssPlugin = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 // Import filters
+const getLanguageSlug = require("./src/utils/getLanguageSlug.js");
 const getSiblingValue = require("./src/filters/getSiblingValue.js");
 
 // Import transforms
@@ -34,6 +35,7 @@ module.exports = function (config) {
 
     // Filters
     config.addNunjucksFilter("getSiblingValue", getSiblingValue);
+    config.addNunjucksFilter("getLanguageSlug", getLanguageSlug);
 
     // Transforms
     config.addTransform("htmlmin", htmlMinTransform);
@@ -44,7 +46,6 @@ module.exports = function (config) {
     config.addPassthroughCopy({"src/assets/icons": "/"});
     config.addPassthroughCopy({"src/assets/images": "assets/images"});
     config.addPassthroughCopy({"src/posts/images": "posts/images"});
-
 
     const now = new Date();
 

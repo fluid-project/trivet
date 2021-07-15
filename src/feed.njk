@@ -3,7 +3,7 @@ pagination:
   data: config.languages
   size: 1
   alias: language
-permalink: "{% if language.code !== config.languages[0].code %}/{{ language.code.split('-')[0] }}{% endif %}/feed.xml"
+permalink: "{% if language.code !== config.languages[0].code %}/{{ language.code | getLanguageSlug }}{% endif %}/feed.xml"
 ---
 {% set lang = language.code %}
 {% set collection = "postFeed_" + lang %}
@@ -11,8 +11,8 @@ permalink: "{% if language.code !== config.languages[0].code %}/{{ language.code
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ lang }}">
     <title>{{ site[lang].name }}</title>
     <subtitle>{{ translations[lang][summary] | replace("%s", site[lang].name) }}</subtitle>
-    <link href="{{ config.url }}{% if lang !== config.languages[0].code %}/{{ lang }}{% endif %}/feed.xml" rel="self"/>
-    <link href="{{ config.url }}{% if lang !== config.languages[0].code %}/{{ lang }}{% endif %}"/>
+    <link href="{{ config.url }}{% if lang !== config.languages[0].code %}/{{ lang | getLanguageSlug }}{% endif %}/feed.xml" rel="self"/>
+    <link href="{{ config.url }}{% if lang !== config.languages[0].code %}/{{ lang | getLanguageSlug }}{% endif %}"/>
     <updated>{{ collections[collection] | rssLastUpdatedDate }}</updated>
     <id>{{ config.url }}</id>
     <author>
