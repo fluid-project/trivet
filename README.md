@@ -65,20 +65,25 @@ For full documentation, see the [Netlify CMS documentation](https://www.netlifyc
 Trivet includes internationalization support for English (Canada) and French (Canada). To add a language, the
 following changes need to be made:
 
-1. Update the `languages` section of [`src/_data/config.json`](src/_data/config.json) to add the new language. For
-   example, to add Farsi, you would add the [IETF language code](https://github.com/unicode-org/cldr-json/blob/master/cldr-json/cldr-core/availableLocales.json),
-   direction (`ltr` for left to right or `rtl` for right to left), and language name in the language:
+1. Update the `languages` object of [`src/_data/config.json`](src/_data/config.json) to add the new language. For
+   example, to add Farsi, you would use the [IETF language code](https://github.com/unicode-org/cldr-json/blob/master/cldr-json/cldr-core/availableLocales.json)
+   as the key, and add the direction (`ltr` for left to right or `rtl` for right to left) and localized language name
+   (endonym) as the object values:
 
    ```json
    {
-      "code": "fa-IR",
-      "dir": "rtl",
-      "name": "فارسی"
-    }
+      "languages": {
+         "fa-IR": {
+            "dir": "rtl",
+            "name": "فارسی"
+         }
+      }
+   }
    ```
 
-   The first language in the `languages` section of [`src/_data/config.json`](src/_data/config.json) will always be the
-   default language. To change this, you may change the order in which languages are listed here.
+   You can set the site's default language by changing the `defaultLanguage` value in [`src/_data/config.json`](src/_data/config.json)
+   to the [IETF language code](https://github.com/unicode-org/cldr-json/blob/master/cldr-json/cldr-core/availableLocales.json)
+   of the desired default language.
 
 2. Add sections for the new language to [`src/_data/site.json`](src/_data/site.json) and [`src/_data/translations.json`](src/_data/translations.json),
    translating the content from the English source. The key will always be the language code as used in `config.json`.

@@ -18,11 +18,11 @@ module.exports = (data, collectionType) => {
 
     if (collectionType === "pages") {
         if (data.page.fileSlug === lang) {
-            return (lang === config.languages[0].code) ? "/" : `/${langSlug}/`;
+            return (lang === config.defaultLanguage) ? "/" : `/${langSlug}/`;
         }
 
-        return (lang === config.languages[0].code) ? `/${slug}/` : `/${langSlug}/${slug}/`;
+        return (lang === config.defaultLanguage) ? `/${slug}/` : `/${langSlug}/${slug}/`;
     } else {
-        return (lang === config.languages[0].code) ? `/${translations[lang][collectionType]}/${slug}/` : `/${langSlug}/${translations[lang][collectionType]}/${slug}/`;
+        return (lang === config.defaultLanguage) ? `/${translations[lang][collectionType]}/${slug}/` : `/${langSlug}/${translations[lang][collectionType]}/${slug}/`;
     }
 };

@@ -1,16 +1,15 @@
 {
   "maxPostsInFeed": 10,
-  "languages": [
-    {
-      "code": "en-CA",
+  "defaultLanguage": "en-CA",
+  "languages": {
+    "en-CA": {
       "dir": "ltr",
       "name": "English"
     },
-    {
-      "code": "fr-CA",
+    "fr-CA": {
       "dir": "ltr",
       "name": "Français"
     }
-  ],
+  },
   "url": "https://trivet.netlify.app"
 }

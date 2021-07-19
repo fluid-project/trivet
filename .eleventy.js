@@ -21,7 +21,6 @@ const syntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 // Import filters
 const getLanguageSlug = require("./src/utils/getLanguageSlug.js");
-const getSiblingValue = require("./src/filters/getSiblingValue.js");
 
 // Import transforms
 const htmlMinTransform = require("./src/transforms/html-min-transform.js");
@@ -34,7 +33,6 @@ module.exports = function (config) {
     config.setUseGitIgnore(false);
 
     // Filters
-    config.addNunjucksFilter("getSiblingValue", getSiblingValue);
     config.addNunjucksFilter("getLanguageSlug", getLanguageSlug);
 
     // Transforms
@@ -51,14 +49,14 @@ module.exports = function (config) {
 
     // Custom collections
     const livePosts = post => post.date <= now && !post.data.draft;
-    siteConfig.languages.forEach(lang => {
-        config.addCollection(`posts_${lang.code}`, collection => {
-            return collection.getFilteredByGlob(`./src/collections/posts/${lang.code}/*.md`).filter(livePosts);
+    Object.keys(siteConfig.languages).forEach(lang => {
+        config.addCollection(`posts_${lang}`, collection => {
+            return collection.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`).filter(livePosts);
         });
 
         // The following collection is used to create a collection of posts for the RSS feed.
-        config.addCollection(`postFeed_${lang.code}`, collection => {
-            return collection.getFilteredByGlob(`./src/collections/posts/${lang.code}/*.md`).filter(livePosts)
+        config.addCollection(`postFeed_${lang}`, collection => {
+            return collection.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`).filter(livePosts)
                 .reverse()
                 .slice(0, siteConfig.maxPostsInFeed);
         });

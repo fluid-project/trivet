@@ -3,21 +3,20 @@ pagination:
   data: config.languages
   size: 1
   alias: language
-permalink: "{% if language.code !== config.languages[0].code %}/{{ language.code | getLanguageSlug }}{% endif %}/feed.xml"
+permalink: "{% if language !== config.defaultLanguage %}/{{ language | getLanguageSlug }}{% endif %}/feed.xml"
 ---
-{% set lang = language.code %}
-{% set collection = "postFeed_" + lang %}
+{% set collection = "postFeed_" + language %}
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ lang }}">
-    <title>{{ site[lang].name }}</title>
-    <subtitle>{{ translations[lang][summary] | replace("%s", site[lang].name) }}</subtitle>
-    <link href="{{ config.url }}{% if lang !== config.languages[0].code %}/{{ lang | getLanguageSlug }}{% endif %}/feed.xml" rel="self"/>
-    <link href="{{ config.url }}{% if lang !== config.languages[0].code %}/{{ lang | getLanguageSlug }}{% endif %}"/>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ language }}">
+    <title>{{ site[language].name }}</title>
+    <subtitle>{{ translations[language][summary] | replace("%s", site[language].name) }}</subtitle>
+    <link href="{{ config.url }}{% if language !== config.defaultLanguage %}/{{ language | getLanguageSlug }}{% endif %}/feed.xml" rel="self"/>
+    <link href="{{ config.url }}{% if language !== config.defaultLanguage %}/{{ language | getLanguageSlug }}{% endif %}"/>
     <updated>{{ collections[collection] | rssLastUpdatedDate }}</updated>
     <id>{{ config.url }}</id>
     <author>
-        <name>{{ site[lang].authorName }}</name>
-        <email>{{ site[lang].authorEmail }}</email>
+        <name>{{ site[language].authorName }}</name>
+        <email>{{ site[language].authorEmail }}</email>
     </author>
     {% for post in collections[collection] %}
         {% set absolutePostUrl %}{{ config.url }}{{ post.url | url }}{% endset %}
