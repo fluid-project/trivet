@@ -9,7 +9,7 @@ module.exports = (lang) => {
     /* Create array of all supported language codes with the country code trimmed. */
     const codes = config.languages.reduce((accumulator, currentValue) => {
         let lang = currentValue.code.split("-")[0];
-        accumulator[lang] = (++accumulator[lang] || 1);
+        accumulator[lang] = (accumulator[lang] || 0) + 1;
         return accumulator;
     }, {});
 

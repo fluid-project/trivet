@@ -52,22 +52,6 @@ collections:
         fields:
           - { label: URL, name: url, widget: string }
           - { label: "Maximum Posts in RSS Feed", name: maxPostsInFeed, widget: number, min: 1, i18n: false }
-          - label: Languages
-            label_singular: Language
-            name: languages
-            widget: list
-            i18n: false
-            hint: "The first language will be the site's default language. To change the default, reorder the languages above."
-            fields:
-              - { label: "Language Name", name: "name", widget: string, hint: "The language's name in the language (endonym). For example, English, français or فارسی." }
-              - { label: Code, name: code, widget: string }
-              - label: Direction
-                name: dir
-                widget: select
-                default: "ltr"
-                options:
-                - { label: "Left to right", value: "ltr" }
-                - { label: "Right to left", value: "rtl" }
   - label: "Site Data"
     name: "data"
     i18n:
