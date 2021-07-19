@@ -77,6 +77,9 @@ following changes need to be made:
     }
    ```
 
+   The first language in the `languages` section of [`src/_data/config.json`](src/_data/config.json) will always be the
+   default language. To change this, you may change the order in which languages are listed here.
+
 2. Add sections for the new language to [`src/_data/site.json`](src/_data/site.json) and [`src/_data/translations.json`](src/_data/translations.json),
    translating the content from the English source. The key will always be the language code as used in `config.json`.
 3. Add folders in each collection for translated content. For example, you would add a folder called `fa-IR` to
