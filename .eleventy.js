@@ -19,9 +19,6 @@ const navigationPlugin = require("@11ty/eleventy-navigation");
 const rssPlugin = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight");
 
-// Import filters
-const getLanguageSlug = require("./src/utils/getLanguageSlug.js");
-
 // Import transforms
 const htmlMinTransform = require("./src/transforms/html-min-transform.js");
 const parseTransform = require("./src/transforms/parse-transform.js");
@@ -31,9 +28,6 @@ const siteConfig = require("./src/_data/config.json");
 
 module.exports = function (config) {
     config.setUseGitIgnore(false);
-
-    // Filters
-    config.addNunjucksFilter("getLanguageSlug", getLanguageSlug);
 
     // Transforms
     config.addTransform("htmlmin", htmlMinTransform);
@@ -81,6 +75,12 @@ module.exports = function (config) {
                     res.end();
                 });
             }
+        }
+    });
+
+    config.on("beforeBuild", () => {
+        if (!Object.keys(siteConfig.languages).includes(siteConfig.defaultLanguage)) {
+            console.error("The default language configured in src/_data/config.json is not one of your site's supported languages."); // eslint-disable-line no-console
         }
     });
 

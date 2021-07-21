@@ -67,13 +67,20 @@ following changes need to be made:
 
 1. Update the `languages` object of [`src/_data/config.json`](src/_data/config.json) to add the new language. For
    example, to add Farsi, you would use the [IETF language code](https://github.com/unicode-org/cldr-json/blob/master/cldr-json/cldr-core/availableLocales.json)
-   as the key, and add the direction (`ltr` for left to right or `rtl` for right to left) and localized language name
-   (endonym) as the object values:
+   as the key, and add the following object values:
+
+   * an optional short form of the language code for use in permalinks
+   * an optional short form of the language code that corresponds to an available message bundle locale for Infusion's
+     [User Interface Options](https://github.com/fluid-project/infusion/tree/main/src/framework/preferences/messages)
+   * the direction (`ltr` for left to right or `rtl` for right to left)
+   * the localized language name (endonym)
 
    ```json
    {
       "languages": {
          "fa-IR": {
+            "slug": "fa",
+            "uioSlug": "fa",
             "dir": "rtl",
             "name": "فارسی"
          }

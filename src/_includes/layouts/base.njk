@@ -78,7 +78,7 @@
                     }
                 }
             },
-            locale: "{{ lang | truncate(2, true, '') }}",
+            locale: "{{ config.languages[lang].uioSlug }}",
             direction: "{{ config.languages[lang].dir }}"
         });
         </script>
