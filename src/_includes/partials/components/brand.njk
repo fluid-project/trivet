@@ -1,3 +1,7 @@
             <div class="brand">
-                <a rel="home" href="/"{% if page.url === '/' %} aria-current="page"{% endif %}>Trivet</a>
+                {% set homeUrl = "/" %}
+                {% if lang !== config.defaultLanguage %}
+                {% set homeUrl = "/" + config.languages[lang].slug %}
+                {% endif %}
+                <a rel="home" href="{{ homeUrl }}"{% if page.url === homeUrl %} aria-current="page"{% endif %}>Trivet</a>
             </div>
