@@ -80,6 +80,7 @@ module.exports = function (config) {
 
     config.on("beforeBuild", () => {
         if (!siteConfig.languages[siteConfig.defaultLanguage]) {
+            process.exitCode = 1;
             throw new Error(`The default language, ${siteConfig.defaultLanguage}, configured in src/_data/config.json is not one of your site's supported languages.`);
         }
     });
