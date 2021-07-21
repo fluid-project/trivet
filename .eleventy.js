@@ -79,8 +79,8 @@ module.exports = function (config) {
     });
 
     config.on("beforeBuild", () => {
-        if (!Object.keys(siteConfig.languages).includes(siteConfig.defaultLanguage)) {
-            console.error("The default language configured in src/_data/config.json is not one of your site's supported languages."); // eslint-disable-line no-console
+        if (!siteConfig.languages[siteConfig.defaultLanguage]) {
+            throw new Error(`The default language, ${siteConfig.defaultLanguage}, configured in src/_data/config.json is not one of your site's supported languages.`);
         }
     });
 
