@@ -24,7 +24,7 @@ const htmlMinTransform = require("./src/transforms/html-min-transform.js");
 const parseTransform = require("./src/transforms/parse-transform.js");
 
 // Import data files
-const site = require("./src/_data/site.json");
+const siteConfig = require("./src/_data/config.json");
 
 module.exports = function (config) {
     config.setUseGitIgnore(false);
@@ -34,6 +34,7 @@ module.exports = function (config) {
     config.addTransform("parse", parseTransform);
 
     // Passthrough copy
+    config.addPassthroughCopy({"src/admin/config.yml": "admin/config.yml"});
     config.addPassthroughCopy({"src/assets/icons": "/"});
     config.addPassthroughCopy({"src/assets/images": "assets/images"});
     config.addPassthroughCopy({"src/posts/images": "posts/images"});
@@ -42,17 +43,17 @@ module.exports = function (config) {
 
     // Custom collections
     const livePosts = post => post.date <= now && !post.data.draft;
-    config.addCollection("posts", collection => {
-        return [
-            ...collection.getFilteredByGlob("./src/posts/*.md").filter(livePosts)
-        ];
-    });
+    Object.keys(siteConfig.languages).forEach(lang => {
+        config.addCollection(`posts_${lang}`, collection => {
+            return collection.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`).filter(livePosts);
+        });
 
-    // The following collection is used to create a collection of posts for the RSS feed.
-    config.addCollection("postFeed", collection => {
-        return [...collection.getFilteredByGlob("./src/posts/*.md").filter(livePosts)]
-            .reverse()
-            .slice(0, site.maxPostsInFeed);
+        // The following collection is used to create a collection of posts for the RSS feed.
+        config.addCollection(`postFeed_${lang}`, collection => {
+            return collection.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`).filter(livePosts)
+                .reverse()
+                .slice(0, siteConfig.maxPostsInFeed);
+        });
     });
 
     // Plugins
@@ -74,6 +75,13 @@ module.exports = function (config) {
                     res.end();
                 });
             }
+        }
+    });
+
+    config.on("beforeBuild", () => {
+        if (!siteConfig.languages[siteConfig.defaultLanguage]) {
+            process.exitCode = 1;
+            throw new Error(`The default language, ${siteConfig.defaultLanguage}, configured in src/_data/config.json is not one of your site's supported languages.`);
         }
     });
 
