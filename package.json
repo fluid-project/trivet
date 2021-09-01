@@ -10,7 +10,6 @@
         "cms": "netlify-cms-proxy-server",
         "dev": "cross-env NODE_ENV=development eleventy --serve",
         "lint": "fluid-lint-all",
-        "release": "standard-version -t ''",
         "start": "npm-run-all -l clean -p start:*",
         "start:webpack": "mix watch",
         "start:eleventy": "run-p dev cms"
@@ -59,7 +58,6 @@
         "sass": "1.35.2",
         "sass-loader": "12.1.0",
         "slugify": "1.6.0",
-        "standard-version": "9.3.0",
         "stylus": "0.54.8",
         "stylus-loader": "6.1.0"
     }
