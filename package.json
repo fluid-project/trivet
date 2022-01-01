@@ -39,7 +39,7 @@
         "infusion": "4.0.0-dev.20210622T193827Z.ac6adb829.FLUID-6629"
     },
     "devDependencies": {
-        "@commitlint/cli": "13.1.0",
+        "@commitlint/cli": "16.0.1",
         "@commitlint/config-conventional": "13.1.0",
         "cross-env": "7.0.3",
         "debug": "4.3.2",
