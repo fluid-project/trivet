@@ -36,7 +36,7 @@
         "@11ty/eleventy-plugin-rss": "1.1.1",
         "@11ty/eleventy-plugin-syntaxhighlight": "3.1.2",
         "eleventy-plugin-fluid": "0.3.0",
-        "infusion": "4.0.0-dev.20210622T193827Z.ac6adb829.FLUID-6629"
+        "infusion": "4.0.0-dev.20211216T180403Z.d5f6173fc.FLUID-6703"
     },
     "devDependencies": {
         "@commitlint/cli": "13.1.0",
