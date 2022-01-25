@@ -59,6 +59,6 @@
         "sass-loader": "12.4.0",
         "slugify": "1.6.5",
         "stylus": "0.56.0",
-        "stylus-loader": "6.1.0"
+        "stylus-loader": "6.2.0"
     }
 }
