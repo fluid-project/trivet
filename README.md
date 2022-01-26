@@ -96,7 +96,10 @@ following changes need to be made:
    translating the content from the English source. The key will always be the language code as used in `config.json`.
 3. Add folders in each collection for translated content. For example, you would add a folder called `fa-IR` to
    [`src/collections/pages`](src/collections/pages) and [`src/collections/posts`](src/collections/posts).
-4. Create a localized version of the posts archive page, following the example of [`src/posts.fr-CA.md`](src/posts.fr-CA.md). (Note: as per Eleventy's [default configuration](https://www.11ty.dev/docs/config/#default-template-engine-for-markdown-files), Markdown files are processed with the Liquid template language. If for some reason one decides to modify this to use Nunjucks or another template language, the permalink syntax in all post archive pages will need to be modified to use the chosen template language.)
+4. Create a localized version of the posts archive page, following the example of [`src/posts.fr-CA.md`](src/posts.fr-CA.md). (Note: as per Eleventy's
+   [default configuration](https://www.11ty.dev/docs/config/#default-template-engine-for-markdown-files), Markdown files are processed with the Liquid
+   template language. If for some reason one decides to modify this to use Nunjucks or another template language, the permalink syntax in all post
+   archive pages will need to be modified to use the chosen template language.)
 
 For more information about how Netlify CMS works with internationalized content, see the [internationalization support documentation](https://www.netlifycms.org/docs/beta-features/#i18n-support).
 
