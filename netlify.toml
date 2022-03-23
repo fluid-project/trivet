@@ -9,3 +9,15 @@
   publish = "dist"
   autoLaunch = false
   framework = "#custom"
+
+
+[[redirects]]
+  from = "/fr/*"
+  to = "/fr/404.html"
+  status = 404
+
+# English (or default language) 404 page must come last.
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

@@ -101,6 +101,14 @@ following changes need to be made:
    Markdown files are processed with the Liquid template language. If for some reason one decides to modify this to use
    Nunjucks or another template language, the permalink syntax in all post archive pages will need to be modified to use
    the chosen template language.)
+5. Create a localized version of the 404 page, following the example of [`src/404.fr-CA.md`](src/404.fr-CA.md).
+   (Note: as per Eleventy's [default configuration](https://www.11ty.dev/docs/config/#default-template-engine-for-markdown-files),
+   Markdown files are processed with the Liquid template language. If for some reason one decides to modify this to use
+   Nunjucks or another template language, the permalink syntax in all post archive pages will need to be modified to use
+   the chosen template language.)
+6. To ensure that the 404 page is displayed in the appropriate language, verify that a redirect block has been added to
+   the [netlify.toml](netlify.toml) file for each language following the examples. This feature is described in
+   Netlify's [redirects documentation](https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling).
 
 For more information about how Netlify CMS works with internationalized content, see the [internationalization support documentation](https://www.netlifycms.org/docs/beta-features/#i18n-support).
 
