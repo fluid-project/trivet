@@ -7,11 +7,14 @@
                     </li>
                     {% endfor %}
                     {% for item in collections.all %}
-                        {# Find an item with a translation key which matches the current page's translation key but is not the same language. #}
-                        {% if item.data.translationKey == translationKey and item.data.lang !== lang %}
-                        <li lang="{{ item.data.lang }}">
-                            <a href="{{ item.url }}">{{ config.languages[item.data.lang].name }}</a>
-                        </li>
+                        {% if translationKey == 404 and item.data.translationKey == 'index' and item.data.lang !== lang %}
+                            <li lang="{{ item.data.lang }}">
+                                <a href="{{ item.url }}">{{ config.languages[item.data.lang].name }}</a>
+                            </li>                            
+                        {% elif translationKey !== 404 and item.data.translationKey == translationKey and item.data.lang !== lang %}
+                            <li lang="{{ item.data.lang }}">
+                                <a href="{{ item.url }}">{{ config.languages[item.data.lang].name }}</a>
+                            </li>
                         {% endif %}
                     {% endfor %}
                 </ul>
