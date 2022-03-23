@@ -7,11 +7,10 @@
                     </li>
                     {% endfor %}
                     {% for item in collections.all %}
-{% if item.data.lang !== lang and item.data.translationKey == ('index' if translationKey == 404 else translationKey) %}
+                        {% if item.data.lang !== lang and item.data.translationKey == ('index' if translationKey == 404 else translationKey) %}
                             <li lang="{{ item.data.lang }}">
                                 <a href="{{ item.url }}">{{ config.languages[item.data.lang].name }}</a>
                             </li>
-                        {% endif %}
                         {% endif %}
                     {% endfor %}
                 </ul>
