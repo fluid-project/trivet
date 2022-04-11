@@ -10,6 +10,15 @@
   autoLaunch = false
   framework = "#custom"
 
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "**/404.html"
+  [headers.values]
+    X-Robots-Tag = "noindex"
 
 [[redirects]]
   from = "/fr/*"

@@ -1,0 +1,20 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    {% for page in collections.all %}
+        {% if page.url -%}
+        <url>
+            <loc>{{ site[config.defaultLanguage].url }}{{ page.url | url }}</loc>
+            <lastmod>{{ page.date.toISOString() }}</lastmod>
+            {% for relatedPage in collections.all -%}
+                {% if page.data.translationKey and page.data.translationKey ===relatedPage.data.translationKey %}
+                <xhtml:link rel="alternate" hreflang="{{ relatedPage.data.lang}}" href="{{ site[config.defaultLanguage].url }}{{ relatedPage.url }}"/>
+                {%- endif %}
+            {%- endfor %}
+        </url>
+        {%- endif %}
+    {% endfor %}
+</urlset>
