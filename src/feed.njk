@@ -4,6 +4,7 @@ pagination:
   size: 1
   alias: language
 permalink: "{% if language !== config.defaultLanguage %}/{{ config.languages[language].slug }}{% endif %}/feed.xml"
+eleventyExcludeFromCollections: true
 ---
 {% set collection = "postFeed_" + language %}
 <?xml version="1.0" encoding="utf-8"?>
