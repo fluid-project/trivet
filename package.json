@@ -39,7 +39,7 @@
         "infusion": "4.0.0"
     },
     "devDependencies": {
-        "@babel/core": "7.17.8",
+        "@babel/core": "7.17.10",
         "@commitlint/cli": "16.2.3",
         "@commitlint/config-conventional": "16.2.1",
         "cross-env": "7.0.3",
