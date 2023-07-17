@@ -11,5 +11,8 @@
     },
     "markdownlint": {
         "excludes": ["./src/collections/**/*.md", "./CHANGELOG.md"]
+    },
+    "yaml": {
+        "includes": ["./github/**/*.yml"]
     }
 }
