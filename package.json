@@ -58,7 +58,7 @@
         "rimraf": "5.0.1",
         "sass": "1.63.4",
         "sass-loader": "13.3.2",
-        "stylus": "0.57.0",
+        "stylus": "0.59.0",
         "stylus-loader": "6.2.0"
     }
 }
