@@ -7,11 +7,11 @@ eleventyExcludeFromCollections: true
     {% for page in collections.all %}
         {% if page.url -%}
         <url>
-            <loc>{{ site[config.defaultLanguage].url }}{{ page.url | url }}</loc>
+            <loc>{{ site[defaultLanguage].url }}{{ page.url | url }}</loc>
             <lastmod>{{ page.date.toISOString() }}</lastmod>
             {% for relatedPage in collections.all -%}
                 {% if page.data.translationKey and page.data.translationKey ===relatedPage.data.translationKey %}
-                <xhtml:link rel="alternate" hreflang="{{ relatedPage.data.lang}}" href="{{ site[config.defaultLanguage].url }}{{ relatedPage.url }}"/>
+                <xhtml:link rel="alternate" hreflang="{{ relatedPage.data.lang}}" href="{{ site[defaultLanguage].url }}{{ relatedPage.url }}"/>
                 {%- endif %}
             {%- endfor %}
         </url>

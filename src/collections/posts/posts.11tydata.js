@@ -1,16 +1,18 @@
 "use strict";
 
-const getLang = require("../../utils/getLang.js");
+const { EleventyI18nPlugin } = require("@11ty/eleventy");
+const i18n = require("eleventy-plugin-i18n-gettext");
 const generatePermalink = require("../../utils/generatePermalink.js");
 
 module.exports = {
     layout: "layouts/post.njk",
+    langDir: "ltr",
     eleventyComputed: {
-        /* Determine the language of this item based on the language code in the file path. */
-        lang: data => getLang(data.page.filePathStem, "posts"),
-        /* Set the translationKey, used for populating the language switcher, to the file slug. */
-        translationKey: data => data.page.fileSlug,
-        /* Build a permalink using the post title, language key, and translated collection type slug. */
-        permalink: data => generatePermalink(data, "posts")
+        lang: data => EleventyI18nPlugin.LangUtils.getLanguageCodeFromInputPath(data.page.inputPath),
+        locale: data => EleventyI18nPlugin.LangUtils.getLanguageCodeFromInputPath(data.page.inputPath),
+        permalink: data => {
+            const locale = data.locale;
+            return generatePermalink(data, "posts", i18n._(locale, "posts"));
+        }
     }
 };

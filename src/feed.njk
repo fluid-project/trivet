@@ -2,17 +2,17 @@
 pagination:
   data: config.languages
   size: 1
-  alias: language
-permalink: "{% if language !== config.defaultLanguage %}/{{ config.languages[language].slug }}{% endif %}/feed.xml"
+  alias: locale
+permalink: "{% if locale !== defaultLanguage %}/{{ config.languages[locale].slug }}{% endif %}/feed.xml"
 eleventyExcludeFromCollections: true
 ---
 {% set collection = "postFeed_" + language %}
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ language }}">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ locale }}">
     <title>{{ site[language].name }}</title>
-    <subtitle>{{ translations[language][summary] | replace("%s", site[language].name) }}</subtitle>
-    <link href="{{ config.url }}{% if language !== config.defaultLanguage %}/{{ config.languages[language].slug }}{% endif %}/feed.xml" rel="self"/>
-    <link href="{{ config.url }}{% if language !== config.defaultLanguage %}/{{ config.languages[language].slug }}{% endif %}"/>
+    <subtitle>{% _ locale, "The most recent posts from %s", site[locale].name %}</subtitle>
+    <link href="{{ config.url }}{% if locale !== defaultLanguage %}/{{ config.languages[locale].slug }}{% endif %}/feed.xml" rel="self"/>
+    <link href="{{ config.url }}{% if locale !== defaultLanguage %}/{{ config.languages[locale].slug }}{% endif %}"/>
     <updated>{{ collections[collection] | rssLastUpdatedDate }}</updated>
     <id>{{ config.url }}</id>
     <author>

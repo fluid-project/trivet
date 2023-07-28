@@ -12,15 +12,14 @@ https://github.com/fluid-project/trivet/raw/main/LICENSE.md.
 
 "use strict";
 
-const fs = require("fs");
-
 const fluidPlugin = require("eleventy-plugin-fluid");
+const { EleventyI18nPlugin } = require("@11ty/eleventy");
+const i18n = require("eleventy-plugin-i18n-gettext");
 const navigationPlugin = require("@11ty/eleventy-navigation");
 const rssPlugin = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 // Import transforms
-const htmlMinTransform = require("./src/transforms/html-min-transform.js");
 const parseTransform = require("./src/transforms/parse-transform.js");
 
 // Import data files
@@ -30,7 +29,6 @@ module.exports = function (config) {
     config.setUseGitIgnore(false);
 
     // Transforms
-    config.addTransform("htmlmin", htmlMinTransform);
     config.addTransform("parse", parseTransform);
 
     // Passthrough copy
@@ -58,32 +56,14 @@ module.exports = function (config) {
 
     // Plugins
     config.addPlugin(fluidPlugin);
+    config.addPlugin(EleventyI18nPlugin, {
+        defaultLanguage: "en-CA"
+    });
+    config.addGlobalData("defaultLanguage", "en-CA");
+    config.addPlugin(i18n);
     config.addPlugin(navigationPlugin);
     config.addPlugin(rssPlugin);
     config.addPlugin(syntaxHighlightPlugin);
-
-    // 404
-    config.setBrowserSyncConfig({
-        callbacks: {
-            ready: function (err, bs) {
-
-                bs.addMiddleware("*", (req, res) => {
-                    const content_404 = fs.readFileSync("dist/404.html");
-                    // Provides the 404 content without redirect.
-                    res.write(content_404);
-                    res.writeHead(404);
-                    res.end();
-                });
-            }
-        }
-    });
-
-    config.on("beforeBuild", () => {
-        if (!siteConfig.languages[siteConfig.defaultLanguage]) {
-            process.exitCode = 1;
-            throw new Error(`The default language, ${siteConfig.defaultLanguage}, configured in src/_data/config.json is not one of your site's supported languages.`);
-        }
-    });
 
     return {
         dir: {
@@ -91,6 +71,7 @@ module.exports = function (config) {
             output: "dist",
             includes: "_includes"
         },
-        passthroughFileCopy: true
+        passthroughFileCopy: true,
+        markdownTemplateEngine: "njk"
     };
 };

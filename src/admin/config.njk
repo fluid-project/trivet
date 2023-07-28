@@ -15,7 +15,7 @@ editor:
 i18n:
   structure: multiple_folders
   locales: [{% for code, language in config.languages %}{{code}}{% if loop.last !== true %}, {% endif %}{% endfor %}]
-  default_locale: {{ config.defaultLanguage }}
+  default_locale: {{ defaultLanguage }}
 collections:
   - label: "Posts"
     label_singular: "Post"
@@ -37,8 +37,10 @@ collections:
     folder: "src/collections/pages/"
     extension: "md"
     create: true
+    filter: {field: "layout", value: "layouts/page"}
     fields:
       - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Layout", name: "layout", widget: "hidden", i18n: duplicate, default: "layouts/page" }
       - { label: "Navigation Order", name: "order", widget: "number", min: 0, i18n: duplicate }
       - { label: "Navigation Label", name: "key", widget: "string", required: false, i18n: true }
       - { label: "Excerpt", name: "excerpt", widget: "string", required: false, i18n: true }

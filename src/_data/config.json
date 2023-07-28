@@ -1,6 +1,5 @@
 {
   "maxPostsInFeed": 10,
-  "defaultLanguage": "en-CA",
   "languages": {
     "en-CA": {
       "slug": "en",
