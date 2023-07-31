@@ -28,7 +28,7 @@ module.exports = (data, collectionType, collectionSlug) => {
 
         /* If the page is not the index page, return the slugified page title, optionally prepended with the language code. */
         const slug = slugify(data.title);
-        return (lang === data.defaultLanguage) ? `/${slug}/` : `/${langSlug}/${slug}/${data.hasOwnProperty("pagination") && data.pagination.pageNumber > 0 ? "page/" + data.pagination.pageNumber + 1 + "/" : ""}`;
+        return (lang === data.defaultLanguage) ? `/${slug}/` : `/${langSlug}/${slug}/${data.hasOwnProperty("pagination") && data.pagination.pageNumber > 0 ? `page/${data.pagination.pageNumber + 1}/` : ""}`;
     } else {
         const slug = slugify(data.title);
         return (lang === data.defaultLanguage) ? `/${collectionSlug}/${slug}/` : `/${langSlug}/${collectionSlug}/${slug}/`;
