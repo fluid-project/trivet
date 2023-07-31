@@ -60,6 +60,7 @@ module.exports = function (config) {
         defaultLanguage: "en-CA"
     });
     config.addGlobalData("defaultLanguage", "en-CA");
+    config.addGlobalData("defaultLanguageDirection", "ltr");
     config.addPlugin(i18n);
     config.addPlugin(navigationPlugin);
     config.addPlugin(rssPlugin);

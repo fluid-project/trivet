@@ -4,10 +4,10 @@ const { EleventyI18nPlugin } = require("@11ty/eleventy");
 const generatePermalink = require("../../utils/generatePermalink.js");
 
 module.exports = {
-    langDir: "ltr",
     eleventyComputed: {
         /* Determine the language of this page based on the language code in the file path. */
         lang: data => EleventyI18nPlugin.LangUtils.getLanguageCodeFromInputPath(data.page.inputPath),
+        langDir: data => data.defaultLanguageDirection,
         locale: data => EleventyI18nPlugin.LangUtils.getLanguageCodeFromInputPath(data.page.inputPath),
         eleventyNavigation: data => {
             /* If this page has an `order` attribute, create an Eleventy Navigation object for it. */

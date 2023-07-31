@@ -6,9 +6,9 @@ const generatePermalink = require("../../utils/generatePermalink.js");
 
 module.exports = {
     layout: "layouts/post.njk",
-    langDir: "ltr",
     eleventyComputed: {
         lang: data => EleventyI18nPlugin.LangUtils.getLanguageCodeFromInputPath(data.page.inputPath),
+        langDir: data => data.defaultLanguageDirection,
         locale: data => EleventyI18nPlugin.LangUtils.getLanguageCodeFromInputPath(data.page.inputPath),
         permalink: data => {
             const locale = data.locale;
