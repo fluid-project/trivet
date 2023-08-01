@@ -13,7 +13,6 @@ https://github.com/fluid-project/trivet/raw/main/LICENSE.md.
 "use strict";
 
 const fluidPlugin = require("eleventy-plugin-fluid");
-const { EleventyI18nPlugin } = require("@11ty/eleventy");
 const i18n = require("eleventy-plugin-i18n-gettext");
 const navigationPlugin = require("@11ty/eleventy-navigation");
 const rssPlugin = require("@11ty/eleventy-plugin-rss");
@@ -41,7 +40,7 @@ module.exports = function (config) {
 
     // Custom collections
     const livePosts = post => post.date <= now && !post.data.draft;
-    Object.keys(siteConfig.languages).forEach(lang => {
+    siteConfig.languages.forEach(lang => {
         config.addCollection(`posts_${lang}`, collection => {
             return collection.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`).filter(livePosts);
         });
@@ -55,12 +54,23 @@ module.exports = function (config) {
     });
 
     // Plugins
-    config.addPlugin(fluidPlugin);
-    config.addPlugin(EleventyI18nPlugin, {
-        defaultLanguage: "en-CA"
+    config.addPlugin(fluidPlugin, {
+        defaultLanguage: "en-CA",
+        supportedLanguages: {
+            "en-CA": {
+                slug: "en",
+                uioSlug: "en_CA",
+                dir: "ltr",
+                name: "English"
+            },
+            "fr-CA": {
+                slug: "fr",
+                uioSlug: "fr",
+                dir: "ltr",
+                name: "Français"
+            }
+        }
     });
-    config.addGlobalData("defaultLanguage", "en-CA");
-    config.addGlobalData("defaultLanguageDirection", "ltr");
     config.addPlugin(i18n);
     config.addPlugin(navigationPlugin);
     config.addPlugin(rssPlugin);

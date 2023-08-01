@@ -14,7 +14,7 @@ editor:
   preview: false
 i18n:
   structure: multiple_folders
-  locales: [{% for code, language in config.languages %}{{code}}{% if loop.last !== true %}, {% endif %}{% endfor %}]
+  locales: [{% for language in config.languages %}{{language}}{% if loop.last !== true %}, {% endif %}{% endfor %}]
   default_locale: {{ defaultLanguage }}
 collections:
   - label: "Posts"

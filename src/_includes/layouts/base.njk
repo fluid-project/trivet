@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ locale }}" dir="{{ config.languages[locale].dir }}">
+<html lang="{{ locale }}" dir="{{ supportedLanguages[locale].dir }}">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
@@ -35,6 +35,6 @@
             </article>
         </main>
         {% include "partials/global/footer.njk" %}
-        {% uioInit config.languages[locale].uioSlug, config.languages[locale].dir %}
+        {% uioInit supportedLanguages[locale].uioSlug, supportedLanguages[locale].dir %}
     </body>
 </html>

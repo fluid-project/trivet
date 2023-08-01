@@ -28,8 +28,7 @@
         "@11ty/eleventy-navigation": "0.3.5",
         "@11ty/eleventy-plugin-rss": "1.2.0",
         "@11ty/eleventy-plugin-syntaxhighlight": "5.0.0",
-        "eleventy-plugin-fluid": "github:fluid-project/eleventy-plugin-fluid#main",
-        "eleventy-plugin-i18n-gettext": "1.5.1",
+        "eleventy-plugin-fluid": "github:fluid-project/eleventy-plugin-fluid#feat/i18n-utilities",
         "infusion": "4.6.0"
     },
     "devDependencies": {

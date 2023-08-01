@@ -1,6 +1,6 @@
             <div class="brand">
                 {% if lang and lang !== defaultLanguage %}
-                {% set homeUrl = "/" + config.languages[locale].slug %}
+                {% set homeUrl = "/" + supportedLanguages[locale].slug %}
                 {% else %}
                 {% set lang = defaultLanguage %}
                 {% set homeUrl = "/" %}

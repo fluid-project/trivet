@@ -1,14 +1,14 @@
 "use strict";
 
 const { EleventyI18nPlugin } = require("@11ty/eleventy");
-const generatePermalink = require("../../utils/generatePermalink.js");
+const { generatePermalink } = require("eleventy-plugin-fluid");
 
 module.exports = {
     eleventyComputed: {
         /* Determine the language of this page based on the language code in the file path. */
         lang: data => EleventyI18nPlugin.LangUtils.getLanguageCodeFromInputPath(data.page.inputPath),
-        langDir: data => data.defaultLanguageDirection,
-        locale: data => EleventyI18nPlugin.LangUtils.getLanguageCodeFromInputPath(data.page.inputPath),
+        langDir: data => data.supportedLanguages[data.lang].dir,
+        locale: data => data.lang,
         eleventyNavigation: data => {
             /* If this page has an `order` attribute, create an Eleventy Navigation object for it. */
             if (data.order) {
