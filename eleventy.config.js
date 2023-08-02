@@ -13,7 +13,6 @@ https://github.com/fluid-project/trivet/raw/main/LICENSE.md.
 "use strict";
 
 const fluidPlugin = require("eleventy-plugin-fluid");
-const i18n = require("eleventy-plugin-i18n-gettext");
 const navigationPlugin = require("@11ty/eleventy-navigation");
 const rssPlugin = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -63,6 +62,7 @@ module.exports = function (eleventyConfig) {
     // Plugins
     eleventyConfig.addPlugin(fluidPlugin, {
         defaultLanguage: "en-CA",
+        localesDirectory: "locales",
         supportedLanguages: {
             "en-CA": {
                 slug: "en",
@@ -74,7 +74,6 @@ module.exports = function (eleventyConfig) {
             }
         }
     });
-    eleventyConfig.addPlugin(i18n);
     eleventyConfig.addPlugin(navigationPlugin);
     eleventyConfig.addPlugin(rssPlugin);
     eleventyConfig.addPlugin(syntaxHighlightPlugin);
