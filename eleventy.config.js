@@ -24,37 +24,37 @@ const parseTransform = require("./src/transforms/parse-transform.js");
 // Import data files
 const siteConfig = require("./src/_data/config.json");
 
-module.exports = function (config) {
-    config.setUseGitIgnore(false);
+module.exports = function (eleventyConfig) {
+    eleventyConfig.setUseGitIgnore(false);
 
     // Transforms
-    config.addTransform("parse", parseTransform);
+    eleventyConfig.addTransform("parse", parseTransform);
 
     // Passthrough copy
-    config.addPassthroughCopy({"src/admin/config.yml": "admin/config.yml"});
-    config.addPassthroughCopy({"src/assets/icons": "/"});
-    config.addPassthroughCopy({"src/assets/images": "assets/images"});
-    config.addPassthroughCopy({"src/posts/images": "posts/images"});
+    eleventyConfig.addPassthroughCopy({"src/admin/config.yml": "admin/config.yml"});
+    eleventyConfig.addPassthroughCopy({"src/assets/icons": "/"});
+    eleventyConfig.addPassthroughCopy({"src/assets/images": "assets/images"});
+    eleventyConfig.addPassthroughCopy({"src/posts/images": "posts/images"});
 
     const now = new Date();
 
     // Custom collections
     const livePosts = post => post.date <= now && !post.data.draft;
-    siteConfig.languages.forEach(lang => {
-        config.addCollection(`posts_${lang}`, collection => {
-            return collection.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`).filter(livePosts);
+    siteConfig.locales.forEach(locale => {
+        eleventyConfig.addCollection(`posts_${locale}`, collection => {
+            return collection.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`).filter(livePosts);
         });
 
         // The following collection is used to create a collection of posts for the RSS feed.
-        config.addCollection(`postFeed_${lang}`, collection => {
-            return collection.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`).filter(livePosts)
+        eleventyConfig.addCollection(`postFeed_${locale}`, collection => {
+            return collection.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`).filter(livePosts)
                 .reverse()
                 .slice(0, siteConfig.maxPostsInFeed);
         });
     });
 
     // Plugins
-    config.addPlugin(fluidPlugin, {
+    eleventyConfig.addPlugin(fluidPlugin, {
         defaultLanguage: "en-CA",
         supportedLanguages: {
             "en-CA": {
@@ -71,10 +71,10 @@ module.exports = function (config) {
             }
         }
     });
-    config.addPlugin(i18n);
-    config.addPlugin(navigationPlugin);
-    config.addPlugin(rssPlugin);
-    config.addPlugin(syntaxHighlightPlugin);
+    eleventyConfig.addPlugin(i18n);
+    eleventyConfig.addPlugin(navigationPlugin);
+    eleventyConfig.addPlugin(rssPlugin);
+    eleventyConfig.addPlugin(syntaxHighlightPlugin);
 
     return {
         dir: {

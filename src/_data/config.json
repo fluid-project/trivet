@@ -1,6 +1,6 @@
 {
   "maxPostsInFeed": 10,
-  "languages": [
+  "locales": [
     "en-CA",
     "fr-CA"
   ],
