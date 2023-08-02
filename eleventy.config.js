@@ -62,7 +62,7 @@ module.exports = function (eleventyConfig) {
     // Plugins
     eleventyConfig.addPlugin(fluidPlugin, {
         defaultLanguage: "en-CA",
-        localesDirectory: "locales",
+        localesDirectory: "src/_locales",
         supportedLanguages: {
             "en-CA": {
                 slug: "en",
