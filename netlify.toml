@@ -20,6 +20,7 @@
   [headers.values]
     X-Robots-Tag = "noindex"
 
+# If you are adding more languages, make a copy of the following block for each.
 [[redirects]]
   from = "/fr/*"
   to = "/fr/404.html"
