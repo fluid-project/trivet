@@ -5,7 +5,7 @@
     "scripts": {
         "build": "run-s clean build:eleventy",
         "build:eleventy": "cross-env NODE_ENV=production eleventy",
-        "clean": "rimraf dist",
+        "clean": "rimraf _site",
         "cms": "netlify-cms-proxy-server",
         "dev": "cross-env NODE_ENV=development eleventy --serve",
         "lint": "fluid-lint-all",

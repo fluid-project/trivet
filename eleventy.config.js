@@ -59,14 +59,10 @@ module.exports = function (eleventyConfig) {
         supportedLanguages: {
             "en-CA": {
                 slug: "en",
-                uioSlug: "en_CA",
-                dir: "ltr",
                 name: "English"
             },
             "fr-CA": {
                 slug: "fr",
-                uioSlug: "fr",
-                dir: "ltr",
                 name: "Français"
             }
         }
@@ -78,9 +74,7 @@ module.exports = function (eleventyConfig) {
 
     return {
         dir: {
-            input: "src",
-            output: "dist",
-            includes: "_includes"
+            input: "src"
         },
         passthroughFileCopy: true,
         markdownTemplateEngine: "njk"
