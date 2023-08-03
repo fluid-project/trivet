@@ -157,7 +157,63 @@ collection's directory data file, in this case [`src/collections/pages.11tydata.
 
 ### Disabling Internationalization for the Entire Site
 
-TODO: Document the process for disabling internationalization for the entire site.
+If you need to disable internationalization for the entire site, you can do so by:
+
+1. Remove all but the default locale from the locales block of [`src/_data/config.json`](src/_data/config.json):
+
+   ```diff
+   "locales": [
+   -   "en-CA",
+   -   "fr-CA"
+   +   "en-CA"
+   ],
+   ```
+
+2. Delete the `editor` block's `i18n` section in [`src/admin/config.yml`](src/admin/config.yml):
+
+   ```diff
+   editor:
+     preview: false
+   - i18n:
+   -   structure: multiple_folders
+   -   locales: ["en-CA", "fr-CA"]
+   -   default_locale: "en-CA"
+   ```
+
+3. Deleting all directories but the default locale in the `/src/collections/<collection>/` directory. For example, to
+   disable localization for pages, delete the `/src/collections/pages/fr-CA/` directory.
+4. Modify the [`src/admin/config.yml`](src/admin/config.yml) collection block's `i18n` and `folder` properties for all
+   collections:
+
+   ```diff
+   - i18n: true
+   - folder: "src/collections/<collection>/"
+   + folder: "src/collections/<collection>/en-CA/" # Look for content to edit in the default locale directory.
+   ```
+
+   Or, remove all subdirectories of each collection directory, moving the `en-CA` (or other default language)
+   directory's contents (with the exection of the `en-CA.11tydata.js` file) up into `src/collections/<collection>`. If
+   you do this, you'll also need to make the following change to the collection's directory data file,
+   `src/collections/<collection>.11tydata.js`:
+
+   ```diff
+   - lang: data => EleventyI18nPlugin.LangUtils.getLanguageCodeFromInputPath(data.page.inputPath),
+   + lang: data => data.defaultLanguage, // Use the default language for this collection
+   ```
+
+   If you choose this option you won't need to change the `folder` configuration in [`src/admin/config.yml`](src/admin/config.yml).
+5. Modify your Eleventy configuration file to disable string translation in `eleventy-plugin-fluid`:
+
+   ```diff
+   eleventyConfig.addPlugin(fluidPlugin, {
+   +  i18n: false
+      ...
+   });
+   ```
+
+   Then make sure you remove any uses of the [`localizeData`](https://github.com/fluid-project/eleventy-plugin-fluid#localizedata)
+   helper or [`eleventy-plugin-i18n-gettext` functions](https://github.com/sgissinger/eleventy-plugin-i18n-gettext#api)
+   in your project. You can also delete `src/_locales`.
 
 ## License
 
