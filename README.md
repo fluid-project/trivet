@@ -125,7 +125,39 @@ For more information about how Decap CMS works with internationalized content, s
 
 ## Disabling Internationalization
 
-TODO: Describe steps to disable internationalization.
+If you do not need internationalization support for your site, it can be disabled either for specific collections or
+for the entire site.
+
+### Disabling Internationalization for a Specific Collection
+
+If you need to disable internationalization for a specific collection, you can do so by:
+
+1. Deleting all directories but the default locale in the `/src/collections/<collection>/` directory. For example, to
+   disable localization for pages, delete the `/src/collections/pages/fr-CA/` directory.
+2. Modify the [`src/admin/config.yml`](src/admin/config.yml) collection block's `i18n` and `folder` properties for the
+   relevant collection. For example, to disable localization for pages, make the following changes in the `pages`
+   block:
+
+   ```diff
+   - i18n: true
+   + i18n: false
+   - folder: "src/collections/pages/"
+   + folder: "src/collections/pages/en-CA/" # Look for pages to edit in the default locale directory.
+   ```
+
+Optionally, you could remove all subdirectories of `src/collections/pages`, moving the `en-CA` (or other default
+language) directory's contents (with the exection of the [`en-CA.11tydata.js`](src/collections/pages/en-CA/en-CA.11tydata.js)
+file) up into `src/collections/pages`. If you do this, you'll also need to make the following change to the
+collection's directory data file, in this case [`src/collections/pages.11tydata.js`](src/collections/pages.11tydata.js):
+
+```diff
+- lang: data => EleventyI18nPlugin.LangUtils.getLanguageCodeFromInputPath(data.page.inputPath),
++ lang: data => data.defaultLanguage, // Use the default language for this collection
+```
+
+### Disabling Internationalization for the Entire Site
+
+TODO: Document the process for disabling internationalization for the entire site.
 
 ## License
 
