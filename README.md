@@ -62,8 +62,11 @@ For full documentation, see the [Decap CMS documentation](https://decapcms.org/d
 
 ## Internationalization
 
-Trivet includes internationalization support for English (Canada) and French (Canada). To add a language, the
-following changes need to be made:
+Trivet includes internationalization support for English (Canada) and French (Canada).
+
+### Adding a language
+
+To add a language, the following changes need to be made:
 
 1. Update the `locales` array of [`src/_data/config.json`](src/_data/config.json) to add the new language. For
    example, to add German, you would add the [IETF language code](https://github.com/unicode-org/cldr-json/blob/master/cldr-json/cldr-core/availableLocales.json)
