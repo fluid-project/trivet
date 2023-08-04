@@ -1,8 +1,11 @@
 "use strict";
 
 module.exports = {
-    extends: ["fluid"],
-    ignorePatterns: ["_site/**/*.js", "src/_locales/messages.js", "!.*.cjs", "!.*.js"],
+    extends: [
+        "fluid",
+        "plugin:yml/standard"
+    ],
+    ignorePatterns: ["_site/", "src/_locales/messages.js", "!.*.cjs", "!.*.js"],
     env: {
         amd: true,
         browser: true,

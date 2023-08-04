@@ -12,6 +12,7 @@
         "lint:css": "stylelint \"**/*.css\"",
         "lint:js": "eslint \"**/*.js\"",
         "lint:markdown": "markdownlint-cli2 \"**/*.md\"",
+        "lint:yml": "eslint \"**/*.yml\"",
         "start": "run-s clean start:eleventy",
         "start:eleventy": "run-p dev cms",
         "prepare": "husky install"
@@ -45,6 +46,7 @@
         "eslint": "8.46.0",
         "eslint-config-fluid": "2.1.1",
         "eslint-plugin-jsdoc": "46.4.5",
+        "eslint-plugin-yml": "1.8.0",
         "husky": "8.0.3",
         "image-size": "1.0.2",
         "linkedom": "0.15.1",
@@ -60,7 +62,7 @@
     },
     "lint-staged": {
         "*.css": "stylelint --fix",
-        "*.js": "eslint --fix",
+        "*.{js,yml}": "eslint --fix",
         "*.md": "markdownlint-cli2 --fix"
     }
 }
