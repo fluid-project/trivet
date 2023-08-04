@@ -247,6 +247,11 @@ If you need to disable internationalization for a specific collection, you can d
    + collection: "postFeed"
    ---
    - {% set collection = "postFeed_" + language %}
+   <?xml version="1.0" encoding="utf-8"?>
+   <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ locale }}">
+       <title>{{ site[locale].name }}</title>
+   -   <subtitle>{% _ locale, "The most recent posts from %s", site[locale].name %}</subtitle>
+   +   <subtitle>The most recent posts from {{ site[locale].name }}</subtitle>
    ```
 
 ### Disabling Internationalization for the Entire Site
