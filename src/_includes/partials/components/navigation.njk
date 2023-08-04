@@ -1,4 +1,4 @@
-            <nav class="nav" id="menu" aria-label="{{ _("menu") }}">
+            <nav class="nav" id="menu" aria-label="{% _ locale, "menu" %}">
                 <ul>
                     {% set navItems = collections.all | eleventyNavigation %}
                     {% for item in navItems %}

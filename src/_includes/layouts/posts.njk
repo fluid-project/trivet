@@ -13,7 +13,7 @@
     {% for item in posts %}
         <article class="entry">
             <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
-            <p class="metadata"><time datetime="{{ item.data.date | isoDate }}" class="dt-published">{{ _d("LL", item.data.date) }}</time></p>
+            <p class="metadata"><time datetime="{{ item.data.date | isoDate }}" class="dt-published">{% _d locale, "LL", item.data.date %}</time></p>
             {% if item.data.excerpt %}
             <p>{{ item.data.excerpt | safe }}</p>
             {% endif %}

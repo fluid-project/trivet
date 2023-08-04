@@ -133,27 +133,118 @@ for the entire site.
 If you need to disable internationalization for a specific collection, you can do so by:
 
 1. Deleting all directories but the default locale in the `/src/collections/<collection>/` directory. For example, to
-   disable localization for pages, delete the `/src/collections/pages/fr-CA/` directory.
+   disable localization for posts, delete the `/src/collections/posts/fr-CA/` directory.
 2. Modify the [`src/admin/config.yml`](src/admin/config.yml) collection block's `i18n` and `folder` properties for the
-   relevant collection. For example, to disable localization for pages, make the following changes in the `pages`
+   relevant collection. For example, to disable localization for posts, make the following changes in the `posts`
    block:
 
    ```diff
    - i18n: true
    + i18n: false
-   - folder: "src/collections/pages/"
-   + folder: "src/collections/pages/en-CA/" # Look for pages to edit in the default locale directory.
+   - folder: "src/collections/posts/"
+   + folder: "src/collections/posts/en-CA/" # Look for posts to edit in the default locale directory.
    ```
 
-Optionally, you could remove all subdirectories of `src/collections/pages`, moving the `en-CA` (or other default
-language) directory's contents (with the exception of the [`en-CA.11tydata.js`](src/collections/pages/en-CA/en-CA.11tydata.js)
-file) up into `src/collections/pages`. If you do this, you'll also need to make the following change to the
-collection's directory data file, in this case [`src/collections/pages.11tydata.js`](src/collections/pages.11tydata.js):
+   Optionally, you could remove all subdirectories of `src/collections/posts`, moving the `en-CA` (or other default
+   language) directory's contents (with the exception of the [`en-CA.11tydata.js`](src/collections/posts/en-CA/en-CA.11tydata.js)
+   file) up into `src/collections/posts`. If you do this, you'll also need to make the following changes to the
+   collection's directory data file, in this case [`src/collections/posts.11tydata.js`](src/collections/posts.11tydata.js):
 
-```diff
-- lang: data => EleventyI18nPlugin.LangUtils.getLanguageCodeFromInputPath(data.page.inputPath),
-+ lang: data => data.defaultLanguage, // Use the default language for this collection
-```
+   ```diff
+   - const { EleventyI18nPlugin } = require("@11ty/eleventy");
+   - const i18n = require("eleventy-plugin-i18n-gettext");
+   const { generatePermalink } = require("eleventy-plugin-fluid");
+   
+   module.exports = {
+       layout: "layouts/post.njk",
+       eleventyComputed: {
+   -       lang: data => EleventyI18nPlugin.LangUtils.getLanguageCodeFromInputPath(data.page.inputPath),
+   -       langDir: data => data.supportedLanguages[data.lang].dir,
+   +       lang: data => data.defaultLanguage,
+   +       langDir: data => data.supportedLanguages[data.defaultLanguage].dir,
+           locale: data => data.lang,
+           permalink: data => {
+   -           const locale = data.locale;
+   -           return generatePermalink(data, "posts", i18n._(locale, "posts"));
+   +           return generatePermalink(data, "posts");
+           }
+       }
+   };
+   ```
+
+3. Remove the localized index pages for the collection. In the case of posts, the configuration file creates indexes
+   of posts in each language:
+
+   ```js
+   // Custom collections
+   const livePosts = post => post.date <= now && !post.data.draft;
+   siteConfig.locales.forEach(locale => {
+     eleventyConfig.addCollection(`posts_${locale}`, collection => {
+         return collection.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`).filter(livePosts);
+     });
+   
+     // The following collection is used to create a collection of posts for the RSS feed.
+     eleventyConfig.addCollection(`postFeed_${locale}`, collection => {
+         return collection.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`).filter(livePosts)
+             .reverse()
+             .slice(0, siteConfig.maxPostsInFeed);
+     });
+   });
+   ```
+
+   You'll only need one index, so you can change this as follows:
+
+   ```diff
+   // Custom collections
+   const livePosts = post => post.date <= now && !post.data.draft;
+   - siteConfig.locales.forEach(locale => {
+   -   eleventyConfig.addCollection(`posts_${locale}`, collection => {
+   -       return collection.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`).filter(livePosts);
+   -   });
+   + eleventyConfig.addCollection("posts", collection => {
+   +     return collection.getFilteredByGlob("./src/collections/posts/*.md").filter(livePosts);
+   + });
+   
+   -   // The following collection is used to create a collection of posts for the RSS feed.
+   -   eleventyConfig.addCollection(`postFeed_${locale}`, collection => {
+   -       return collection.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`).filter(livePosts)
+   -           .reverse()
+   -           .slice(0, siteConfig.maxPostsInFeed);
+   -  });
+   - });
+   + // The following collection is used to create a collection of posts for the RSS feed.
+   + eleventyConfig.addCollection("postFeed", collection => {
+   +     return collection.getFilteredByGlob("./src/collections/posts/*.md").filter(livePosts)
+   +         .reverse()
+   +         .slice(0, siteConfig.maxPostsInFeed);
+   + });
+   ```
+
+   Then you'll need to modify the [`posts.md`](src/collections/pages/fr-CA/posts.md) page in _all_ locales to reflect
+   the new collection:
+
+   ```diff
+   pagination:
+   - data: collections.posts_fr-CA
+   + data: collections.posts
+     size: 10
+     alias: posts
+   ```
+
+   Lastly, for posts, you will also need to remove the localized feed by editing [`src/feed.njk`](src/feed.njk):
+
+   ```diff
+   - pagination:
+   -   data: config.locales
+   -   size: 1
+   -   alias: locale
+   + locale: "{{ defaultLanguage }}"
+   permalink: "{% if locale !== defaultLanguage %}/{{ supportedLanguages[locale].slug }}{% endif %}/feed.xml"
+   eleventyExcludeFromCollections: true
+   + collection: "postFeed"
+   ---
+   - {% set collection = "postFeed_" + language %}
+   ```
 
 ### Disabling Internationalization for the Entire Site
 

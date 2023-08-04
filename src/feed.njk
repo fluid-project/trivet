@@ -6,18 +6,18 @@ pagination:
 permalink: "{% if locale !== defaultLanguage %}/{{ supportedLanguages[locale].slug }}{% endif %}/feed.xml"
 eleventyExcludeFromCollections: true
 ---
-{% set collection = "postFeed_" + language %}
+{% set collection = "postFeed_" + locale %}
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ locale }}">
-    <title>{{ site[language].name }}</title>
+    <title>{{ site[locale].name }}</title>
     <subtitle>{% _ locale, "The most recent posts from %s", site[locale].name %}</subtitle>
     <link href="{{ config.url }}{% if locale !== defaultLanguage %}/{{ supportedLanguages[locale].slug }}{% endif %}/feed.xml" rel="self"/>
     <link href="{{ config.url }}{% if locale !== defaultLanguage %}/{{ supportedLanguages[locale].slug }}{% endif %}"/>
     <updated>{{ collections[collection] | rssLastUpdatedDate }}</updated>
     <id>{{ config.url }}</id>
     <author>
-        <name>{{ site[language].authorName }}</name>
-        <email>{{ site[language].authorEmail }}</email>
+        <name>{{ site[locale].authorName }}</name>
+        <email>{{ site[locale].authorEmail }}</email>
     </author>
     {% for post in collections[collection] %}
         {% set absolutePostUrl %}{{ config.url }}{{ post.url | url }}{% endset %}

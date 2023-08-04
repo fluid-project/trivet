@@ -9,7 +9,7 @@
         {% include "partials/global/stylesheets.njk" %}
 
         {% include "partials/global/meta.njk" %}
-        <link rel="alternate" type="application/atom+xml" href="{{ config.url }}{% if locale !== defaultLanguage %}/{{ locale }}{% endif %}/feed.xml" title="{{ _("%s RSS feed", site[locale].name) }}">
+        <link rel="alternate" type="application/atom+xml" href="{{ config.url }}{% if locale !== defaultLanguage %}/{{ locale }}{% endif %}/feed.xml" title="{% _ locale, "%s RSS feed", site[locale].name %}">
 
         {% include "partials/global/icons.njk" %}
         <link rel="manifest" href="/manifest.webmanifest">
