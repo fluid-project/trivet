@@ -5,3 +5,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ config.url }}{{ page.url }}">
     <link rel="canonical" href="{{ config.url }}{{ page.url }}">
+    {% set links = page.url | locale_links %}
+    {%- for link in links %}
+    <link rel="alternate" hreflang="{{ link.lang }}" href="{{ link.url }}">
+    {%- endfor -%}

@@ -10,8 +10,8 @@
                     {% endfor %}
                     {% set links = page.url | locale_links %}
                     {%- for link in links %}
-                    <li lang="{{ link.lang }}">
-                        <a href="{{ link.url }}" hreflang="{{ link.lang }}">{{ link.label }}</a>
+                    <li>
+                        <a href="{{ link.url }}" lang="{{ link.lang }}" hreflang="{{ link.lang }}">{{ link.label }}</a>
                     </li>
                     {%- endfor -%}
                 </ul>
