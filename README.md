@@ -271,7 +271,7 @@ If you need to disable internationalization for the entire site, you can do so b
    -   default_locale: "en-CA"
    ```
 
-3. Deleting all directories but the default locale in the `/src/collections/<collection>/` directory. For example, to
+3. Deleting all directories but the default locale in every directory within `/src/collections/`. For example, to
    disable localization for pages, delete the `/src/collections/pages/fr-CA/` directory.
 4. Modify the [`src/admin/config.yml`](src/admin/config.yml) collection block's `i18n` and `folder` properties for all
    collections:
