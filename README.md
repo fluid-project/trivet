@@ -146,7 +146,7 @@ If you need to disable internationalization for a specific collection, you can d
    ```
 
 Optionally, you could remove all subdirectories of `src/collections/pages`, moving the `en-CA` (or other default
-language) directory's contents (with the exection of the [`en-CA.11tydata.js`](src/collections/pages/en-CA/en-CA.11tydata.js)
+language) directory's contents (with the exception of the [`en-CA.11tydata.js`](src/collections/pages/en-CA/en-CA.11tydata.js)
 file) up into `src/collections/pages`. If you do this, you'll also need to make the following change to the
 collection's directory data file, in this case [`src/collections/pages.11tydata.js`](src/collections/pages.11tydata.js):
 
