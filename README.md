@@ -116,8 +116,10 @@ To add a language, the following changes need to be made:
    You can change the site's default language by changing the the `eleventy-plugin-fluid` configuration's
    `defaultLanguage` string in [`eleventy.config.js`](eleventy.config.js) to the [IETF language code](https://github.com/unicode-org/cldr-json/blob/master/cldr-json/cldr-core/availableLocales.json)
    of the desired default language.
-3. Add folders in each collection for translated content. For example, you would add a folder called `de-DE` to
-   [`src/collections/pages`](src/collections/pages) and [`src/collections/posts`](src/collections/posts).
+3. Add directories in each collection for translated content. For example, you would add a directory called `de-DE` to
+   [`src/collections/pages`](src/collections/pages) and [`src/collections/posts`](src/collections/posts). Each `de-DE`
+   directory will also need a directory data file called `de-DE.11tydata.js`. The contents should be identical to the
+   default language directory's `en-CA.11tydata.js` file.
 4. Create a localized version of the posts archive page, following the example of [`src/collections/pages/fr-CA/posts.md`](src/collections/pages/fr-CA/posts.md).
 5. Create a localized version of the 404 page, following the example of [`src/collections/pages/fr-CA/404.md`](src/collections/pages/fr-CA/404.md).
 6. To ensure that the 404 page is displayed in the appropriate language, verify that a redirect block has been added to
