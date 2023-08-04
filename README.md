@@ -161,13 +161,11 @@ If you need to disable internationalization for a specific collection, you can d
    const { generatePermalink } = require("eleventy-plugin-fluid");
    
    module.exports = {
-       layout: "layouts/post.njk",
+       layout: "layouts/post",
        eleventyComputed: {
-   -       lang: data => EleventyI18nPlugin.LangUtils.getLanguageCodeFromInputPath(data.page.inputPath),
-   -       langDir: data => data.supportedLanguages[data.lang].dir,
    +       lang: data => data.defaultLanguage,
+   -       langDir: data => data.supportedLanguages[data.locale].dir,
    +       langDir: data => data.supportedLanguages[data.defaultLanguage].dir,
-           locale: data => data.lang,
            permalink: data => {
    -           const locale = data.locale;
    -           return generatePermalink(data, "posts", i18n._(locale, "posts"));
@@ -293,8 +291,23 @@ If you need to disable internationalization for the entire site, you can do so b
    `src/collections/<collection>.11tydata.js`:
 
    ```diff
-   - lang: data => EleventyI18nPlugin.LangUtils.getLanguageCodeFromInputPath(data.page.inputPath),
-   + lang: data => data.defaultLanguage, // Use the default language for this collection
+   - const { EleventyI18nPlugin } = require("@11ty/eleventy");
+   - const i18n = require("eleventy-plugin-i18n-gettext");
+   const { generatePermalink } = require("eleventy-plugin-fluid");
+   
+   module.exports = {
+       layout: "layouts/post",
+       eleventyComputed: {
+   +       lang: data => data.defaultLanguage,
+   -       langDir: data => data.supportedLanguages[data.locale].dir,
+   +       langDir: data => data.supportedLanguages[data.defaultLanguage].dir,
+           permalink: data => {
+   -           const locale = data.locale;
+   -           return generatePermalink(data, "posts", i18n._(locale, "posts"));
+   +           return generatePermalink(data, "posts");
+           }
+       }
+   };
    ```
 
    If you choose this option you won't need to change the `folder` configuration in [`src/admin/config.yml`](src/admin/config.yml).
