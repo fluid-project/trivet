@@ -70,7 +70,9 @@ module.exports = function (eleventyConfig) {
             },
             "fr-CA": {
                 slug: "fr",
-                name: "Français"
+                name: "Français",
+                dir: "ltr",
+                uioSlug: "fr"
             }
         }
     });
