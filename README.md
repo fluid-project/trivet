@@ -37,7 +37,7 @@ If you make changes to the website, repeat the steps to build the image and star
 
 1. Install the required NPM packages: `npm install`
 2. Run the build script: `npm run build`
-3. Upload the contents of the `./dist/` directory to the web root of your server.
+3. Upload the contents of the `./_site/` directory to the web root of your server.
 
 If you make changes to the website, repeat step 2 to build the website and upload any changed files from the `./_site/`
 directory to the web root of your server.
