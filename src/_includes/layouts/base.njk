@@ -36,5 +36,8 @@
         </main>
         {% include "partials/global/footer.njk" %}
         {% uioInit supportedLanguages[locale].uioSlug, supportedLanguages[locale].dir %}
+        {% if page.url === "/" %}
+        <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        {% endif %}
     </body>
 </html>
