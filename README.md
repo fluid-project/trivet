@@ -170,7 +170,11 @@ for the entire site.
 
 ### Disabling Internationalization for a Specific Collection
 
-If you need to disable internationalization for a specific collection, you can do so by:
+If your site is translated into more than two languages but you aren't translating all your content, any empty
+collection will not be output by Eleventy. For example, if your site is configured to use `en-CA`, `fr-CA` and
+`de-DE` but you are not translating your posts into `de-DE`, you can leave the `/src/collections/posts/de-DE`
+directory empty and the German posts index page will not be built. However, if you want to disable _all_
+internationalization for a specific collection, you can do so by:
 
 1. Deleting all directories but the default locale in the `/src/collections/<collection>/` directory. For example, to
    disable localization for posts, delete the `/src/collections/posts/fr-CA/` directory.
