@@ -82,7 +82,42 @@ To add a language, the following changes need to be made:
    }
    ```
 
-2. Update the `eleventy-plugin-fluid` configuration's `supportedLanguages` object in [`eleventy.config.js`](eleventy.config.js)
+2. Add a new key to  [`src/_data/site.json`](src/_data/site.json) for the new language which provides the site
+   metadata in the new language:
+
+   ```diff
+   {
+      "en-CA": {
+         "name": "Trivet",
+         "description": "Trivet is a simple starter kit for Eleventy-based static sites for the Fluid Project.",
+         "url": "https://trivet.netlify.app",
+         "authorWebsite": "https://fluidproject.org/",
+         "authorEmail": "idrc@ocadu.ca",
+         "authorName": "Fluid Project"
+      },
+      "fr-CA": {
+         "name": "Trivet",
+         "description": "Trivet est un kit de démarrage simple pour les sites statiques basés sur Eleventy pour le projet Fluid.",
+         "url": "https://trivet.netlify.app",
+         "authorWebsite": "https://fluidproject.org/",
+         "authorEmail": "idrc@ocadu.ca",
+         "authorName": "Projet Fluid"
+   -  }
+   +  },   
+   + "de-DE": {
+   +     ...
+   +  },
+   }
+   ```
+
+3. Modify [`src/admin/config.yml`](src/admin/config.yml) to support the new language:
+
+   ```diff
+   - locales: [en-CA, fr-CA]
+   + locales: [en-CA, fr-CA, de-DE]
+   ```
+
+4. Update the `eleventy-plugin-fluid` configuration's `supportedLanguages` object in [`eleventy.config.js`](eleventy.config.js)
    with the following data:
    * `slug`: a short form of the language code for use in URLs
    * `uioSlug`: a short form of the language code that corresponds to an available message bundle locale for Infusion's
@@ -116,13 +151,13 @@ To add a language, the following changes need to be made:
    You can change the site's default language by changing the the `eleventy-plugin-fluid` configuration's
    `defaultLanguage` string in [`eleventy.config.js`](eleventy.config.js) to the [IETF language code](https://github.com/unicode-org/cldr-json/blob/master/cldr-json/cldr-core/availableLocales.json)
    of the desired default language.
-3. Add directories in each collection for translated content. For example, you would add a directory called `de-DE` to
+5. Add directories in each collection for translated content. For example, you would add a directory called `de-DE` to
    [`src/collections/pages`](src/collections/pages) and [`src/collections/posts`](src/collections/posts). Each `de-DE`
    directory will also need a directory data file called `de-DE.11tydata.js`. The contents should be identical to the
    default language directory's `en-CA.11tydata.js` file.
-4. Create a localized version of the posts archive page, following the example of [`src/collections/pages/fr-CA/posts.md`](src/collections/pages/fr-CA/posts.md).
-5. Create a localized version of the 404 page, following the example of [`src/collections/pages/fr-CA/404.md`](src/collections/pages/fr-CA/404.md).
-6. To ensure that the 404 page is displayed in the appropriate language, verify that a redirect block has been added to
+6. Create a localized version of the posts archive page, following the example of [`src/collections/pages/fr-CA/posts.md`](src/collections/pages/fr-CA/posts.md).
+7. Create a localized version of the 404 page, following the example of [`src/collections/pages/fr-CA/404.md`](src/collections/pages/fr-CA/404.md).
+8. To ensure that the 404 page is displayed in the appropriate language, verify that a redirect block has been added to
    the [netlify.toml](netlify.toml) file for each language following the examples. This feature is described in
    Netlify's [redirects documentation](https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling).
 
@@ -175,8 +210,8 @@ If you need to disable internationalization for a specific collection, you can d
    };
    ```
 
-3. Remove the localized index pages for the collection. In the case of posts, the configuration file creates indexes
-   of posts in each language:
+3. Remove localization of the index pages for the collection. In the case of posts, the [configuration file](eleventy.config.js)
+   creates indexes of posts in each language:
 
    ```js
    // Custom collections
@@ -223,8 +258,7 @@ If you need to disable internationalization for a specific collection, you can d
    + });
    ```
 
-   Then you'll need to modify the [`posts.md`](src/collections/pages/fr-CA/posts.md) page in _all_ locales to reflect
-   the new collection:
+   Then you'll need to modify the `posts.md` page in _all_ locales to reflect the new collection:
 
    ```diff
    pagination:
