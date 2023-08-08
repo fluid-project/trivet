@@ -360,6 +360,8 @@ If you need to disable internationalization for the entire site, you can do so b
    Then make sure you remove any uses of the [`localizeData`](https://github.com/fluid-project/eleventy-plugin-fluid#localizedata)
    helper or [`eleventy-plugin-i18n-gettext` functions](https://github.com/sgissinger/eleventy-plugin-i18n-gettext#api)
    in your project. You can also delete `src/_locales`.
+6. Follow [step 3 above](#disabling-internationalization-for-a-specific-collection)
+   to remove any localized post indexes and the localized RSS feed.
 
 ## License
 
