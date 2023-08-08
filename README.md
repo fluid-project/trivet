@@ -191,7 +191,6 @@ If you need to disable internationalization for a specific collection, you can d
    collection's directory data file, in this case [`src/collections/posts.11tydata.js`](src/collections/posts.11tydata.js):
 
    ```diff
-   - const { EleventyI18nPlugin } = require("@11ty/eleventy");
    - const i18n = require("eleventy-plugin-i18n-gettext");
    const { generatePermalink } = require("eleventy-plugin-fluid");
    
@@ -330,7 +329,6 @@ If you need to disable internationalization for the entire site, you can do so b
    `src/collections/<collection>.11tydata.js`:
 
    ```diff
-   - const { EleventyI18nPlugin } = require("@11ty/eleventy");
    - const i18n = require("eleventy-plugin-i18n-gettext");
    const { generatePermalink } = require("eleventy-plugin-fluid");
    
