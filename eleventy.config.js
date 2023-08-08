@@ -33,7 +33,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({"src/admin/config.yml": "admin/config.yml"});
     eleventyConfig.addPassthroughCopy({"src/assets/icons": "/"});
     eleventyConfig.addPassthroughCopy({"src/assets/images": "assets/images"});
-    eleventyConfig.addPassthroughCopy({"src/posts/images": "posts/images"});
     eleventyConfig.addPassthroughCopy({
         "node_modules/netlify-cms/dist/netlify-cms.js": "lib/cms/netlify-cms.js",
         "node_modules/nunjucks/browser/nunjucks-slim.min.js": "lib/cms/nunjucks-slim.min.js",
