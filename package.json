@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Trivet is a simple starter kit for Eleventy-based static sites for the Fluid Project.",
     "scripts": {
-        "build": "run-s clean build:eleventy",
+        "build": "npm-run-all -l clean -p build:*",
         "build:eleventy": "cross-env NODE_ENV=production eleventy",
         "clean": "rimraf _site",
         "cms": "netlify-cms-proxy-server",
@@ -14,7 +14,7 @@
         "lint:js": "eslint \"**/*.js\"",
         "lint:markdown": "markdownlint-cli2 \"**/*.md\"",
         "lint:yml": "eslint \"**/*.yml\"",
-        "start": "run-s clean start:eleventy",
+        "start": "npm-run-all -l clean -p start:*",
         "start:eleventy": "run-p dev cms",
         "prepare": "husky install"
     },
