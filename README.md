@@ -215,9 +215,7 @@ internationalization for a specific collection, you can do so in one of two ways
 
 #### Advanced Method
 
-1. Deleting all directories but the default locale in the `/src/collections/<collection>/` directory. For example, to
-   disable localization for posts, delete the `/src/collections/posts/fr-CA/` directory.
-2. Modify the [`src/admin/config.yml`](src/admin/config.yml) collection block's `i18n` property for the
+1. Modify the [`src/admin/config.yml`](src/admin/config.yml) collection block's `i18n` property for the
    relevant collection. For example, to disable localization for posts, make the following changes in the `posts`
    block:
   
@@ -226,7 +224,7 @@ internationalization for a specific collection, you can do so in one of two ways
    + i18n: false
    ```
 
-3. Remove all locale subdirectories of `src/collections/posts`, moving the `en-CA` (or other default language)
+2. Remove all locale subdirectories of `src/collections/posts`, moving the `en-CA` (or other default language)
    subdirectory's contents (with the exception of the [`en-CA.11tydata.js`](src/collections/posts/en-CA/en-CA.11tydata.js)
    file) up into `src/collections/posts`. You'll also need to make the following changes to the collection's directory
    data file, in this case [`src/collections/posts.11tydata.js`](src/collections/posts.11tydata.js):
@@ -250,7 +248,7 @@ internationalization for a specific collection, you can do so in one of two ways
    };
    ```
 
-4. Disable localization of the index pages for the collection. In the case of posts, the [configuration file](eleventy.config.js)
+3. Disable localization of the index pages for the collection. In the case of posts, the [configuration file](eleventy.config.js)
    creates indexes of posts in each language:
 
    ```js
@@ -308,7 +306,7 @@ internationalization for a specific collection, you can do so in one of two ways
      alias: posts
    ```
 
-5. Lastly, for posts, you will also need to remove the localized feed by editing [`src/feed.njk`](src/feed.njk):
+4. Lastly, for posts, you will also need to remove the localized feed by editing [`src/feed.njk`](src/feed.njk):
 
    ```diff
    - pagination:
