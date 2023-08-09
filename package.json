@@ -7,6 +7,7 @@
         "build:eleventy": "cross-env NODE_ENV=production eleventy",
         "clean": "rimraf _site",
         "cms": "netlify-cms-proxy-server",
+        "debug": "DEBUG=Eleventy* eleventy",
         "dev": "cross-env NODE_ENV=development eleventy --serve",
         "lint": "run-s -l lint:*",
         "lint:css": "stylelint \"**/*.css\"",
