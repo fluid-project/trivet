@@ -1,17 +1,36 @@
 # Trivet
 
-## A simple starter kit for Eleventy-based static sites for the Fluid Project
+_A simple starter kit for Eleventy-based static sites for the Fluid Project._
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8286bcec-a92b-47ca-a4cf-128a276b57eb/deploy-status)](https://app.netlify.com/sites/trivet/deploys)
 
 This repository contains the files needed to build [Eleventy](http://11ty.dev/)-based static sites for the [Fluid Project](https://fluidproject.org).
 
+## Installation
+
+You can use GitHub's template repository feature to create your own project based on Trivet. From the [repository homepage](https://github.com/fluid-project/trivet),
+click the "Use this template" button and then choose "create a new repository".
+
+If your project [does not require internationalization](#internationalization),
+choose the "Include all branches" option when creating a repository based on Trivet. You can then delete the
+`main` branch, [rename the `no-i18n` branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch#renaming-a-branch),
+to `main` and [change your default branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch)
+to the new `main` branch.
+
+You can also set up a new project locally using [degit](https://www.npmjs.com/package/degit):
+
+```bash
+npx degit fluid-project/trivet YOUR-PROJECT-NAME
+```
+
+If your project [does not require internationalization](#internationalization), you can use the following command
+instead:
+
+```bash
+npx degit fluid-project/trivet#no-i18n YOUR-PROJECT-NAME
+```
+
 ## Usage
-
-You can use this repository as a template for a new site hosted on [Netlify](https://netlify.com) with [Decap CMS](https://decapcms.org/)
-pre-configured:
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/fluid-project/trivet&stack=cms)
 
 ### To run locally in development mode
 
@@ -44,15 +63,16 @@ directory to the web root of your server.
 
 ## Features
 
-* Integrated [UI Options](https://docs.fluidproject.org/infusion/development/UserInterfaceOptionsAPI.html) Preferences Editor.
 * Basic static site configuration for developing project websites and blogs.
-* Starter configuration for [Netlify CMS](https://netlifycms.org/).
+* Starter configuration for [Decap CMS](https://decapcms.org/).
+* Integrated [User Interface Options](https://docs.fluidproject.org/infusion/development/UserInterfaceOptionsAPI.html)
+  Preferences Editor.
 * Internationalization support.
 
 ## Notes
 
-Modifications can be made to any source file or directory except for the contents of the `./_site/` directory. The
-`./_site/` directory is not versioned since it contains the built website that Eleventy generates from the source files,
+Modifications can be made to any source file or directory except for the contents of the `_site` directory. The
+`_site` directory is not versioned since it contains the built website that Eleventy generates from the source files,
 and  files in `_site` are overwritten at build time.
 
 ## Working with Netlify CMS
@@ -62,7 +82,8 @@ For full documentation, see the [Decap CMS documentation](https://decapcms.org/d
 
 ## Internationalization
 
-Trivet includes internationalization support for English (Canada) and French (Canada).
+Trivet includes internationalization support for English (Canada) and French (Canada). More languages can be added. If
+your project doesn't require internationalization,
 
 ### Adding a language
 
@@ -165,8 +186,9 @@ For more information about how Decap CMS works with internationalized content, s
 
 ## Disabling Internationalization
 
-If you do not need internationalization support for your site, it can be disabled either for specific collections or
-for the entire site.
+If you do not need internationalization support for all content on your site, it can be disabled for a specific
+collection or collections. If you don't need internationalization support at all, you should use the `no-i18n`
+branch as the basis of your project (see [Installation](#installation)).
 
 ### Disabling Internationalization for a Specific Collection
 
@@ -174,7 +196,9 @@ If your site is translated into more than two languages but you aren't translati
 collection will not be output by Eleventy. For example, if your site is configured to use `en-CA`, `fr-CA` and
 `de-DE` but you are not translating your posts into `de-DE`, you can leave the `/src/collections/posts/de-DE`
 directory empty and the German posts index page will not be built. However, if you want to disable _all_
-internationalization for a specific collection, you can do so by:
+internationalization for a specific collection, you can do so in one of two ways.
+
+#### Quick Method
 
 1. Deleting all directories but the default locale in the `/src/collections/<collection>/` directory. For example, to
    disable localization for posts, delete the `/src/collections/posts/fr-CA/` directory.
@@ -189,10 +213,23 @@ internationalization for a specific collection, you can do so by:
    + folder: "src/collections/posts/en-CA/" # Look for posts to edit in the default locale directory.
    ```
 
-   Optionally, you could remove all subdirectories of `src/collections/posts`, moving the `en-CA` (or other default
-   language) directory's contents (with the exception of the [`en-CA.11tydata.js`](src/collections/posts/en-CA/en-CA.11tydata.js)
-   file) up into `src/collections/posts`. If you do this, you'll also need to make the following changes to the
-   collection's directory data file, in this case [`src/collections/posts.11tydata.js`](src/collections/posts.11tydata.js):
+#### Advanced Method
+
+1. Deleting all directories but the default locale in the `/src/collections/<collection>/` directory. For example, to
+   disable localization for posts, delete the `/src/collections/posts/fr-CA/` directory.
+2. Modify the [`src/admin/config.yml`](src/admin/config.yml) collection block's `i18n` property for the
+   relevant collection. For example, to disable localization for posts, make the following changes in the `posts`
+   block:
+  
+   ```diff
+   - i18n: true
+   + i18n: false
+   ```
+
+3. Remove all locale subdirectories of `src/collections/posts`, moving the `en-CA` (or other default language)
+   subdirectory's contents (with the exception of the [`en-CA.11tydata.js`](src/collections/posts/en-CA/en-CA.11tydata.js)
+   file) up into `src/collections/posts`. You'll also need to make the following changes to the collection's directory
+   data file, in this case [`src/collections/posts.11tydata.js`](src/collections/posts.11tydata.js):
 
    ```diff
    - const i18n = require("eleventy-plugin-i18n-gettext");
@@ -213,7 +250,7 @@ internationalization for a specific collection, you can do so by:
    };
    ```
 
-3. Remove localization of the index pages for the collection. In the case of posts, the [configuration file](eleventy.config.js)
+4. Disable localization of the index pages for the collection. In the case of posts, the [configuration file](eleventy.config.js)
    creates indexes of posts in each language:
 
    ```js
@@ -271,7 +308,7 @@ internationalization for a specific collection, you can do so by:
      alias: posts
    ```
 
-   Lastly, for posts, you will also need to remove the localized feed by editing [`src/feed.njk`](src/feed.njk):
+5. Lastly, for posts, you will also need to remove the localized feed by editing [`src/feed.njk`](src/feed.njk):
 
    ```diff
    - pagination:
@@ -290,82 +327,6 @@ internationalization for a specific collection, you can do so by:
    -   <subtitle>{% _ locale, "The most recent posts from %s", site[locale].name %}</subtitle>
    +   <subtitle>The most recent posts from {{ site[locale].name }}</subtitle>
    ```
-
-### Disabling Internationalization for the Entire Site
-
-If you need to disable internationalization for the entire site, you can do so by:
-
-1. Remove all but the default locale from the locales block of [`src/_data/config.json`](src/_data/config.json):
-
-   ```diff
-   "locales": [
-   -   "en-CA",
-   -   "fr-CA"
-   +   "en-CA"
-   ],
-   ```
-
-2. Delete the `editor` block's `i18n` section in [`src/admin/config.yml`](src/admin/config.yml):
-
-   ```diff
-   editor:
-     preview: false
-   - i18n:
-   -   structure: multiple_folders
-   -   locales: ["en-CA", "fr-CA"]
-   -   default_locale: "en-CA"
-   ```
-
-3. Deleting all directories but the default locale in every directory within `/src/collections/`. For example, to
-   disable localization for pages, delete the `/src/collections/pages/fr-CA/` directory.
-4. Modify the [`src/admin/config.yml`](src/admin/config.yml) collection block's `i18n` and `folder` properties for all
-   collections:
-
-   ```diff
-   - i18n: true
-   - folder: "src/collections/<collection>/"
-   + folder: "src/collections/<collection>/en-CA/" # Look for content to edit in the default locale directory.
-   ```
-
-   Or, remove all subdirectories of each collection directory, moving the `en-CA` (or other default language)
-   directory's contents (with the exection of the `en-CA.11tydata.js` file) up into `src/collections/<collection>`. If
-   you do this, you'll also need to make the following change to the collection's directory data file,
-   `src/collections/<collection>.11tydata.js`:
-
-   ```diff
-   - const i18n = require("eleventy-plugin-i18n-gettext");
-   const { generatePermalink } = require("eleventy-plugin-fluid");
-   
-   module.exports = {
-       layout: "layouts/post",
-       eleventyComputed: {
-   +       lang: data => data.defaultLanguage,
-   -       langDir: data => data.supportedLanguages[data.locale].dir,
-   +       langDir: data => data.supportedLanguages[data.defaultLanguage].dir,
-           permalink: data => {
-   -           const locale = data.locale;
-   -           return generatePermalink(data, "posts", i18n._(locale, "posts"));
-   +           return generatePermalink(data, "posts");
-           }
-       }
-   };
-   ```
-
-   If you choose this option you won't need to change the `folder` configuration in [`src/admin/config.yml`](src/admin/config.yml).
-5. Modify your Eleventy configuration file to disable string translation in `eleventy-plugin-fluid`:
-
-   ```diff
-   eleventyConfig.addPlugin(fluidPlugin, {
-   +  i18n: false
-      ...
-   });
-   ```
-
-   Then make sure you remove any uses of the [`localizeData`](https://github.com/fluid-project/eleventy-plugin-fluid#localizedata)
-   helper or [`eleventy-plugin-i18n-gettext` functions](https://github.com/sgissinger/eleventy-plugin-i18n-gettext#api)
-   in your project. You can also delete `src/_locales`.
-6. Follow [step 3 of "Disabling Internationalization for a Specific Collection"](#disabling-internationalization-for-a-specific-collection)
-   to remove any localized post indexes and the localized RSS feed.
 
 ## License
 
