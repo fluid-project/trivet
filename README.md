@@ -236,14 +236,14 @@ internationalization for a specific collection, you can do so in one of two ways
    module.exports = {
        layout: "layouts/post",
        eleventyComputed: {
-   +       lang: data => data.defaultLanguage,
+   +       locale: data => data.defaultLanguage,
    -       langDir: data => data.supportedLanguages[data.locale].dir,
    +       langDir: data => data.supportedLanguages[data.defaultLanguage].dir,
-           permalink: data => {
+   -       permalink: data => {
    -           const locale = data.locale;
    -           return generatePermalink(data, "posts", i18n._(locale, "posts"));
-   +           return generatePermalink(data, "posts");
-           }
+   -       }
+   +       permalink: data = generatePermalink(data, "posts")
        }
    };
    ```
