@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-07-28 11:41-0300\n"
-"PO-Revision-Date: 2023-07-28 11:41-0300\n"
+"POT-Creation-Date: 2023-08-10 14:56-0300\n"
+"PO-Revision-Date: 2023-08-10 14:57-0300\n"
 "Last-Translator: OCAD University <idrc@ocadu.ca>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -24,10 +24,31 @@ msgid "menu"
 msgstr "menu"
 
 #: messages.js:5
+msgid "posts navigation"
+msgstr "navigation des articles"
+
+#: messages.js:6
+msgid "previous"
+msgstr "précédent"
+
+#: messages.js:7
+#, javascript-format
+msgid "page %s of %s"
+msgstr "page %s de %s"
+
+#: messages.js:8
+msgid "next"
+msgstr "suivant"
+
+#: messages.js:9
 #, javascript-format
 msgid "The most recent posts from %s"
 msgstr "Les articles les plus récents de %s"
 
-#: messages.js:6
+#: messages.js:10
 msgid "posts"
 msgstr "articles"
+
+#: messages.js:11
+msgid "page"
+msgstr ""
