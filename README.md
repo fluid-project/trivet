@@ -243,7 +243,7 @@ internationalization for a specific collection, you can do so in one of two ways
    -           const locale = data.locale;
    -           return generatePermalink(data, "posts", i18n._(locale, "posts"));
    -       }
-   +       permalink: data = generatePermalink(data, "posts")
+   +       permalink: data => generatePermalink(data, "posts")
        }
    };
    ```
