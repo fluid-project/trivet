@@ -1,4 +1,5 @@
 ---
+layout: layouts/page
 title: Accueil
 order: 1
 ---

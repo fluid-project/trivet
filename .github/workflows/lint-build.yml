@@ -1,11 +1,11 @@
-name: CI
+name: Lint and build
 
 on:
   pull_request:
     branches: [ main ]
 
 jobs:
-  test:
+  lint-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,15 +15,15 @@ jobs:
           path: node_modules
           key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
-        run: |
-          npm i
+        run: npm install
         env:
           CI: true
-      - name: Lint JavaScript and JSON files
-        run: |
-          npm run lint
+      - name: Lint files
+        run: npm run lint
         env:
           CI: true
-      - name: Build with Docker
-        run: docker build .
+      - name: Build site
+        run: npm run build
+        env:
+          CI: true
 

@@ -15,6 +15,10 @@ updates:
     allow:
       # Allow direct updates only (for packages named in package.json)
       - dependency-type: "direct"
-    ignore:
-      - dependency-name: "husky"
-        versions: [">=5"]
+  # Enable version updates for npm
+  - package-ecosystem: github-actions
+    # Look for `package.json` and `lock` files in the `root` directory
+    directory: "/"
+    # Check for updates once a month
+    schedule:
+      interval: "monthly"

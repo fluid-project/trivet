@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="{{ lang }}" dir="{{ config.languages[lang].dir }}">
+<html lang="{{ locale }}" dir="{{ supportedLanguages[locale].dir }}">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
 
-        <title>{% if title %} {{ title }} | {% endif %} {{ site[lang].name }}</title>
+        <title>{% if title %} {{ title }} | {% endif %} {{ site[locale].name }}</title>
 
         {% include "partials/global/stylesheets.njk" %}
 
         {% include "partials/global/meta.njk" %}
-        <link rel="alternate" type="application/atom+xml" href="{{ config.url }}{% if lang !== config.defaultLanguage %}/{{ lang }}{% endif %}/feed.xml" title="{{ translations[lang]["%s RSS feed"] | replace("%s", site[lang].name) }}">
+        <link rel="alternate" type="application/atom+xml" href="{{ config.url }}{% if locale !== defaultLanguage %}/{{ locale }}{% endif %}/feed.xml" title="{% _ locale, "%s RSS feed", site[locale].name %}">
 
         {% include "partials/global/icons.njk" %}
         <link rel="manifest" href="/manifest.webmanifest">
@@ -35,6 +35,9 @@
             </article>
         </main>
         {% include "partials/global/footer.njk" %}
-        {% uioInit config.languages[lang].uioSlug, config.languages[lang].dir %}
+        {% uioInit supportedLanguages[locale].uioSlug, supportedLanguages[locale].dir %}
+        {% if page.url === "/" %}
+        <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        {% endif %}
     </body>
 </html>

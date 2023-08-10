@@ -1,4 +1,5 @@
 ---
+layout: layouts/page
 title: Home
 order: 1
 ---
