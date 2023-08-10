@@ -5,29 +5,24 @@ _A simple starter kit for Eleventy-based static sites for the Fluid Project._
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8286bcec-a92b-47ca-a4cf-128a276b57eb/deploy-status)](https://app.netlify.com/sites/trivet/deploys)
 
 This repository contains the files needed to build [Eleventy](http://11ty.dev/)-based static sites for the [Fluid Project](https://fluidproject.org).
+It includes support for internationalization; if your project does not require internationalization, use [Trivet Monolingual](https://github.com/fluid-project/trivet/)
+instead.
 
 ## Installation
 
-You can use GitHub's template repository feature to create your own project based on Trivet. From the [repository homepage](https://github.com/fluid-project/trivet),
-click the "Use this template" button and then choose "create a new repository".
+You can use this repository as a template for a new site hosted on [Netlify](https://netlify.com) with [Decap CMS](https://decapcms.org)
+pre-configured:
 
-If your project [does not require internationalization](#internationalization),
-choose the "Include all branches" option when creating a repository based on Trivet. You can then delete the
-`main` branch, [rename the `no-i18n` branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch#renaming-a-branch),
-to `main` and [change your default branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch)
-to the new `main` branch.
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/fluid-project/trivet&stack=cms)
+
+You can also use GitHub's template repository feature to create your own project based on Trivet Monolingual. From the
+[repository homepage](https://github.com/fluid-project/trivet),
+click the "Use this template" button and then choose "Create a new repository".
 
 You can also set up a new project locally using [degit](https://www.npmjs.com/package/degit):
 
 ```bash
 npx degit fluid-project/trivet YOUR-PROJECT-NAME
-```
-
-If your project [does not require internationalization](#internationalization), you can use the following command
-instead:
-
-```bash
-npx degit fluid-project/trivet#no-i18n YOUR-PROJECT-NAME
 ```
 
 ## Usage
@@ -187,8 +182,8 @@ For more information about how Decap CMS works with internationalized content, s
 ## Disabling Internationalization
 
 If you do not need internationalization support for all content on your site, it can be disabled for a specific
-collection or collections. If you don't need internationalization support at all, you should use the `no-i18n`
-branch as the basis of your project (see [Installation](#installation)).
+collection or collections. If you don't need internationalization support at all, you should use [Trivet Monolingual](https://github.com/fluid-project/trivet-monolingual)
+as the basis of your project instead.
 
 ### Disabling Internationalization for a Specific Collection
 
