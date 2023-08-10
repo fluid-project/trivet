@@ -3,7 +3,7 @@ permalink: /sitemap.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     {% for page in collections.all %}
     {%- if page.url and page.data.locale == "en-CA" -%}
     <url>
@@ -11,7 +11,7 @@ eleventyExcludeFromCollections: true
         <lastmod>{{ page.date.toISOString() }}</lastmod>
         {% set links = page.url | locale_links %}
         {%- for link in links -%}
-        <xhtml:link rel="alternate" hreflang="{{ link.lang }}" href="{{ site[defaultLanguage].url }}{{ link.url }}"/>
+        <link rel="alternate" hreflang="{{ link.lang }}" href="{{ site[defaultLanguage].url }}{{ link.url }}"/>
         {%- endfor %}
     </url>
     {% endif -%}
