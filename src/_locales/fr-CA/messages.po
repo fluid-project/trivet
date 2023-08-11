@@ -51,4 +51,4 @@ msgstr "articles"
 
 #: messages.js:11
 msgid "page"
-msgstr ""
+msgstr "page"
