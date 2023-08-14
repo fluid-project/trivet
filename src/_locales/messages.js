@@ -2,6 +2,10 @@
 // It exists only to allow PO editors to get translation keys from source code.
 _("%s RSS feed")
 _("menu")
+_("posts navigation")
+_("previous")
+_("page %s of %s")
+_("next")
 _("The most recent posts from %s")
 _("posts")
 _("page")
