@@ -1,6 +1,6 @@
 ---
-title: Mon article
-date: 2020-06-22
+title: Article 7
+date: 2020-06-28
 description: "Ceci est une brève description de l'article. "
 author: Projet Fluid
 ---
