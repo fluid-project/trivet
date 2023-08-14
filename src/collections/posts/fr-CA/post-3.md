@@ -1,6 +1,6 @@
 ---
 title: Article 3
-date: 2020-06-22
+date: 2020-06-24
 description: "Ceci est une brève description de l'article. "
 author: Projet Fluid
 ---
