@@ -9,17 +9,22 @@
 {% endblock %}
 
 {% block content %}
-{% if posts.length %}
-    {% for item in posts %}
-        <article class="entry">
-            <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
-            <p class="metadata"><time datetime="{{ item.data.date | isoDate }}" class="dt-published">{% _d locale, "LL", item.data.date %}</time></p>
-            {% if item.data.excerpt %}
-            <p>{{ item.data.excerpt | safe }}</p>
-            {% endif %}
-        </article>
-    {% endfor %}
-{% endif %}
+
+{# In circumstances where pagination size is set to 1, the paginated content will be a single item instead of an array.
+The following code ensures we are always handling an array, even if it only has one item. #}
+
+{% set items = [] %}
+{% set items = items.concat(posts) %}
+
+{% for item in items %}
+    <article class="entry">
+        <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
+        <p class="metadata"><time datetime="{{ item.data.date | isoDate }}" class="dt-published">{% _d locale, "LL", item.data.date %}</time></p>
+        {% if item.data.excerpt %}
+        <p>{{ item.data.excerpt | safe }}</p>
+        {% endif %}
+    </article>
+{% endfor %}
 
 {% if pagination.href.previous or pagination.href.next %}
 {% include "partials/components/pagination.njk" %}

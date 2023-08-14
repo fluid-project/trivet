@@ -15,7 +15,7 @@
 2. <!-- Second step -->
 3. <!-- and so on... -->
 
-**Expected behavioor:** <!-- What should happen -->
+**Expected behaviour:** <!-- What should happen -->
 
 ## Additional information
 
