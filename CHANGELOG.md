@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/fluid-project/trivet/compare/v2.0.0...v2.0.1) (2023-08-15)
+
+
+### Bug Fixes
+
+* simplify YAML lint config ([#362](https://github.com/fluid-project/trivet/issues/362)) ([40ea5f9](https://github.com/fluid-project/trivet/commit/40ea5f9df913fa55c7b9a5249bbd3badb8309515))
+
 ## [2.0.0](https://github.com/fluid-project/trivet/compare/v1.0.0...v2.0.0) (2023-08-15)
 
 
