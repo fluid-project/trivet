@@ -1,15 +1,17 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: npm
+    directory: /
     schedule:
-      interval: "monthly"
+      interval: monthly
     allow:
-      - dependency-type: "direct"
+      - dependency-type: direct
     ignore:
-      - dependency-name: "stylelint"
-        versions: ["^15"]
+      - dependency-name: stylelint
+        versions: [^15]
+      - dependency-name: react
+        versions: [^17]
   - package-ecosystem: github-actions
-    directory: "/"
+    directory: /
     schedule:
-      interval: "monthly"
+      interval: monthly

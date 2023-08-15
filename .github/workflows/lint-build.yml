@@ -2,7 +2,7 @@ name: Lint and build
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   lint-build:
