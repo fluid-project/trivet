@@ -1,24 +1,17 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
-
 version: 2
 updates:
-  # Enable version updates for npm
   - package-ecosystem: npm
-    # Look for `package.json` and `lock` files in the `root` directory
     directory: /
-    # Check for updates once a month
     schedule:
       interval: monthly
     allow:
-      # Allow direct updates only (for packages named in package.json)
       - dependency-type: direct
-  # Enable version updates for npm
+    ignore:
+      - dependency-name: stylelint
+        versions: [^15]
+      - dependency-name: react
+        versions: [^17]
   - package-ecosystem: github-actions
-    # Look for `package.json` and `lock` files in the `root` directory
     directory: /
-    # Check for updates once a month
     schedule:
       interval: monthly
