@@ -250,16 +250,16 @@ internationalization for a specific collection, you can do so in one of two ways
    // Custom collections
    const livePosts = post => post.date <= now && !post.data.draft;
    siteConfig.locales.forEach(locale => {
-     eleventyConfig.addCollection(`posts_${locale}`, collection => {
-         return collection.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`).filter(livePosts);
-     });
+       eleventyConfig.addCollection(`posts_${locale}`, collection => {
+           return collection.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`).filter(livePosts);
+       });
    
-     // The following collection is used to create a collection of posts for the RSS feed.
-     eleventyConfig.addCollection(`postFeed_${locale}`, collection => {
-         return collection.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`).filter(livePosts)
-             .reverse()
-             .slice(0, siteConfig.maxPostsInFeed);
-     });
+       // The following collection is used to create a collection of posts for the RSS feed.
+       eleventyConfig.addCollection(`postFeed_${locale}`, collection => {
+           return collection.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`).filter(livePosts)
+               .reverse()
+               .slice(0, siteConfig.maxPostsInFeed);
+       });
    });
    ```
 
