@@ -13,7 +13,7 @@
         "lint:css": "stylelint \"**/*.css\"",
         "lint:js": "eslint \"**/*.js\"",
         "lint:markdown": "markdownlint-cli2 \"**/*.md\"",
-        "lint:yml": "eslint --no-error-on-unmatched-pattern \".github/**/*.yml\" \"**/*.yml\"",
+        "lint:yml": "eslint \"**/*.yml\"",
         "start": "npm-run-all -l clean -p start:*",
         "start:eleventy": "run-p dev cms",
         "prepare": "husky install"
