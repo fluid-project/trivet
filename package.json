@@ -65,6 +65,9 @@
     "lint-staged": {
         "*.css": "stylelint --fix",
         "*.{js,yml}": "eslint --fix",
-        "*.md": "markdownlint-cli2 --fix"
+        "*.md": [
+            "markdownlint-cli2 --fix",
+            "eslint --fix"
+        ]
     }
 }
