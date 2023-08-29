@@ -7,18 +7,24 @@ eleventyExcludeFromCollections: true
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Content Manager | {{ site["en-CA"].name }}</title>
+    <title>Content Manager | {{ site[defaultLanguage].name }}</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <!-- Include the script that builds the page and powers Netlify CMS -->
-    <script src="/lib/cms/netlify-cms.js"></script>
+    <!-- Include the script that builds the page and powers Decap CMS -->
+    <script src="/lib/cms/decap-cms.js"></script>
     {% if env.context === "dev" %}
     <script src="/lib/cms/react.development.js"></script>
     {% else %}
     <script src="/lib/cms/react.production.min.js"></script>
     {% endif %}
     <script src="/lib/cms/prop-types.min.js"></script>
-    <script src="/lib/cms/nunjucks-slim.min.js"></script>
+    <script src="/lib/cms/htm.js"></script>
+    <script src="/lib/cms/markdown-it.min.js"></script>
+    <script src="/admin/previews.js"></script>
+    <script src="/admin/components/block.js"></script>
+    <script>
+      CMS.registerPreviewStyle('/assets/styles/app.css')
+    </script>
   </body>
 </html>

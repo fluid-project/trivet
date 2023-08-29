@@ -33,9 +33,12 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({"src/admin/config.yml": "admin/config.yml"});
     eleventyConfig.addPassthroughCopy({"src/assets/icons": "/"});
     eleventyConfig.addPassthroughCopy({"src/assets/images": "assets/images"});
+    eleventyConfig.addPassthroughCopy("src/admin/**/*.js");
     eleventyConfig.addPassthroughCopy({
-        "node_modules/netlify-cms/dist/netlify-cms.js": "lib/cms/netlify-cms.js",
-        "node_modules/nunjucks/browser/nunjucks-slim.min.js": "lib/cms/nunjucks-slim.min.js",
+        "node_modules/decap-cms/dist/decap-cms.js": "lib/cms/decap-cms.js",
+        "node_modules/decap-cms/dist/decap-cms.js.map": "lib/cms/decap-cms.js.map",
+        "node_modules/htm/dist/htm.js": "lib/cms/htm.js",
+        "node_modules/markdown-it/dist/markdown-it.min.js": "lib/cms/markdown-it.min.js",
         "node_modules/prop-types/prop-types.min.js": "lib/cms/prop-types.min.js",
         "node_modules/react/umd/react.development.js": "lib/cms/react.development.js",
         "node_modules/react/umd/react.production.min.js": "lib/cms/react.production.min.js"
@@ -84,6 +87,6 @@ module.exports = function (eleventyConfig) {
             input: "src"
         },
         passthroughFileCopy: true,
-        markdownTemplateEngine: "njk"
+        markdownTemplateEngine: "webc"
     };
 };
