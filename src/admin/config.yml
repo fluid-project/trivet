@@ -4,7 +4,7 @@ backend:
 media_folder: src/assets/uploads
 public_folder: /assets/uploads
 
-# Run "npx netlify-cms-proxy-server" for local backend
+# Run "npx decap-server" for local backend
 local_backend: true
 editor:
   preview: false
