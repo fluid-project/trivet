@@ -33,7 +33,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({"src/admin/config.yml": "admin/config.yml"});
     eleventyConfig.addPassthroughCopy({"src/assets/icons": "/"});
     eleventyConfig.addPassthroughCopy({"src/assets/images": "assets/images"});
-    eleventyConfig.addPassthroughCopy("src/admin/**/*.js");
     eleventyConfig.addPassthroughCopy({
         "node_modules/decap-cms/dist/decap-cms.js": "lib/cms/decap-cms.js",
         "node_modules/decap-cms/dist/decap-cms.js.map": "lib/cms/decap-cms.js.map",
