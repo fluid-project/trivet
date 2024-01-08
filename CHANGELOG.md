@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.1.0](https://github.com/fluid-project/trivet/compare/trivet-v2.0.1...trivet-v2.1.0) (2024-01-08)
+
+
+### Features
+
+* lint JavaScript in Markdown files ([#364](https://github.com/fluid-project/trivet/issues/364)) ([cb9527c](https://github.com/fluid-project/trivet/commit/cb9527c5998a4788e9c87f5b7f6ca7a66a210171))
+* replace Netlify CMS with Decap CMS ([#371](https://github.com/fluid-project/trivet/issues/371)) ([1be7787](https://github.com/fluid-project/trivet/commit/1be77878bf626a33c34439d0ef228e2864b76061))
+* update robots.txt ([#367](https://github.com/fluid-project/trivet/issues/367)) ([cce5674](https://github.com/fluid-project/trivet/commit/cce5674784c1f35a43d227d58c766c9c0dcd8d44))
+
+
+### Bug Fixes
+
+* use correct Dependabot ignore syntax ([#366](https://github.com/fluid-project/trivet/issues/366)) ([d11c2ae](https://github.com/fluid-project/trivet/commit/d11c2ae8501a730a3362069ae1aaa84b04b055fa))
+* use more descriptive script names for linting (S)CSS and JavaScript ([#369](https://github.com/fluid-project/trivet/issues/369)) ([db7f00a](https://github.com/fluid-project/trivet/commit/db7f00a094e6b24667c89f7c22e1cc792f1bf331))
+
 ## [2.0.1](https://github.com/fluid-project/trivet/compare/v2.0.0...v2.0.1) (2023-08-15)
 
 
