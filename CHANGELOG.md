@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.1](https://github.com/fluid-project/trivet/compare/v2.1.0...v2.1.1) (2024-01-08)
+
+
+### Bug Fixes
+
+* don't include package name in tag ([#406](https://github.com/fluid-project/trivet/issues/406)) ([6ab56df](https://github.com/fluid-project/trivet/commit/6ab56dfb3e0a7aa08a09c407d58511372d8d414b))
+* restore manifest ([#408](https://github.com/fluid-project/trivet/issues/408)) ([ad3dcf0](https://github.com/fluid-project/trivet/commit/ad3dcf05cc0d9bf95d55ea8c8865b93f9de6fdd1))
+
 ## [2.1.0](https://github.com/fluid-project/trivet/compare/trivet-v2.0.1...trivet-v2.1.0) (2024-01-08)
 
 
