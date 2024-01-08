@@ -1,14 +1,11 @@
 {
-    "packages": {
-      ".": {
-        "changelog-path": "CHANGELOG.md",
-        "release-type": "node",
-        "bump-minor-pre-major": false,
-        "bump-patch-for-minor-pre-major": false,
-        "draft": false,
-        "prerelease": false
-      }
-    },
-    "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
-  }
-  
+  "changelog-path": "CHANGELOG.md",
+  "release-type": "node",
+  "bump-minor-pre-major": false,
+  "bump-patch-for-minor-pre-major": false,
+  "draft": false,
+  "prerelease": false,
+  "last-release-sha": "c34409b69fa8c4e9e934a72c6e8307d6ea8b840f",
+  "packages": {},
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
+}
