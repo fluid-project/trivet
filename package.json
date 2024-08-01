@@ -1,70 +1,73 @@
 {
-  "name": "trivet",
-  "version": "2.1.1",
-  "description": "Trivet is a simple starter kit for Eleventy-based static sites for the Fluid Project.",
-  "scripts": {
-    "build": "npm-run-all -l clean -p build:*",
-    "build:eleventy": "cross-env NODE_ENV=production eleventy",
-    "clean": "rimraf _site",
-    "cms": "decap-server",
-    "debug": "DEBUG=Eleventy* eleventy",
-    "dev": "cross-env NODE_ENV=development eleventy --serve",
-    "lint": "run-s -l lint:*",
-    "lint:styles": "stylelint \"**/*.css\"",
-    "lint:scripts": "eslint \"**/*.{js,md}\"",
-    "lint:markdown": "markdownlint-cli2 \"**/*.md\"",
-    "lint:yml": "eslint \"**/*.yml\"",
-    "start": "npm-run-all -l clean -p start:*",
-    "start:eleventy": "run-p dev cms",
-    "prepare": "husky"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fluid-project/trivet.git"
-  },
-  "author": "OCAD University",
-  "license": "BSD-3-Clause",
-  "bugs": {
-    "url": "https://github.com/fluid-project/trivet/issues"
-  },
-  "homepage": "https://github.com/fluid-project/trivet#readme",
-  "dependencies": {
-    "@11ty/eleventy": "2.0.1",
-    "@11ty/eleventy-navigation": "0.3.5",
-    "@11ty/eleventy-plugin-rss": "1.2.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "5.0.0",
-    "decap-cms": "3.1.11",
-    "eleventy-plugin-fluid": "2.7.1",
-    "infusion": "4.7.1",
-    "prop-types": "15.8.1",
-    "react": "16.14.0"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "19.3.0",
-    "@commitlint/config-conventional": "19.2.2",
-    "cross-env": "7.0.3",
-    "debug": "4.3.6",
-    "decap-server": "3.0.4",
-    "eslint": "8.57.0",
-    "eslint-config-fluid": "2.1.2",
-    "eslint-plugin-jsdoc": "48.10.2",
-    "eslint-plugin-markdown": "3.0.1",
-    "eslint-plugin-yml": "1.14.0",
-    "husky": "9.1.4",
-    "image-size": "1.1.1",
-    "linkedom": "0.18.4",
-    "lint-staged": "15.2.7",
-    "markdownlint-cli2": "0.13.0",
-    "markdownlint-config-fluid": "0.1.5",
-    "npm-run-all2": "6.2.2",
-    "rimraf": "6.0.1",
-    "stylelint": "14.16.1",
-    "stylelint-config-fluid": "1.0.0",
-    "stylelint-use-logical-spec": "5.0.1"
-  },
-  "lint-staged": {
-    "*.css": "stylelint --fix",
-    "*.{js,yml}": "eslint --fix",
-    "*.md": ["markdownlint-cli2 --fix", "eslint --fix"]
-  }
+    "name": "trivet",
+    "version": "2.1.1",
+    "description": "Trivet is a simple starter kit for Eleventy-based static sites for the Fluid Project.",
+    "scripts": {
+        "build": "npm-run-all -l clean -p build:*",
+        "build:eleventy": "cross-env NODE_ENV=production eleventy",
+        "clean": "rimraf _site",
+        "cms": "decap-server",
+        "debug": "DEBUG=Eleventy* eleventy",
+        "dev": "cross-env NODE_ENV=development eleventy --serve",
+        "lint": "run-s -l lint:*",
+        "lint:styles": "stylelint \"**/*.css\"",
+        "lint:scripts": "eslint \"**/*.{js,md}\"",
+        "lint:markdown": "markdownlint-cli2 \"**/*.md\"",
+        "lint:yml": "eslint \"**/*.yml\"",
+        "start": "npm-run-all -l clean -p start:*",
+        "start:eleventy": "run-p dev cms",
+        "prepare": "husky"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fluid-project/trivet.git"
+    },
+    "author": "OCAD University",
+    "license": "BSD-3-Clause",
+    "bugs": {
+        "url": "https://github.com/fluid-project/trivet/issues"
+    },
+    "homepage": "https://github.com/fluid-project/trivet#readme",
+    "dependencies": {
+        "@11ty/eleventy": "2.0.1",
+        "@11ty/eleventy-navigation": "0.3.5",
+        "@11ty/eleventy-plugin-rss": "1.2.0",
+        "@11ty/eleventy-plugin-syntaxhighlight": "5.0.0",
+        "decap-cms": "3.1.11",
+        "eleventy-plugin-fluid": "2.7.1",
+        "infusion": "4.7.1",
+        "prop-types": "15.8.1",
+        "react": "16.14.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "19.3.0",
+        "@commitlint/config-conventional": "19.2.2",
+        "cross-env": "7.0.3",
+        "debug": "4.3.6",
+        "decap-server": "3.0.4",
+        "eslint": "8.57.0",
+        "eslint-config-fluid": "2.1.2",
+        "eslint-plugin-jsdoc": "48.10.2",
+        "eslint-plugin-markdown": "3.0.1",
+        "eslint-plugin-yml": "1.14.0",
+        "husky": "9.1.4",
+        "image-size": "1.1.1",
+        "linkedom": "0.18.4",
+        "lint-staged": "15.2.7",
+        "markdownlint-cli2": "0.13.0",
+        "markdownlint-config-fluid": "0.1.5",
+        "npm-run-all2": "6.2.2",
+        "rimraf": "6.0.1",
+        "stylelint": "14.16.1",
+        "stylelint-config-fluid": "1.0.0",
+        "stylelint-use-logical-spec": "5.0.1"
+    },
+    "lint-staged": {
+        "*.css": "stylelint --fix",
+        "*.{js,yml}": "eslint --fix",
+        "*.md": [
+            "markdownlint-cli2 --fix",
+            "eslint --fix"
+        ]
+    }
 }
