@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.1.2](https://github.com/fluid-project/trivet/compare/v2.1.1...v2.1.2) (2024-08-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency decap-cms to v3.1.11 ([#454](https://github.com/fluid-project/trivet/issues/454)) ([9fc8389](https://github.com/fluid-project/trivet/commit/9fc8389eb5e61ff8474c813f5720dfa66d392fc9))
+* **deps:** update dependency infusion to v4.7.1 ([#460](https://github.com/fluid-project/trivet/issues/460)) ([07a1c1c](https://github.com/fluid-project/trivet/commit/07a1c1c7e34a0880b3914bd6d1669d3da77990f7))
+* use JSON for commitlint config ([#474](https://github.com/fluid-project/trivet/issues/474)) ([57ce457](https://github.com/fluid-project/trivet/commit/57ce457a03ee8cc31d6ed7012b48d65a1347f3e9))
+
 ## [2.1.1](https://github.com/fluid-project/trivet/compare/v2.1.0...v2.1.1) (2024-01-08)
 
 
