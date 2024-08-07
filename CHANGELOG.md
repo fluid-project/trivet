@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.3](https://github.com/fluid-project/trivet/compare/v2.1.2...v2.1.3) (2024-08-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency decap-cms to v3.2.1 ([#481](https://github.com/fluid-project/trivet/issues/481)) ([36137f5](https://github.com/fluid-project/trivet/commit/36137f5511b773eac6a9561caaed8e69bfa8e3df))
+
 ## [2.1.2](https://github.com/fluid-project/trivet/compare/v2.1.1...v2.1.2) (2024-08-01)
 
 
