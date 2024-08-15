@@ -34,7 +34,7 @@
         "@11ty/eleventy-plugin-rss": "1.2.0",
         "@11ty/eleventy-plugin-syntaxhighlight": "5.0.0",
         "decap-cms": "3.3.2",
-        "eleventy-plugin-fluid": "2.7.1",
+        "eleventy-plugin-fluid": "2.7.3",
         "infusion": "4.7.1",
         "prop-types": "15.8.1",
         "react": "16.14.0"
