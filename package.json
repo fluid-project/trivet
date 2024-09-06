@@ -54,7 +54,7 @@
         "image-size": "1.1.1",
         "linkedom": "0.18.4",
         "lint-staged": "15.2.10",
-        "markdownlint-cli2": "0.13.0",
+        "markdownlint-cli2": "0.14.0",
         "markdownlint-config-fluid": "0.1.5",
         "npm-run-all2": "6.2.2",
         "rimraf": "6.0.1",
