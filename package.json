@@ -55,7 +55,7 @@
         "linkedom": "0.18.5",
         "lint-staged": "15.2.10",
         "markdownlint-cli2": "0.15.0",
-        "markdownlint-config-fluid": "0.1.5",
+        "markdownlint-config-fluid": "0.1.8",
         "npm-run-all2": "7.0.1",
         "rimraf": "6.0.1",
         "stylelint": "14.16.1",
