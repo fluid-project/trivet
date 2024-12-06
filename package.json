@@ -43,7 +43,7 @@
         "@commitlint/cli": "19.6.0",
         "@commitlint/config-conventional": "19.6.0",
         "cross-env": "7.0.3",
-        "debug": "4.3.7",
+        "debug": "4.4.0",
         "decap-server": "3.1.2",
         "eslint": "8.57.1",
         "eslint-config-fluid": "2.1.3",
