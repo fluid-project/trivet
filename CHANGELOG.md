@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.1.3](https://github.com/fluid-project/trivet/compare/v2.1.2...v2.1.3) (2025-02-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency decap-cms to v3.2.1 ([#481](https://github.com/fluid-project/trivet/issues/481)) ([36137f5](https://github.com/fluid-project/trivet/commit/36137f5511b773eac6a9561caaed8e69bfa8e3df))
+* **deps:** update dependency decap-cms to v3.3.0 ([#486](https://github.com/fluid-project/trivet/issues/486)) ([e7e4312](https://github.com/fluid-project/trivet/commit/e7e4312f647b821a592121148d1d1eb64da7b264))
+* **deps:** update dependency decap-cms to v3.3.2 ([#489](https://github.com/fluid-project/trivet/issues/489)) ([f85c267](https://github.com/fluid-project/trivet/commit/f85c267916218c08c37da76cdf7bd4db06106d1a))
+* **deps:** update dependency decap-cms to v3.3.3 ([#502](https://github.com/fluid-project/trivet/issues/502)) ([605f001](https://github.com/fluid-project/trivet/commit/605f00118edcb3cef024c364cb2c1e892913ba28))
+* **deps:** update dependency decap-cms to v3.4.0 ([#546](https://github.com/fluid-project/trivet/issues/546)) ([892f430](https://github.com/fluid-project/trivet/commit/892f4306a8f4f888e001785b1fbd9ce666241d35))
+* **deps:** update dependency decap-cms to v3.5.0 ([#571](https://github.com/fluid-project/trivet/issues/571)) ([14ea9b7](https://github.com/fluid-project/trivet/commit/14ea9b70f82ebb9f5903af9ccb7f29b2c413f223))
+* **deps:** update dependency decap-cms to v3.6.0 ([#583](https://github.com/fluid-project/trivet/issues/583)) ([f53e23d](https://github.com/fluid-project/trivet/commit/f53e23d704913d2adeecf5074b018ea9899b4157))
+* **deps:** update dependency decap-cms to v3.6.1 ([#584](https://github.com/fluid-project/trivet/issues/584)) ([9269755](https://github.com/fluid-project/trivet/commit/9269755ca74e77ef3930d02a57c68be6772b7f78))
+* **deps:** update dependency decap-cms to v3.6.2 ([#588](https://github.com/fluid-project/trivet/issues/588)) ([3918f72](https://github.com/fluid-project/trivet/commit/3918f7271a71a422adbf48217b7e4017adbe9a23))
+* **deps:** update dependency eleventy-plugin-fluid to v2.7.3 ([#495](https://github.com/fluid-project/trivet/issues/495)) ([bb08d04](https://github.com/fluid-project/trivet/commit/bb08d04cc589efe1c3ed71f4405f57329153b7f6))
+* **deps:** update dependency infusion to v4.8.0 ([#572](https://github.com/fluid-project/trivet/issues/572)) ([660960b](https://github.com/fluid-project/trivet/commit/660960b310a2089eb92ba68d682424cd21fc2f1a))
+
 ## [2.1.2](https://github.com/fluid-project/trivet/compare/v2.1.1...v2.1.2) (2024-08-01)
 
 
