@@ -1,6 +1,6 @@
 {
     "name": "trivet",
-    "version": "2.1.2",
+    "version": "2.1.3",
     "description": "Trivet is a simple starter kit for Eleventy-based static sites for the Fluid Project.",
     "scripts": {
         "build": "npm-run-all -l clean -p build:*",
