@@ -1,0 +1,9 @@
+name: Docker build
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  docker-build:
+    uses: inclusive-design/workflows/.github/workflows/docker-build.yml@main
