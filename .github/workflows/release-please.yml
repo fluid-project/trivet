@@ -6,9 +6,5 @@ on:
 
 jobs:
   release-please:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: google-github-actions/release-please-action@v4
-        id: release
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+    uses: inclusive-design/workflows/.github/workflows/release-please.yml@main
+    secrets: inherit
