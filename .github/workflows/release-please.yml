@@ -7,4 +7,7 @@ on:
 jobs:
   release-please:
     uses: inclusive-design/workflows/.github/workflows/release-please.yml@main
-    secrets: inherit
+    with:
+      GHA_APP_ID: ${{ vars.GHA_APP_ID }}
+    secrets:
+      GHA_PRIVATE_KEY: ${{ secrets.GHA_PRIVATE_KEY }}
