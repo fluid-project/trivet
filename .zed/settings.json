@@ -1,0 +1,31 @@
+{
+  "lsp": {
+    "stylelint-lsp": {},
+    "vscode-css-language-server": {
+      "settings": {
+        "css": {
+          "lint": {
+            "validProperties": [
+              "page-group",
+              "string-set"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "languages": {
+    "CSS": {
+      "format_on_save": "off",
+      "code_actions_on_format": {
+        "source.fixAll.stylelint": true
+      }
+    },
+    "JavaScript": {
+      "formatter": [],
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    }
+  }
+}

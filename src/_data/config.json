@@ -1,8 +1,8 @@
 {
-  "maxPostsInFeed": 10,
-  "locales": [
-    "en-CA",
-    "fr-CA"
-  ],
-  "url": "https://trivet.netlify.app"
+	"maxPostsInFeed": 10,
+	"locales": [
+		"en",
+		"fr"
+	],
+	"base": "https://trivet.pages.dev/"
 }

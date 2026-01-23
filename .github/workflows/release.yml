@@ -1,0 +1,17 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    uses: inclusive-design/workflows/.github/workflows/release-please.yml@main
+    with:
+      GHA_APP_ID: ${{ vars.GHA_APP_ID }}
+    secrets:
+      GHA_PRIVATE_KEY: ${{ secrets.GHA_PRIVATE_KEY }}
