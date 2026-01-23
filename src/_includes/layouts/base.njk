@@ -12,7 +12,17 @@
         <link rel="alternate" type="application/atom+xml" href="{{ config.url }}{% if locale !== defaultLanguage %}/{{ locale }}{% endif %}/feed.xml" title="{% __ 'rss', {site: site[lang].name} %}">
 
         {% include "partials/global/icons.njk" %}
-        <link rel="manifest" href="/manifest.webmanifest">
+        <link rel="manifest" id="manifest">
+        <script>
+          const language = "{{ lang }}";
+
+          if (language == "fr") {
+            manifestUrl = "/manifest-fr.json"
+          };
+
+          if (!manifestUrl) manifestUrl = "/manifest-en.json";
+          document.querySelector('#manifest').setAttribute('href', manifestUrl);
+        </script>
 
         {% include "partials/global/scripts.njk" %}
     </head>
