@@ -1,0 +1,11 @@
+{
+	"rss": "{{site}} RSS feed",
+	"menu": "menu",
+	"posts-navigation": "posts navigation",
+	"previous": "previous",
+	"page-position": "page {{current}} of {{total}}",
+	"next": "next",
+	"recent-posts": "The most recent posts from {{site}}",
+	"posts": "posts",
+	"page": "page"
+}

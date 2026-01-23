@@ -1,13 +1,13 @@
-        <nav class="pagination" aria-label="{% _ locale, "posts navigation" %}">
+        <nav class="pagination">
             <ul>
             {%- if pagination.href.previous %}
-                <li><a href="{{ pagination.href.previous }}"><span aria-hidden="true">&larr;</span><span class="visually-hidden">{% _ locale, "previous" %}</span></a></li>
+                <li><a href="{{ pagination.href.previous }}"><span aria-hidden="true">&larr;</span><span class="visually-hidden">{% __ "previous" %}</span></a></li>
             {%- endif %}
             {%- for pageEntry in pagination.pages %}
-                <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %} aria-label="{% _ locale, "page %s of %s", loop.index, pagination.pages.length %}">{{ loop.index }}</a></li>
+                <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %} aria-label="{% __ "page-position", {current: loop.index, total: pagination.pages.length} %}">{{ loop.index }}</a></li>
             {%- endfor %}
             {%- if pagination.href.next %}
-                <li><a href="{{ pagination.href.next }}"><span class="visually-hidden">{% _ locale, "next" %}</span><span aria-hidden="true">&rarr;</span></a></li>
+                <li><a href="{{ pagination.href.next }}"><span class="visually-hidden">{% __ "next" %}</span><span aria-hidden="true">&rarr;</span></a></li>
             {%- endif %}
             </ul>
         </nav>

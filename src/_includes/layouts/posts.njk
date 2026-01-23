@@ -19,14 +19,13 @@ The following code ensures we are always handling an array, even if it only has 
 {% for item in items %}
     <article class="entry">
         <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
-        <p class="metadata"><time datetime="{{ item.data.date | isoDate }}" class="dt-published">{% _d locale, "LL", item.data.date %}</time></p>
+        <p class="metadata"><time datetime="{{ item.data.date | isoDate }}" class="dt-published">{{ item.data.date }}</time></p>
         {% if item.data.excerpt %}
         <p>{{ item.data.excerpt | safe }}</p>
         {% endif %}
     </article>
 {% endfor %}
-
-{% if pagination.href.previous or pagination.href.next %}
+{% if pagination.pages.length > 1 %}
 {% include "partials/components/pagination.njk" %}
 {% endif %}
 {% endblock %}

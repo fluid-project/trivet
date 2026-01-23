@@ -1,0 +1,4 @@
+{
+	"lang": "en",
+	"permalink": "/{{ translations.en.posts }}/{{ title | slugify }}/"
+}

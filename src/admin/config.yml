@@ -1,27 +1,40 @@
 backend:
-  name: git-gateway
+  name: github
   branch: main
+  repo: fluid-project/trivet
+  base_url: https://auth.incd.ca
+  commit_messages:
+    create: 'chore(cms): create "{{path}}"'
+    update: 'chore(cms): update "{{path}}"'
+    delete: 'chore(cms): delete "{{path}}"'
+    uploadMedia: 'chore(cms): upload "{{path}}"'
+    deleteMedia: 'chore(cms): delete "{{path}}"'
 media_folder: src/assets/uploads
 public_folder: /assets/uploads
 
-# Run "npx decap-server" for local backend
-local_backend: true
-editor:
-  preview: false
 i18n:
-  structure: multiple_folders
-  locales: [en-CA, fr-CA]
-  default_locale: en-CA
+  locales: [en, fr]
+  default_locale: en
+  save_all_locales: false
+
 collections:
   - label: Posts
     label_singular: Post
     name: post
-    i18n: true
+    icon: article
+    i18n:
+      structure: multiple_folders
     folder: src/collections/posts/
     extension: md
     create: true
+    sortable_fields:
+      fields: [title, date]
+      default:
+        field: date
+        direction: descending
     fields:
       - {label: Title, name: title, widget: string, i18n: true}
+      - {label: UUID, name: uuid, widget: uuid, i18n: duplicate}
       - {label: Excerpt, name: excerpt, widget: string, required: false, i18n: true}
       - {label: Author, name: author, widget: string, i18n: true}
       - {label: Publication Date, name: date, widget: datetime, i18n: duplicate}
@@ -29,13 +42,20 @@ collections:
   - label: Pages
     label_singular: Page
     name: page
-    i18n: true
+    i18n:
+      structure: multiple_folders
     folder: src/collections/pages/
     extension: md
     create: true
     filter: {field: layout, value: layouts/page}
+    sortable_fields:
+      fields: [title, order]
+      default:
+        field: order
+        direction: ascending
     fields:
       - {label: Title, name: title, widget: string, i18n: true}
+      - {label: UUID, name: uuid, widget: uuid, i18n: duplicate}
       - {label: Layout, name: layout, widget: hidden, i18n: duplicate, default: layouts/page}
       - {label: Navigation Order, name: order, widget: number, min: 0, i18n: duplicate}
       - {label: Navigation Label, name: key, widget: string, required: false, i18n: true}
