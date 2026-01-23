@@ -1,8 +1,13 @@
 ---
-permalink: /manifest.webmanifest
+pagination:
+  data: config.locales
+  size: 1
+  alias: lang
+permalink: /manifest-{{ lang }}.json
 eleventyExcludeFromCollections: true
 ---
 {
+  "name": "{{ site[lang].name }}",
   "icons": [
     {
       "src": "/icon-192.png",
