@@ -17,7 +17,7 @@ click the "Use this template" button and then choose "Create a new repository".
 You can also set up a new project locally using [degit](https://www.npmjs.com/package/degit):
 
 ```bash
-pnpx degit fluid-project/trivet YOUR-PROJECT-NAME
+pnpm dlx degit fluid-project/trivet YOUR-PROJECT-NAME
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ pnpx degit fluid-project/trivet YOUR-PROJECT-NAME
 ### To run locally in development mode
 
 1. Install the required NPM packages: `pnpm install`
-2. Run [Eleventy](http://11ty.dev) in development mode: `npm start`.
+2. Run [Eleventy](http://11ty.dev) in development mode: `pnpm start`.
 
 The website will be available at [http://localhost:8080](http://localhost:8080).
 
@@ -45,7 +45,7 @@ If you make changes to the website, repeat the steps to build the image and star
 ### To build for deployment to a personal web server
 
 1. Install the required NPM packages: `pnpm install`
-2. Run the build script: `pnpm run build`
+2. Run the build script: `pnpm build`
 3. Upload the contents of the `./_site/` directory to the web root of your server.
 
 If you make changes to the website, repeat step 2 to build the website and upload any changed files from the `./_site/`
