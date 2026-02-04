@@ -8,6 +8,7 @@ ENV PATH="$PNPM_HOME:$PATH"
 WORKDIR /app
 
 COPY pnpm-lock.yaml ./
+COPY pnpm-workspace.yaml ./
 
 RUN --mount=type=cache,target=/pnpm/store \
 	pnpm fetch
