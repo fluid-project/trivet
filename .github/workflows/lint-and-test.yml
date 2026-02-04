@@ -8,4 +8,4 @@ on:
 
 jobs:
   lint-and-test:
-    uses: inclusive-design/workflows/.github/workflows/node-lint-and-test.yml@main
+    uses: inclusive-design/workflows/.github/workflows/node-pnpm-lint-and-test.yml@main
