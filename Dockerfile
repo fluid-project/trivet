@@ -22,6 +22,6 @@ COPY . .
 
 RUN pnpm build
 
-FROM nginx:1.29.4-alpine3.23
+FROM nginx:1.29.5-alpine3.23
 
 COPY --from=builder /app/_site /usr/share/nginx/html
