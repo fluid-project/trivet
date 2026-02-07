@@ -47,7 +47,7 @@
 		"@inclusive-design/stylelint-config": "^0.1.0",
 		"cross-env": "^10.0.0",
 		"debug": "^4.0.0",
-		"eslint": "^9.0.0",
+		"eslint": "^10.0.0",
 		"husky": "^9.0.0",
 		"linkedom": "^0.18.0",
 		"lint-staged": "^16.0.0",
