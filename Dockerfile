@@ -1,27 +1,17 @@
-FROM node:24.13.0-alpine3.23 AS builder
-
-RUN corepack enable
-
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
+FROM node:24.15-alpine3.23 AS builder
 
 WORKDIR /app
 
-COPY pnpm-lock.yaml ./
-COPY pnpm-workspace.yaml ./
+COPY package*.json ./
 
-RUN --mount=type=cache,target=/pnpm/store \
-	pnpm fetch
+RUN apk add --no-cache git
 
-COPY package.json ./
+RUN npm ci
 
-RUN --mount=type=cache,target=/pnpm/store \
-	pnpm install --frozen-lockfile --offline
+COPY . ./
 
-COPY . .
+RUN npm run build
 
-RUN pnpm build
+FROM nginx:1.29.7-alpine
 
-FROM nginx:1.29.5-alpine3.23
-
-COPY --from=builder /app/_site /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
