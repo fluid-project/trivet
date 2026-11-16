@@ -1,8 +1,8 @@
-import {parseHTML} from 'linkedom';
+import { parseHTML } from 'linkedom';
 
 const parseTransform = (value, outputPath) => {
 	if (outputPath && outputPath.endsWith('.html')) {
-		const {document} = parseHTML(value);
+		const { document } = parseHTML(value);
 		const articleImages = [...document.querySelectorAll('main article img')];
 
 		if (articleImages.length > 0) {
