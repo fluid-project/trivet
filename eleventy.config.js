@@ -10,7 +10,7 @@ import siteConfig from './src/_data/config.json' with { type: 'json' };
 
 // Functions
 const now = new Date();
-const livePosts = (post) => post.date <= now && !post.data.draft;
+const isLive = (post) => post.date <= now && !post.data.draft;
 
 /**
  * @param {object} eleventyConfig The Eleventy configuration object.
@@ -22,17 +22,17 @@ export default function eleventy(eleventyConfig) {
 
 	// Filters
 	eleventyConfig.addFilter('findTranslation', (page, collection = [], lang, desiredLang) => {
-		const expectedFilePathStem = page.filePathStem.replace(lang, desiredLang);
+		const expectedFilePathStem = page.filePathStem.replace(lang, () => desiredLang);
 
-		let translationUrl = false;
+		let isTranslationUrl = false;
 
 		for (const element of collection) {
 			if (element.filePathStem === expectedFilePathStem) {
-				translationUrl = element.url;
+				isTranslationUrl = element.url;
 			}
 		}
 
-		return translationUrl;
+		return isTranslationUrl;
 	});
 
 	// Shortcodes
@@ -68,12 +68,12 @@ export default function eleventy(eleventyConfig) {
 	for (const locale of siteConfig.locales) {
 		eleventyConfig.addCollection(`posts_${locale}`, (collection) => collection
 			.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`)
-			.filter((posts) => livePosts(posts)));
+			.filter((posts) => isLive(posts)));
 
 		// The following collection is used to create a collection of posts for the RSS feed.
 		eleventyConfig.addCollection(`postFeed_${locale}`, (collection) => collection
 			.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`)
-			.filter((posts) => livePosts(posts))
+			.filter((posts) => isLive(posts))
 			.toReversed()
 			.slice(0, siteConfig.maxPostsInFeed));
 	}

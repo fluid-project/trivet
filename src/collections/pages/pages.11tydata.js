@@ -8,7 +8,9 @@ export default {
 	eleventyComputed: {
 		langDir: (data) => data.supportedLanguages[data.lang].dir,
 		eleventyNavigation(data) {
-			/* If this page has an `order` attribute, create an Eleventy Navigation object for it. */
+			/*
+			If this page has an `order` attribute, create an Eleventy Navigation object for it.
+			*/
 			if (data.order === 0) {
 				return false;
 			}
