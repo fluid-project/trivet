@@ -35,7 +35,7 @@
 		"@11ty/eleventy-navigation": "^1.0.0",
 		"@11ty/eleventy-plugin-rss": "^3.0.0",
 		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-		"@11ty/font-awesome": "^1.0.1",
+		"@11ty/font-awesome": "^2.0.0",
 		"eleventy-plugin-fluid": "^3.0.0",
 		"infusion": "^4.0.0"
 	},
