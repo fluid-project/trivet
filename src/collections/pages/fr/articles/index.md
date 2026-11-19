@@ -10,7 +10,7 @@ pagination:
   alias: posts
   data: collections.posts_fr
   size: 10
-permalink: /articles/{{ if pagination.pageNumber > 0 }}page/{{ pagination.pageNumber + 1 }}/{{ /if }}
+permalink: /fr/articles/{{ if pagination.pageNumber > 0 }}page/{{ pagination.pageNumber + 1 }}/{{ /if }}
 ---
 
 This space intentionally left blank.
