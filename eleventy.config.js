@@ -15,8 +15,8 @@ const now = new Date();
 const isLive = (post) => post.date <= now && !post.data.draft;
 
 /**
- * @param {object} $config The Eleventy configuration object.
- * @returns {object} Eleventy configuration.
+ * @param {import("@11ty/eleventy").UserConfig} $config An instance of Eleventy's UserConfig class.
+ * @returns {object} The configuration object.
  */
 export default function eleventy($config) {
 	const supportedLanguages = {
