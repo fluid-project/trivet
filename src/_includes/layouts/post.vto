@@ -1,0 +1,14 @@
+{{ set bodyClass = "post" }}
+
+{{ layout "layouts/base.vto" }}
+{{ slot pageHeader }}
+<header>
+    <h1>{{ title }}</h1>
+    <time datetime="{{ date |> isoDate }}">{{ date |> formatDate(lang) }}</time>
+</header>
+{{ /slot }}
+
+<div class="content">
+    {{ content |> safe }}
+</div>
+{{ /layout }}

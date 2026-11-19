@@ -2,41 +2,48 @@ import { env } from 'node:process';
 import fluidPlugin from 'eleventy-plugin-fluid';
 import fontAwesomePlugin from '@11ty/font-awesome';
 import eleventyNavigationPlugin from '@11ty/eleventy-navigation';
-import { RenderPlugin } from '@11ty/eleventy';
-import pluginRss from '@11ty/eleventy-plugin-rss';
+import { HtmlBasePlugin, RenderPlugin } from '@11ty/eleventy';
+import pluginRss, { dateToRfc3339, getNewestCollectionItemDate } from '@11ty/eleventy-plugin-rss';
 import syntaxHighlightPlugin from '@11ty/eleventy-plugin-syntaxhighlight';
+import { VentoPlugin } from 'eleventy-plugin-vento';
 import parseTransform from './src/_transforms/parse-transform.js';
-import siteConfig from './src/_data/config.json' with { type: 'json' };
+import siteConfig from './src/_data/site.json' with { type: 'json' };
+import findTranslationFilter from './src/_filters/find-translation-filter.js';
 
 // Functions
 const now = new Date();
 const isLive = (post) => post.date <= now && !post.data.draft;
 
 /**
- * @param {object} eleventyConfig The Eleventy configuration object.
+ * @param {object} $config The Eleventy configuration object.
  * @returns {object} Eleventy configuration.
  */
-export default function eleventy(eleventyConfig) {
+export default function eleventy($config) {
+	const supportedLanguages = {
+		en: {
+			slug: 'en',
+			name: 'English',
+			dir: 'ltr',
+			uioSlug: 'en_CA',
+		},
+		fr: {
+			slug: 'fr',
+			name: 'Français',
+			dir: 'ltr',
+			uioSlug: 'fr',
+		},
+	};
+
 	// Global Data
-	// eleventyConfig.addGlobalData('now', () => new Date());
+	// Add global data here.
 
 	// Filters
-	eleventyConfig.addFilter('findTranslation', (page, collection = [], lang, desiredLang) => {
-		const expectedFilePathStem = page.filePathStem.replace(lang, () => desiredLang);
-
-		let isTranslationUrl = false;
-
-		for (const element of collection) {
-			if (element.filePathStem === expectedFilePathStem) {
-				isTranslationUrl = element.url;
-			}
-		}
-
-		return isTranslationUrl;
-	});
+	$config.addFilter('findTranslationById', findTranslationFilter);
+	$config.addFilter('dateToRfc3339', dateToRfc3339);
+	$config.addFilter('getNewestCollectionItemDate', getNewestCollectionItemDate);
 
 	// Shortcodes
-	eleventyConfig.addShortcode('uioCustomInit', (locale, direction) => {
+	$config.addShortcode('uioCustomInit', (locale, direction) => {
 		const options = {
 			preferences: ['fluid.prefs.lineSpace', 'fluid.prefs.textFont', 'fluid.prefs.contrast', 'fluid.prefs.enhanceInputs'],
 			auxiliarySchema: {
@@ -56,52 +63,44 @@ export default function eleventy(eleventyConfig) {
 	});
 
 	// Transforms
-	eleventyConfig.addTransform('parse', parseTransform);
+	$config.addTransform('parse', parseTransform);
 
-	// Passthrough
-	eleventyConfig.addPassthroughCopy({ 'src/admin/config.yml': 'admin/config.yml' });
-	eleventyConfig.addPassthroughCopy({ 'src/assets/icons': '/' });
-	eleventyConfig.addPassthroughCopy('src/assets/images');
-	eleventyConfig.addPassthroughCopy('src/assets/messages');
+	// Passthrough Copy
+	$config.addPassthroughCopy({ 'src/admin/config.yml': 'admin/config.yml' });
+	$config.addPassthroughCopy({ 'src/assets/icons': '/' });
+	$config.addPassthroughCopy('src/assets/images');
+	$config.addPassthroughCopy('src/assets/uploads');
 
 	// Custom collections
-	for (const locale of siteConfig.locales) {
-		eleventyConfig.addCollection(`posts_${locale}`, (collection) => collection
-			.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`)
+	for (const lang of ['en', 'fr']) {
+		$config.addCollection(`posts_${lang}`, (collection) => collection
+			.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`)
 			.filter((posts) => isLive(posts)));
 
 		// The following collection is used to create a collection of posts for the RSS feed.
-		eleventyConfig.addCollection(`postFeed_${locale}`, (collection) => collection
-			.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`)
+		$config.addCollection(`feed_${lang}`, (collection) => collection
+			.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`)
 			.filter((posts) => isLive(posts))
 			.toReversed()
-			.slice(0, siteConfig.maxPostsInFeed));
+			.slice(0, siteConfig.en.maxPostsInFeed));
 	}
 
 	// Plugins
-	eleventyConfig.addPlugin(eleventyNavigationPlugin);
-	eleventyConfig.addPlugin(fluidPlugin, {
+	$config.addPlugin(eleventyNavigationPlugin);
+	$config.addPlugin(HtmlBasePlugin);
+	$config.addPlugin(fluidPlugin, {
 		defaultLanguage: 'en',
-		supportedLanguages: {
-			en: {
-				slug: 'en',
-				name: 'English',
-			},
-			fr: {
-				slug: 'fr',
-				name: 'Français',
-				dir: 'ltr',
-				uioSlug: 'fr',
-			},
-		},
+		//	Use the `override:` prefix to replace default languages: https://www.11ty.dev/docs/data-cascade/#using-the-override-prefix
+		'override:supportedLanguages': supportedLanguages,
 	});
-	eleventyConfig.addPlugin(fontAwesomePlugin);
-	eleventyConfig.addPlugin(pluginRss);
-	eleventyConfig.addPlugin(RenderPlugin);
-	eleventyConfig.addPlugin(syntaxHighlightPlugin);
+	$config.addPlugin(VentoPlugin);
+	$config.addPlugin(fontAwesomePlugin);
+	$config.addPlugin(pluginRss);
+	$config.addPlugin(RenderPlugin);
+	$config.addPlugin(syntaxHighlightPlugin);
 
 	// Preprocessors
-	eleventyConfig.addPreprocessor('drafts', '*', (data, _content) => {
+	$config.addPreprocessor('drafts', '*', (data, _content) => {
 		if (data.draft && env.ELEVENTY_RUN_MODE === 'build') {
 			return false;
 		}
@@ -111,8 +110,8 @@ export default function eleventy(eleventyConfig) {
 		dir: {
 			input: 'src',
 		},
-		templateFormats: ['njk', 'md', 'css', 'png', 'jpg', 'svg'],
-		htmlTemplateEngine: 'njk',
-		markdownTemplateEngine: 'njk',
+		templateFormats: ['vto', 'md'],
+		htmlTemplateEngine: 'vto',
+		markdownTemplateEngine: 'vto',
 	};
 }

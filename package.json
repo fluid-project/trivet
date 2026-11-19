@@ -37,6 +37,7 @@
 		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
 		"@11ty/font-awesome": "^2.0.0",
 		"eleventy-plugin-fluid": "^3.0.0",
+		"eleventy-plugin-vento": "^7.0.0",
 		"infusion": "^4.0.0"
 	},
 	"devDependencies": {
@@ -67,5 +68,8 @@
 			"eslint --fix",
 			"markdownlint-cli2 --fix"
 		]
+	},
+	"allowScripts": {
+		"esbuild@0.28.2": true
 	}
 }

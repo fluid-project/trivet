@@ -3,27 +3,26 @@
 _A simple starter kit for Eleventy-based static sites for the Fluid Project._
 
 This repository contains the files needed to build [Eleventy](http://11ty.dev/)-based static sites for the [Fluid Project](https://fluidproject.org).
-It includes support for internationalization; if your project does not require internationalization, use [Trivet Monolingual](https://github.com/fluid-project/trivet-monolingual)
-instead.
+It includes support for internationalization, which can be disabled if your project does not require it.
 
 ## Installation
 
-You can use GitHub's template repository feature to create your own project based on Trivet Monolingual. From the
+You can use GitHub's template repository feature to create your own project based on Trivet. From the
 [repository homepage](https://github.com/fluid-project/trivet),
 click the "Use this template" button and then choose "Create a new repository".
 
 You can also set up a new project locally using [degit](https://www.npmjs.com/package/degit):
 
 ```bash
-pnpm dlx degit fluid-project/trivet YOUR-PROJECT-NAME
+npx degit fluid-project/trivet YOUR-PROJECT-NAME
 ```
 
 ## Usage
 
 ### To run locally in development mode
 
-1. Install the required NPM packages: `pnpm install`
-2. Run [Eleventy](http://11ty.dev) in development mode: `pnpm start`.
+1. Install the required NPM packages: `npm install`
+2. Run [Eleventy](http://11ty.dev) in development mode: `npm start`.
 
 The website will be available at [http://localhost:8080](http://localhost:8080).
 
@@ -42,8 +41,8 @@ If you make changes to the website, repeat the steps to build the image and star
 
 ### To build for deployment to a personal web server
 
-1. Install the required NPM packages: `pnpm install`
-2. Run the build script: `pnpm build`
+1. Install the required NPM packages: `npm install`
+2. Run the build script: `npm run build`
 3. Upload the contents of the `./_site/` directory to the web root of your server.
 
 If you make changes to the website, repeat step 2 to build the website and upload any changed files from the `./_site/`
@@ -77,56 +76,17 @@ your project doesn't require internationalization,
 
 To add a language, the following changes need to be made:
 
-1. Update the `locales` array of [`src/_data/config.json`](src/_data/config.json) to add the new language. For
-   example, to add German, you would add the [IETF language code](https://github.com/unicode-org/cldr-json/blob/master/cldr-json/cldr-core/availableLocales.json)
-   `de`:
-
-   ```diff
-   {
-       "locales": [
-   +       "de",
-           "en",
-           "fr"
-       ],
-   }
-   ```
-
-2. Add a new key to [`src/_data/site.json`](src/_data/site.json) for the new language which provides the site
-   metadata in the new language:
-
-   ```diff
-   {
-      "en": {
-         "name": "Trivet",
-         "description": "Trivet is a simple starter kit for Eleventy-based static sites for the Fluid Project.",
-         "url": "https://trivet.netlify.app",
-         "authorWebsite": "https://fluidproject.org/",
-         "authorEmail": "idrc@ocadu.ca",
-         "authorName": "Fluid Project"
-      },
-      "fr": {
-         "name": "Trivet",
-         "description": "Trivet est un kit de démarrage simple pour les sites statiques basés sur Eleventy pour le projet Fluid.",
-         "url": "https://trivet.netlify.app",
-         "authorWebsite": "https://fluidproject.org/",
-         "authorEmail": "idrc@ocadu.ca",
-         "authorName": "Projet Fluid"
-   -  }
-   +  },
-   + "de": {
-   +     ...
-   +  },
-   }
-   ```
-
-3. Modify [`src/admin/config.yml`](src/admin/config.yml) to support the new language:
+1. Modify [`src/admin/config.yml`](src/admin/config.yml) to support the new language:
 
    ```diff
    - locales: [en, fr]
    + locales: [en, fr, de]
    ```
 
-4. Update the `eleventy-plugin-fluid` configuration's `supportedLanguages` object in [`eleventy.config.js`](eleventy.config.js)
+2. Using the CMS, edit the site configuration to provide site metadata in the
+   new language.
+
+3. Update the `supportedLanguages` object in [`eleventy.config.js`](eleventy.config.js)
    with the following data:
    - `slug`: a short form of the language code for use in URLs
    - `uioSlug`: a short form of the language code that corresponds to an available message bundle locale for Infusion's
@@ -136,187 +96,95 @@ To add a language, the following changes need to be made:
    - `name`: the localized language name (endonym), which will be used to link to content in that language
 
    ```diff
-   eleventyConfig.addPlugin(fluidPlugin, {
-      defaultLanguage: "en-CA",
-      localesDirectory: "src/_locales",
-      supportedLanguages: {
-         "en": {
-            slug: "en",
-            name: "English"
-         },
-   +     "de": {
-   +        slug: "de",
-   +        dir: "ltr",
-   +        name: "Deutsch",
-   +     },
-         "fr": {
-            slug: "fr",
-            name: "Français"
-         }
-      }
-    });
+   const supportedLanguages = {
+     en: {
+       slug: 'en',
+       name: 'English',
+       dir: 'ltr',
+       uioSlug: 'en_CA',
+     },
+   + "de": {
+   +   slug: "de",
+   +   dir: "ltr",
+   +   name: "Deutsch",
+   + },
+     fr: {
+       slug: 'fr',
+       name: 'Français',
+       dir: 'ltr',
+       uioSlug: 'fr',
+     },
+   };
    ```
 
    You can change the site's default language by changing the the `eleventy-plugin-fluid` configuration's
    `defaultLanguage` string in [`eleventy.config.js`](eleventy.config.js) to the [IETF language code](https://github.com/unicode-org/cldr-json/blob/master/cldr-json/cldr-core/availableLocales.json)
    of the desired default language.
 
-5. Add directories in each collection for translated content. For example, you would add a directory called `de` to
-   [`src/collections/pages`](src/collections/pages) and [`src/collections/posts`](src/collections/posts). Each `de`
-   directory will also need a directory data file called `de.json`. The contents should be identical to the
-   default language directory's `de.json` file (except with the appropriate language code).
-6. Create a localized version of the posts archive page, following the example of [`src/collections/pages/fr-CA/posts.md`](src/collections/pages/fr-CA/posts.md).
+4. Create localized versions of the posts archive and 404 pages, following the examples of [`src/collections/pages/fr/articles/index.md`](src/collections/pages/fr/articles/index.md)
+   and [`src/collections/pages/fr/404.md`](src/collections/pages/fr/404.md).
 
 For more information about how Sveltia CMS works with internationalized content, see the [internationalization support documentation](https://sveltiacms.app/en/docs/i18n).
 
 ## Disabling Internationalization
 
-If you do not need internationalization support for all content on your site, it can be disabled for a specific
-collection or collections. If you don't need internationalization support at all, you should use [Trivet Monolingual](https://github.com/fluid-project/trivet-monolingual)
-as the basis of your project instead.
+If you do not need internationalization support for some or all content on your
+site, it can be disabled for specific collections or the entire site.
 
 ### Disabling Internationalization for a Specific Collection
 
 If your site is translated into more than two languages but you aren't translating all your content, any empty
-collection will not be output by Eleventy. For example, if your site is configured to use `en`, `fr` and
-`de` but you are not translating your posts into `de`, you can leave the `/src/collections/posts/de`
-directory empty and the German posts index page will not be built. However, if you want to disable _all_
-internationalization for a specific collection, you can do so in one of two ways.
+collection will not be built by Eleventy. For example, if your site is configured to use `en`, `fr` and
+`de` but you do not translate your posts into `de`, the German posts index page will not be built.
+However, if you want to completely remove localization support for a specific collection, you can do so in three steps:
 
-#### Quick Method
-
-1. Deleting all directories but the default locale in the `/src/collections/<collection>/` directory. For example, to
-   disable localization for posts, delete the `/src/collections/posts/fr/` directory.
-2. Modify the [`src/admin/config.yml`](src/admin/config.yml) collection block's `i18n` and `folder` properties for the
-   relevant collection. For example, to disable localization for posts, make the following changes in the `posts`
-   block:
+1. Delete all language directories in the `/src/collections/<collection>/` directory. For example, to disable
+   localization for posts, delete the `/src/collections/posts/fr/` directory (English content is always stored in the
+   collection directory root).
+2. Modify the [`src/admin/config.yml`](src/admin/config.yml) collection block for the relevant collection. For example,
+   to disable localization for posts, set `i18n` to `false` and remove the hidden `lang` field from the `posts` block:
 
    ```diff
    - i18n:
    -   structure: multiple_folders
    + i18n: false
-   - folder: "src/collections/posts/"
-   + folder: "src/collections/posts/en/" # Look for posts to edit in the default locale directory.
+   ...
+   fields:
+   ...
+   - - name: lang
+   -   widget: hidden
+   -   default: '{{locale}}'
    ```
 
-#### Advanced Method
+3. Delete the localized index file if the collection has an index page (in the case of the posts collection, this would
+   be [src/collections/pages/fr/articles/index.md](src/collections/pages/fr/articles/index.md)).
 
-1. Modify the [`src/admin/config.yml`](src/admin/config.yml) collection block's `i18n` property for the
-   relevant collection. For example, to disable localization for posts, make the following changes in the `posts`
-   block:
+### Disabling Internationalization Completely
 
-   ```diff
-   - i18n:
-   -   structure: multiple_folders
-   + i18n: false
-   ```
+If you want to disable localization completely, this can be done in three steps:
 
-2. Remove all locale subdirectories of `src/collections/posts`, moving the `en` (or other default language)
-   subdirectory's contents (with the exception of the [`en.json`](src/collections/posts/en/en.json)
-   file) up into `src/collections/posts`. You'll also need to make the following changes to the collection's directory
-   data file, in this case [`src/collections/posts.11tydata.js`](src/collections/posts.11tydata.js):
+1. Delete all language directories in each collection's directory within `src/collections` (English content is always
+   stored in the collection directory root, so it will be unaffected).
+2. Modify the file to remove the top-level `i18n` configuration block and remove the hidden `lang` field from each
+   collection.
+3. Delete all but the default language from the `supportedLanguages` object in [`eleventy.config.js`](eleventy.config.js):
 
    ```diff
-   - import {__, generatePermalink} from 'eleventy-plugin-fluid';
-   + import {generatePermalink} from 'eleventy-plugin-fluid';
-
-   export default {
-    layout: 'layouts/post',
-    eleventyComputed: {
-   -		langDir: data => data.supportedLanguages[data.lang].dir,
-   +		langDir: data => data.supportedLanguages[data.defaultLanguage].dir,
-    permalink(data) {
-   -			return generatePermalink(data, 'posts', __('posts', {}, data));
-   +			return generatePermalink(data, 'posts');
-    },
-    },
+   const supportedLanguages = {
+     en: {
+       slug: 'en',
+       name: 'English',
+       dir: 'ltr',
+       uioSlug: 'en_CA',
+     },
+   - fr: {
+   -   slug: 'fr',
+   -   name: 'Français',
+   -   dir: 'ltr',
+   -   uioSlug: 'fr',
+   - },
    };
    ```
-
-3. Disable localization of the index pages for the collection. In the case of
-   posts, the [configuration file](eleventy.config.js) creates indexes of posts in each language:
-
-   ```js
-   /* eslint-disable no-undef, @stylistic/indent */
-   const now = new Date();
-   const livePosts = post => post.date <= now && !post.data.draft;
-
-   // Custom collections
-   for (const locale of siteConfig.locales) {
-     eleventyConfig.addCollection(`posts_${locale}`, collection =>
-       collection
-         .getFilteredByGlob(`./src/collections/posts/${locale}/*.md`)
-         .filter(posts => livePosts(posts)));
-
-     // The following collection is used to create a collection of posts for the RSS feed.
-     eleventyConfig.addCollection(`postFeed_${locale}`, collection =>
-       collection
-         .getFilteredByGlob(`./src/collections/posts/${locale}/*.md`)
-         .filter(posts => livePosts(posts))
-         .toReversed()
-         .slice(0, siteConfig.maxPostsInFeed));
-   }
-   ```
-
-   You'll only need one index, so you can change this as follows:
-
-   ```diff
-    const now = new Date();
-    const livePosts = post => post.date <= now && !post.data.draft;
-
-    // Custom collections
-    - for (const locale of siteConfig.locales) {
-    - eleventyConfig.addCollection(`posts_${locale}`, collection => collection
-    -	.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`)
-    -	.filter(posts => livePosts(posts)));
-    + eleventyConfig.addCollection("posts", collection => {
-    +		return collection.getFilteredByGlob("./src/collections/posts/*.md").filter(posts => livePosts(posts));
-    + });
-
-    // The following collection is used to create a collection of posts for the RSS feed.
-    - eleventyConfig.addCollection(`postFeed_${locale}`, collection => collection
-    -	.getFilteredByGlob(`./src/collections/posts/${locale}/*.md`)
-    -	.filter(posts => livePosts(posts))
-    -	.toReversed()
-    -	.slice(0, siteConfig.maxPostsInFeed));
-    - }
-    + eleventyConfig.addCollection("postFeed", collection => {
-    +	return collection.getFilteredByGlob("./src/collections/posts/*.md").filter(posts => livePosts(posts))
-    +   	.toReversed()
-    +   	.slice(0, siteConfig.maxPostsInFeed);
-    + });
-   ```
-
-   Then you'll need to modify the `posts.md` page in _all_ locales to reflect the new collection:
-
-   ```diff
-   pagination:
-   - data: collections.posts_fr
-   + data: collections.posts
-     size: 10
-     alias: posts
-   ```
-
-4. Lastly, for posts, you will also need to remove the localized feed by editing [`src/feed.njk`](src/feed.njk):
-
-```diff
-	- pagination:
-	-   data: config.locales
-	-   size: 1
-	-   alias: locale
-	+ locale: "{{ defaultLanguage }}"
-	- permalink: "{% if lang !== defaultLanguage %}/{{ supportedLanguages[lang].slug }}{% endif %}/feed.xml"
-	+ permalink: /feed.xml
-	eleventyExcludeFromCollections: true
-	+ collection: "postFeed"
-	---
-	- {% set collection = "postFeed_" + lang %}
-	<?xml version="1.0" encoding="utf-8"?>
-	<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ lang }}">
-	    <title>{{ site[lang].name }}</title>
-	-   <subtitle>{% __ 'rss', {site: site[lang].name} %}</subtitle>
-	+   <subtitle>The most recent posts from {{ site.name }}</subtitle>
-```
 
 ## License
 

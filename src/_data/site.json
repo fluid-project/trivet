@@ -2,17 +2,18 @@
 	"en": {
 		"name": "Trivet",
 		"description": "Trivet is a simple starter kit for Eleventy-based static sites for the Fluid Project.",
-		"url": "https://trivet.pages.dev",
-		"authorWebsite": "https://fluidproject.org/",
+		"authorName": "Fluid Project",
 		"authorEmail": "idrc@ocadu.ca",
-		"authorName": "Fluid Project"
+		"authorWebsite": "https://fluidproject.org/",
+		"url": "https://trivet.pages.dev",
+		"maxPostsInFeed": 10
 	},
 	"fr": {
 		"name": "Trivet",
 		"description": "Trivet est un kit de démarrage simple pour les sites statiques basés sur Eleventy pour le projet Fluid.",
-		"url": "https://trivet.pages.dev",
-		"authorWebsite": "https://fluidproject.org/",
+		"authorName": "Projet Fluid",
 		"authorEmail": "idrc@ocadu.ca",
-		"authorName": "Projet Fluid"
+		"authorWebsite": "https://fluidproject.org/",
+		"url": "https://trivet.pages.dev/fr/"
 	}
 }

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
 backend:
   name: github
   branch: main
@@ -12,78 +13,181 @@ backend:
 media_folder: src/assets/uploads
 public_folder: /assets/uploads
 
+output:
+  omit_empty_optional_fields: true
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
 i18n:
   locales: [en, fr]
   default_locale: en
-  save_all_locales: false
+  initial_locales: [en]
+  canonical_slug:
+    key: id
 
 collections:
-  - label: Posts
-    label_singular: Post
-    name: post
-    icon: article
-    i18n:
-      structure: multiple_folders
-    folder: src/collections/posts/
-    extension: md
-    create: true
-    sortable_fields:
-      fields: [title, date]
-      default:
-        field: date
-        direction: descending
-    fields:
-      - {label: Title, name: title, widget: string, i18n: true}
-      - {label: UUID, name: uuid, widget: uuid, i18n: duplicate}
-      - {label: Excerpt, name: excerpt, widget: string, required: false, i18n: true}
-      - {label: Author, name: author, widget: string, i18n: true}
-      - {label: Publication Date, name: date, widget: datetime, i18n: duplicate}
-      - {label: Body, name: body, widget: markdown, i18n: true}
   - label: Pages
     label_singular: Page
     name: page
     icon: draft
     i18n:
       structure: multiple_folders
-    folder: src/collections/pages/
+      omit_default_locale_from_file_path: true
+    folder: src/collections/pages
+    nested:
+      depth: 3
+      summary: '{{title}}'
+      subfolders: true
+    meta: { path: { index_file: index } }
+    slug: { editable: true, i18n: true }
     extension: md
     create: true
-    filter: {field: layout, value: layouts/page}
+    preview_path: '{{dirname}}/'
+    reorder: true
     sortable_fields:
       fields: [title, order]
       default:
         field: order
         direction: ascending
     fields:
-      - {label: Title, name: title, widget: string, i18n: true}
-      - {label: UUID, name: uuid, widget: uuid, i18n: duplicate}
-      - {label: Layout, name: layout, widget: hidden, i18n: duplicate, default: layouts/page}
-      - {label: Navigation Order, name: order, widget: number, min: 0, i18n: duplicate}
-      - {label: Navigation Label, name: key, widget: string, required: false, i18n: true}
-      - {label: Excerpt, name: excerpt, widget: string, required: false, i18n: true}
-      - {label: Body, name: body, widget: markdown, i18n: true}
+      - label: Title
+        name: title
+        widget: string
+        i18n: true
+      - name: lang
+        widget: hidden
+        default: '{{locale}}'
+        i18n: true
+      - label: Layout
+        name: layout
+        widget: hidden
+        default: layouts/page
+        i18n: duplicate
+      - label: Order
+        name: order
+        widget: number
+        min: 0
+        i18n: duplicate
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: false
+        i18n: duplicate
+      - label: Show in Navigation
+        name: nav
+        widget: boolean
+        default: true
+        i18n: duplicate
+      - label: Navigation Label
+        name: key
+        widget: string
+        required: false
+        i18n: true
+        hint: A shorter title for the page which will be used in the site navigation.
+      - label: Excerpt
+        name: excerpt
+        widget: text
+        required: false
+        i18n: true
+      - label: Body
+        name: body
+        widget: markdown
+        i18n: true
+  - label: Posts
+    label_singular: Post
+    name: post
+    icon: article
+    i18n:
+      structure: multiple_folders
+      omit_default_locale_from_file_path: true
+    folder: src/collections/posts/
+    slug: { editable: true, i18n: true }
+    extension: md
+    create: true
+    preview_path: '/posts/{{slug}}/' # Investigate translating this for French content
+    sortable_fields:
+      fields: [title, date]
+      default:
+        field: date
+        direction: descending
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        i18n: true
+      - name: lang
+        widget: hidden
+        default: '{{locale}}'
+        i18n: true
+      - label: Excerpt
+        name: excerpt
+        widget: string
+        required: false
+        i18n: true
+      - label: Author
+        name: author
+        widget: string
+        i18n: true
+      - label: Publication Date
+        name: date
+        widget: datetime
+        i18n: duplicate
+      - label: Body
+        name: body
+        widget: markdown
+        i18n: true
 
 singletons:
-  - label: Configuration
-    name: config
-    icon: settings
-    editor:
-      preview: false
-    file: src/_data/config.json
-    i18n: false
-    fields:
-      - {label: URL, name: url, widget: string}
-      - {label: Maximum Posts in RSS Feed, name: maxPostsInFeed, widget: number, min: 1, i18n: false}
-  - label: Site Data
+  - label: Site Configuration
     name: site
-    icon: code
+    icon: settings
     editor:
       preview: false
     file: src/_data/site.json
     i18n: true
     fields:
-      - {label: Name, name: name, widget: string, i18n: true}
-      - {label: Description, name: description, widget: text, i18n: true}
-      - {label: Author Name, name: authorName, widget: string, i18n: true}
-      - {label: Author Email, name: authorEmail, widget: string, i18n: duplicate}
-      - {label: Author Website, name: authorWebsite, widget: string, i18n: duplicate}
+      - label: Name
+        name: name
+        widget: string
+        i18n: true
+      - label: Description
+        name: description
+        widget: text
+        i18n: true
+      - label: Author Name
+        name: authorName
+        widget: string
+        i18n: true
+      - label: Author Email
+        name: authorEmail
+        widget: string
+        i18n: duplicate
+      - label: Author Website
+        name: authorWebsite
+        widget: string
+        i18n: duplicate
+      - label: Canonical URL
+        name: url
+        widget: string
+        i18n: duplicate
+      - label: Maximum Posts in RSS Feed
+        name: maxPostsInFeed
+        widget: number
+        min: 1
+        i18n: false
+  - label: Translations
+    name: translations
+    icon: translate
+    editor:
+      preview: false
+    i18n:
+      initial_locales: all
+    file: src/_data/translations.json
+    fields:
+      - label: Translations
+        name: translations
+        widget: keyvalue
+        root: true
+        i18n: true

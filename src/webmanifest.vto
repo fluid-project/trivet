@@ -1,0 +1,25 @@
+---
+pagination:
+  data: supportedLanguages
+  size: 1
+  alias: lang
+permalink: /manifest-{{ lang }}.json
+lang: {{ lang }}
+eleventyExcludeFromCollections: true
+---
+{
+  "name": "{{ site[lang].name }}",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

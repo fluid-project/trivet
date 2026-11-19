@@ -1,0 +1,31 @@
+---
+pagination:
+  data: supportedLanguages
+  size: 1
+  alias: lang
+permalink: /{{ if lang !== defaultLanguage }}{{ lang }}/{{ /if }}feed.xml
+lang: {{ lang }}
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ lang }}">
+  <title>{{ site[lang].title }}</title>
+  <subtitle>{{ site[lang].description }}</subtitle>
+  <link href="{{ site[lang].url |> addPathPrefixToFullUrl }}feed.xml" rel="self" />
+  <link href="{{ site[lang].url |> addPathPrefixToFullUrl }}" />
+  <updated>{{ collections['feed_' + lang] |> getNewestCollectionItemDate |> dateToRfc3339 }}</updated>
+  <id>{{ site[lang].url |> addPathPrefixToFullUrl }}</id>
+  <author>
+    <name>{{ site[lang].authorName }}</name>
+  </author>
+  {{- for post of collections['feed_' + lang] }}
+  {{- set absolutePostUrl = post.url |> htmlBaseUrl(site[lang].url) }}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="{{ absolutePostUrl }}" />
+    <updated>{{ post.date |> dateToRfc3339 }}</updated>
+    <id>{{ absolutePostUrl }}</id>
+    <content type="html">{{ post.content |> renderTransforms(post.data.page, site[lang].url) }}</content>
+  </entry>
+  {{ /for }}
+</feed>
