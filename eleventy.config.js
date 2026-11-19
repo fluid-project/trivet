@@ -19,6 +19,7 @@ const isLive = (post) => post.date <= now && !post.data.draft;
  * @returns {object} The configuration object.
  */
 export default function eleventy($config) {
+	const defaultLanguage = 'en';
 	const supportedLanguages = {
 		en: {
 			slug: 'en',
@@ -72,24 +73,38 @@ export default function eleventy($config) {
 	$config.addPassthroughCopy('src/assets/uploads');
 
 	// Custom collections
-	for (const lang of ['en', 'fr']) {
-		$config.addCollection(`posts_${lang}`, (collection) => collection
-			.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`)
-			.filter((posts) => isLive(posts)));
+	for (const lang of Object.keys(supportedLanguages)) {
+		if (lang === defaultLanguage) {
+			$config.addCollection(`posts_${lang}`, (collection) => collection
+				.getFilteredByGlob('./src/collections/posts/*.md')
+				.filter((posts) => isLive(posts)));
+		} else {
+			$config.addCollection(`posts_${lang}`, (collection) => collection
+				.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`)
+				.filter((posts) => isLive(posts)));
+		}
 
 		// The following collection is used to create a collection of posts for the RSS feed.
-		$config.addCollection(`feed_${lang}`, (collection) => collection
-			.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`)
-			.filter((posts) => isLive(posts))
-			.toReversed()
-			.slice(0, siteConfig.en.maxPostsInFeed));
+		if (lang === defaultLanguage) {
+			$config.addCollection(`feed_${lang}`, (collection) => collection
+				.getFilteredByGlob('./src/collections/posts/*.md')
+				.filter((posts) => isLive(posts))
+				.toReversed()
+				.slice(0, siteConfig.en.maxPostsInFeed));
+		} else {
+			$config.addCollection(`feed_${lang}`, (collection) => collection
+				.getFilteredByGlob(`./src/collections/posts/${lang}/*.md`)
+				.filter((posts) => isLive(posts))
+				.toReversed()
+				.slice(0, siteConfig.en.maxPostsInFeed));
+		}
 	}
 
 	// Plugins
 	$config.addPlugin(eleventyNavigationPlugin);
 	$config.addPlugin(HtmlBasePlugin);
 	$config.addPlugin(fluidPlugin, {
-		defaultLanguage: 'en',
+		defaultLanguage,
 		//	Use the `override:` prefix to replace default languages: https://www.11ty.dev/docs/data-cascade/#using-the-override-prefix
 		'override:supportedLanguages': supportedLanguages,
 	});
