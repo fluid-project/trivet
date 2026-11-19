@@ -1,8 +1,0 @@
-{
-	"maxPostsInFeed": 10,
-	"locales": [
-		"en",
-		"fr"
-	],
-	"base": "https://trivet.pages.dev/"
-}

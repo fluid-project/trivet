@@ -1,0 +1,11 @@
+    <meta name="description" content="{{ site[lang].description }}">
+    <meta property="og:title" content="{{ if title }} {{ title }} | {{ /if }} {{ site[lang].name }}">
+    <meta property="og:description" content="{{ site[lang].description }}">
+    <meta property="og:locale" content="{{ lang }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.en.url }}{{ page.url }}">
+    <link rel="canonical" href="{{ site.en.url }}{{ page.url }}">
+    {{ set links = page.url |> locale_links }}
+    {{ for link of links }}
+    <link rel="alternate" hreflang="{{ link.lang }}" href="{{ link.url }}">
+    {{ /for }}

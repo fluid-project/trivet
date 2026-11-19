@@ -1,0 +1,13 @@
+        <nav class="pagination">
+            <ul>
+            {{ if pagination.href.previous }}
+                <li><a href="{{ pagination.href.previous }}"><span aria-hidden="true">&larr;</span><span class="visually-hidden">{{ __ 'previous', {}, {translations} }}</span></a></li>
+            {{ /if }}
+            {{ for index, pageEntry of pagination.pages }}
+                <li><a href="{{ pagination.hrefs[ index ] }}"{{ if page.url == pagination.hrefs[ index ] }} aria-current="page"{{ /if }} aria-label="{{ __ 'page-position', {current: index + 1, total: pagination.pages.length}, {translations} }}">{{ index + 1 }}</a></li>
+            {{ /for }}
+            {{ if pagination.href.next }}
+                <li><a href="{{ pagination.href.next }}"><span class="visually-hidden">{{ __ 'next', {}, {translations} }}</span><span aria-hidden="true">&rarr;</span></a></li>
+            {{ /if }}
+            </ul>
+        </nav>

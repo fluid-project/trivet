@@ -1,0 +1,24 @@
+{
+	"en": {
+		"rss": "{{site}} RSS feed",
+		"menu": "menu",
+		"posts-navigation": "posts navigation",
+		"previous": "previous",
+		"page-position": "page {{current}} of {{total}}",
+		"next": "next",
+		"recent-posts": "The most recent posts from {{site}}",
+		"posts": "posts",
+		"page": "page"
+	},
+	"fr": {
+		"rss": "flux RSS {{site}}",
+		"menu": "menu",
+		"posts-navigation": "navigation des articles",
+		"previous": "précédent",
+		"page-position": "page {{current}} de {{total}}",
+		"next": "suivant",
+		"recent-posts": "Les articles les plus récents de {{site}}",
+		"posts": "articles",
+		"page": "page"
+	}
+}
