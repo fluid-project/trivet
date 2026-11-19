@@ -62,6 +62,12 @@ Modifications can be made to any source file or directory except for the content
 `_site` directory is not versioned since it contains the built website that Eleventy generates from the source files,
 and files in `_site` are overwritten at build time.
 
+## Metadata
+
+[Open Graph](https://ogp.me/) metadata is derived from site name and description as managed in [src/_data/site.json](src/_data/site.json)
+or in Site Configuration in the CMS. Optional page/post excerpts will be used as the Open Graph description when
+provided.
+
 ## Working with Sveltia CMS
 
 The [Sveltia CMS](https://sveltiacms.app/) configuration can be edited in [`src/admin/config.yml`](src/admin/config.yml).
