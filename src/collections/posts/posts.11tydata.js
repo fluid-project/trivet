@@ -5,7 +5,7 @@ export default {
 	eleventyComputed: {
 		langDir: (data) => data.supportedLanguages[data.lang].dir,
 		permalink(data) {
-			return `${data.page.filePathStem.replace('/collections/posts/fr', 'fr/articles').replace('/collections/posts', 'posts')}/`;
+			return `${data.page.filePathStem.replace(`/collections/posts/${data.lang}`, () => `${data.lang}/${__('posts', {}, data)}`).replace('/collections/posts', 'posts')}/`;
 		},
 	},
 };
