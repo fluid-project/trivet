@@ -1,0 +1,9 @@
+            <div class="brand">
+                {{ if lang !== defaultLanguage }}
+	                {{ set homeUrl = `/${supportedLanguages[lang].slug}/` }}
+                {{ else }}
+	                {{ set lang = defaultLanguage }}
+	                {{ set homeUrl = "/" }}
+                {{ /if }}
+                <a rel="home" href="{{ homeUrl }}"{{ if page.url === homeUrl }} aria-current="page"{{ /if }}>{{ site[lang].name }}</a>
+            </div>

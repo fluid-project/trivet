@@ -7,7 +7,8 @@ import { parseHTML } from 'linkedom';
  * @returns {string} The transformed string.
  */
 export default function parseTransform(value, outputPath) {
-	if (outputPath && outputPath.endsWith('.html')) {
+	// Checks if docytype is present so that it doesn't try to prepend the doctype to fragments used in feed.xml
+	if (outputPath && outputPath.endsWith('.html') && value.trimStart().toLowerCase().startsWith('<!doctype html>')) {
 		const { document } = parseHTML(value);
 		const articleImages = [...document.querySelectorAll('main article img')];
 

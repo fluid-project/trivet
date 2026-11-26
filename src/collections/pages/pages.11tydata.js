@@ -1,17 +1,13 @@
-import { generatePermalink } from 'eleventy-plugin-fluid';
-
 export default {
+	layout: 'layouts/page.vto',
 	permalink(data) {
-		return generatePermalink(data, 'pages');
+		return `${data.page.filePathStem.replace('/collections/pages', '')}.html`;
 	},
 
 	eleventyComputed: {
 		langDir: (data) => data.supportedLanguages[data.lang].dir,
 		eleventyNavigation(data) {
-			/*
-			If this page has an `order` attribute, create an Eleventy Navigation object for it.
-			*/
-			if (data.order === 0) {
+			if (data.nav !== true) {
 				return false;
 			}
 

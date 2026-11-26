@@ -1,0 +1,22 @@
+            <nav class="nav" id="menu" aria-label="{{ __ 'menu', {}, {translations} }}">
+                <ul>
+                    {{ set navItems = collections.all |> eleventyNavigation }}
+                    {{ for item of navItems }}
+                    {{ if lang === item.lang }}
+                    <li>
+                        <a href="{{ item.url |> url }}"{{ if item.url == page.url }} aria-current="page"{{ /if }}>{{ item.title }}</a>
+                    </li>
+                    {{ /if }}
+                    {{ /for }}
+                </ul>
+                <ul>
+                    {{ for code, language of supportedLanguages }}
+                    {{- set translation = id |> findTranslationById(code) }}
+                    {{- if translation }}
+                    <li>
+                    	<a href="{{ translation }}{{ if pagination && pagination.pageNumber > 0 }}{{ __ 'page', {}, {translations, lang: code} }}/{{ pagination.pageNumber + 1 }}/{{ /if }}" lang="{{ code }}" hreflang="{{ code }}"{{ if lang == code }} aria-current="page"{{ /if }}>{{ supportedLanguages[code].name }} </a>
+                    </li>
+                    {{- /if }}
+                    {{ /for }}
+                </ul>
+            </nav>
