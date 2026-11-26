@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/fluid-project/trivet/compare/v3.0.0...v4.0.0) (2026-11-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* overhaul CMS configuration, switch to Vento templating ([#700](https://github.com/fluid-project/trivet/issues/700))
+
+### Features
+
+* overhaul CMS configuration, switch to Vento templating ([#700](https://github.com/fluid-project/trivet/issues/700)) ([907ace3](https://github.com/fluid-project/trivet/commit/907ace3debc5b74f8c893666b70d40e4f2038bd2))
+
 ## [3.0.0](https://github.com/fluid-project/trivet/compare/v2.1.2...v3.0.0) (2026-11-16)
 
 
