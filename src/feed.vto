@@ -25,7 +25,7 @@ eleventyExcludeFromCollections: true
     <link href="{{ absolutePostUrl }}" />
     <updated>{{ post.date |> dateToRfc3339 }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    <content type="html">{{ post.content |> renderTransforms(post.data.page, site[lang].url) }}</content>
+    <content type="html">{{ post.content |> await renderTransforms(post.data.page, site[lang].url) |> safe }}</content>
   </entry>
   {{ /for }}
 </feed>

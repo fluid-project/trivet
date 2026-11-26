@@ -108,7 +108,15 @@ export default function eleventy($config) {
 		//	Use the `override:` prefix to replace default languages: https://www.11ty.dev/docs/data-cascade/#using-the-override-prefix
 		'override:supportedLanguages': supportedLanguages,
 	});
-	$config.addPlugin(VentoPlugin);
+	$config.addPlugin(VentoPlugin, {
+		ventoOptions: {
+			// Automatically escape printed variables. See: https://vento.js.org/configuration/#autoescape
+			autoescape: true,
+			// Due to ( https://github.com/noelforte/eleventy-plugin-vento/issues/736 ) ventoOptions override instead of merging.
+			// As a result, the inclues directory needs to be manually included.
+			includes: './src/_includes/',
+		},
+	});
 	$config.addPlugin(fontAwesomePlugin);
 	$config.addPlugin(pluginRss);
 	$config.addPlugin(RenderPlugin);
