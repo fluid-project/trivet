@@ -192,6 +192,10 @@ If you want to disable localization completely, this can be done in three steps:
    };
    ```
 
+## Robots.txt
+
+AI crawlers to block are sourced from [ai.robots.txt](https://github.com/ai-robots-txt/ai.robots.txt).
+
 ## License
 
 Trivet is available under the [New BSD License](https://raw.githubusercontent.com/fluid-project/trivet/master/LICENSE.md).
